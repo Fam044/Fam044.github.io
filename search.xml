@@ -55,9 +55,16 @@
 <figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">hexo serve</span><br><span class="line">或者简写为</span><br><span class="line">hexo s</span><br></pre></td></tr></tbody></table></figure>调用命令后我们可以看到命令行输出
 <blockquote><p>INFO  Start processing<br>INFO  Hexo is running at <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> . Press Ctrl+C to stop.</p>
 </blockquote>
-<p>然后我们可以在浏览器中打开这个端口，就可以看到博客的雏形了。<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png?v8">😁</span></p>
+<p>然后我们可以在浏览器中打开这个端口，就可以看到博客的雏形了。:happy:</p>
 </li>
 </ol>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>其实Hexo已经提供了一键部署命令，不需要自己去进行过多的配置。</p>
+<p>在部署之前，我们需要知道博客的部署地址，它对应GitHub的一个Repository地址。</p>
+<p>打开根目录的_config.yml文件，找到Deployment地方，类型写为git，把Repository地址放在repo，然后指定分支为master。<br></p><figure class="highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">''</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">{git</span> <span class="string">repo</span> <span class="string">address}</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></tbody></table></figure><br>我个人的就修改为：<br><figure class="highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">'git'</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:Fam044/Fam044.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></tbody></table></figure><br>另外我们还需要额外安装一个支持Git的部署插件，名字叫做hexo-deployer-git，如果不安装的话就会报错<blockquote><p>Deployer not found: git</p>
+</blockquote><p></p>
+<p>所以我们在根目录下输入该cmd命令：</p><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>插件安装完成后，我们就可以执行部署的命令了，在cmd中输入：</p><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>部署成功后，我们的博客就已经成功部署到GitHub Pages上了，我们可以访问一下GitHub Repo同名链接，就可以看到和本地一样的博客内容了。比如说我的仓库名是Fam044.github.io，那么我就可以去<a href="http://Fam044.github.io" target="_blank" rel="noopener"></a>访问自己的博客了。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
