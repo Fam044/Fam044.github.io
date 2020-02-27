@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>&#39;PyNotes&#39;</title>
+    <url>/2020/02/27/PyNotes/</url>
+    <content><![CDATA[<h2 id="Python概述"><a href="#Python概述" class="headerlink" title="Python概述"></a>Python概述</h2><p>Python是荷兰人Guido van Rossum于1989年设计并实现的高级程序设计语言。Python3.0不完全兼容之前的版本。Python3.x是目前得到广泛应用的版本系列。</p>
+<h3 id="Python的安装"><a href="#Python的安装" class="headerlink" title="Python的安装"></a>Python的安装</h3><p>在官网安装Python的安装程序：<a href="http://www.python.org/downloads/" target="_blank" rel="noopener">Python官网</a><br>注意：安装时选取<code>Add to Path</code></p>
+<h3 id="Anaconda的安装"><a href="#Anaconda的安装" class="headerlink" title="Anaconda的安装"></a>Anaconda的安装</h3><p>Anaconda是免费的集成Python软件平台，下载与安装：<a href="https://www.anconda.com/distribution" target="_blank" rel="noopener">Anaconda官网</a><br>注意：安装时选取<code>Add to Path</code></p>
+<h3 id="Python的特点"><a href="#Python的特点" class="headerlink" title="Python的特点"></a>Python的特点</h3><ol>
+<li>Python是一种跨平台、易学、开源、免费、可移植、易扩展的’解释型’高级编程语言，广泛用于数据分析、组件集成、网络服务、图像处理、数值计算和科学计算等总多领域。</li>
+<li>Python源代码以’.py’为扩展名的文件保存。程序运行时，Python源程序首先由Python解释器翻译成字节码，然后由Python虚拟机逐条将字节码翻译成机器指令执行。</li>
+<li>运行Python程序的方式有两种，分别为<code>交互方式</code>和<code>文件方式</code>。<code>交互方式</code>是指Python解释器即使相应并执行用户输入的程序代码；<code>文件方式</code>是指首先将Python源代码以程序文件方式保存，然后由Python解释器批量执行文件中的代码。交互方式一般在运行或调试少量代码时使用，文件方式则是常用的编程方式。<h3 id="Python程序书写规范"><a href="#Python程序书写规范" class="headerlink" title="Python程序书写规范"></a>Python程序书写规范</h3></li>
+</ol>
+<ul>
+<li><p>语句<br>  原则上要求Python程序的每一行只写一条语句。如果非要在一行内写多条语句，那么必须用分号\” ;\”隔开不同的语句。如果一条语句过长，那么可以使用字符\”\“将其分割为多行。</p>
+<ol>
+<li><p>多行语句写在同一行：</p>
+<p> a=10;b=20;c=30</p>
+</li>
+<li><p>一条语句占多行：</p>
+<p> content=’在Python源程序中如果有一行内写多条语句，\<br> 语句间用分号(;)隔开。\<br> 如果一条语句过程，可以用反斜杠符号实现多行书写。’</p>
+</li>
+</ol>
+</li>
+<li><p>语句块与缩进<br>  语句块是指多个语句构成的复合语句，它是程序中完成相对复杂功能且逻辑独立的语句组合体。Python程序中的语句块必须使用缩进方式表示，这种缩进体现了不同语句块之间的层级关系。</p>
+<pre><code>  a=20
+  b=10
+  if a&gt;b: #语法要求，此处需有冒号
+      c=a  #下面三条语句都要缩进，且缩进要一致
+      a=b
+      b=c
+  print(a,b)
+</code></pre><p>  关于代码的缩进，需要注意以下几点：</p>
+<ul>
+<li>语句块相对上级语句应缩进。</li>
+<li>不要混用空格和Tab键实现缩进。</li>
+<li>缩进是分级的，同一级别的缩进必须对齐，否则会导致语法错误。</li>
+</ul>
+</li>
+<li><p>注释<br>  Python的注释分为单行注释和多行注释两种。单行注释从字符\”#\”开始，到该行结束为止。多行注释使用3个引号（单引号或双引号）作为注释的开始和结束。</p>
+<pre><code>  #-*-coding:utf-8-*-
+  """
+  Created on Mon May 13 15:09:15 2019
+
+  @author:
+  """
+  print("Hello,Phthon!")  #输出显示文字 Hello,Phthon!
+</code></pre></li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo框架搭建博客</title>
     <url>/2020/02/21/Hexo%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><em>利用这篇博客记录一下自己搭建博客的历程</em></p>
@@ -64,7 +134,7 @@
 </blockquote><p></p>
 <p>所以我们在根目录下输入该cmd命令：</p><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>插件安装完成后，我们就可以执行部署的命令了，在cmd中输入：</p><figure class="highlight plain"><table><tbody><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></tbody></table></figure><p></p>
-<p>部署成功后，我们的博客就已经成功部署到GitHub Pages上了，我们可以访问一下GitHub Repo同名链接，就可以看到和本地一样的博客内容了。比如说我的仓库名是Fam044.github.io，那么我就可以去<a href="http://Fam044.github.io" target="_blank" rel="noopener"></a>访问自己的博客了。</p>
+<p>部署成功后，我们的博客就已经成功部署到GitHub Pages上了，我们可以访问一下GitHub Repo同名链接，就可以看到和本地一样的博客内容了。比如说我的仓库名是Fam044.github.io，那么我就可以去<a href="https://Fam044.github.io" target="_blank" rel="noopener"></a>访问自己的博客了。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -84,23 +154,5 @@
             document.body.appendChild(img);
           });
       </script>]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/02/21/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
 </search>
