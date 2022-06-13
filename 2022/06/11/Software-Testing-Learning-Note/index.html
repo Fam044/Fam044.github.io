@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.2.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Software_Testing_Learning_Note - Fam044's Blog</title>
+
+  
+    <meta name="description" content="以下内容全部来自慕课网课程 《从零开始学测试 一步迈向互联网》，本文仅用于学习整理如有侵权，请联系删除本文 软件测试学习软件测试的发展和职业规划软件测试发展与职业生涯规划 软件测试 技术方向 黑盒测试 白盒测试 自动化测试 性能测试 安全测试 测试架构   管理方向 测试经理 项目经理 SCRUM MASTER   业务方向 测试专家 需求 产品经理 金融等行业精英      软件测试之“独孤九剑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Software_Testing_Learning_Note">
+<meta property="og:url" content="https://fam044.github.io/2022/06/11/Software-Testing-Learning-Note/index.html">
+<meta property="og:site_name" content="Fam044&#39;s Blog">
+<meta property="og:description" content="以下内容全部来自慕课网课程 《从零开始学测试 一步迈向互联网》，本文仅用于学习整理如有侵权，请联系删除本文 软件测试学习软件测试的发展和职业规划软件测试发展与职业生涯规划 软件测试 技术方向 黑盒测试 白盒测试 自动化测试 性能测试 安全测试 测试架构   管理方向 测试经理 项目经理 SCRUM MASTER   业务方向 测试专家 需求 产品经理 金融等行业精英      软件测试之“独孤九剑">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-11T02:55:13.000Z">
+<meta property="article:modified_time" content="2022-06-13T07:00:29.142Z">
+<meta property="article:author" content="Fam044">
+<meta property="article:tag" content="Software Testing">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Fam044's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%8F%91%E5%B1%95%E5%92%8C%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92"><span class="toc-text">软件测试的发展和职业规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8F%91%E5%B1%95%E4%B8%8E%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF%E8%A7%84%E5%88%92"><span class="toc-text">软件测试发展与职业生涯规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%B9%8B%E2%80%9C%E7%8B%AC%E5%AD%A4%E4%B9%9D%E5%89%91%E2%80%9D"><span class="toc-text">软件测试之“独孤九剑”</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%88%B0%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="toc-text">从软件工程到软件测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">软件的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8D%81%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-text">软件的十大特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">软件的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">软件生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%9A%84%E4%B8%80%E7%94%9F"><span class="toc-text">软件的一生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B"><span class="toc-text">软件开发模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E2%80%93%E5%AD%A6%E4%BC%9A%E5%86%99%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3"><span class="toc-text">软件开发文档–学会写测试文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%BF%9B%E7%A8%8B"><span class="toc-text">项目进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A6%82%E5%BF%B5"><span class="toc-text">软件测试概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E5%92%8C%E5%88%86%E7%B1%BB"><span class="toc-text">软件测试方法和分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E7%9A%84%E7%BB%86%E5%88%86%E9%97%AE%E9%A2%98"><span class="toc-text">性能测试的细分问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%90%84%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94"><span class="toc-text">生命周期各测试方法对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E6%9C%AF%E8%AF%AD"><span class="toc-text">软件测试常见术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B"><span class="toc-text">软件测试常见模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87"><span class="toc-text">软件测试覆盖率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E8%BF%90%E7%94%A8"><span class="toc-text">测试覆盖率的运用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87%E7%9A%84%E6%9C%80%E7%BB%88%E6%84%8F%E4%B9%89"><span class="toc-text">测试覆盖率的最终意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87"><span class="toc-text">理解测试覆盖率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%BA%BA%E5%91%98%E9%9C%80%E8%A6%81%E7%9A%84%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB"><span class="toc-text">软件测试人员需要的知识体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E4%BA%BA%E5%91%98%E5%85%B7%E5%A4%87%E7%9A%84%E7%B4%A0%E8%B4%A8"><span class="toc-text">软件测试人员具备的素质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E5%8E%9F%E5%88%99"><span class="toc-text">软件测试的原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B"><span class="toc-text">软件测试流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8E%9F%E5%88%99"><span class="toc-text">软件测试环境搭建原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90"><span class="toc-text">搭建测试环境过程分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">测试环境配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E6%A8%A1%E5%BC%8F"><span class="toc-text">Docker模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0"><span class="toc-text">依赖第三方平台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%85%E8%B0%88%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BB%BA%E8%AE%BE%E8%90%BD%E5%9C%B0"><span class="toc-text">浅谈测试环境的建设落地</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%BB%BA%E8%AE%BE%E6%80%9D%E8%B7%AF"><span class="toc-text">环境建设思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="toc-text">简单的测试过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B%E5%88%92%E5%88%86"><span class="toc-text">测试过程划分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E5%88%92%E8%BF%87%E7%A8%8B"><span class="toc-text">测试策划过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E6%B5%8B%E8%AF%95"><span class="toc-text">需求测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">需求测试的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E9%AA%8C%E8%AF%81"><span class="toc-text">需求验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E4%B9%A6%E6%A3%80%E6%9F%A5%E5%88%97%E8%A1%A8"><span class="toc-text">需求规格说明书检查列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5"><span class="toc-text">测试策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%89%8D%E7%9A%84%E6%80%9D%E8%80%83"><span class="toc-text">测试前的思考</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">测试策略是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5%E8%A6%81%E7%B4%A0"><span class="toc-text">测试策略要素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92%E4%B8%8E%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88"><span class="toc-text">测试计划与测试方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5-vs-%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92-vs-%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88"><span class="toc-text">测试策略 vs 测试计划 vs 测试方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E5%88%97%E8%A1%A8"><span class="toc-text">测试方案列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88%E8%AF%84%E5%AE%A1"><span class="toc-text">测试方案评审</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1"><span class="toc-text">软件测试设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%BE%E8%AE%A1"><span class="toc-text">测试设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1"><span class="toc-text">测试分析和设计的主要任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E6%B5%8B%E8%AF%95%E6%9D%A1%E4%BB%B6"><span class="toc-text">确定测试条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-text">测试用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E5%8C%85%E6%8B%AC%E4%BB%A5%E4%B8%8B%E5%85%B3%E9%94%AE%E7%82%B9"><span class="toc-text">测试用例设计包括以下关键点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%A1%88%E4%BE%8B"><span class="toc-text">测试用例案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%B8%B8%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="toc-text">测试用例常用设计方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E6%B3%95"><span class="toc-text">等价类划分法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E6%96%B9%E6%B3%95"><span class="toc-text">等价类划分方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E7%9A%84%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1"><span class="toc-text">基于等价类划分的用例设计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E5%AE%9E%E6%88%98"><span class="toc-text">等价类划分实战</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Fam044" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Software-Testing/">Software Testing</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-06-11T02:55:13.000Z">2022-06-11</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Software_Testing_Learning_Note</span></h1>
+<p><em>以下内容全部来自慕课网课程 <a target="_blank" rel="noopener" href="https://coding.imooc.com/learn/list/411.html">《从零开始学测试 一步迈向互联网》</a>，本文仅用于学习整理<br>如有侵权，请联系删除本文</em></p>
+<h1 id="软件测试学习"><a href="#软件测试学习" class="headerlink" title="软件测试学习"></a>软件测试学习</h1><h2 id="软件测试的发展和职业规划"><a href="#软件测试的发展和职业规划" class="headerlink" title="软件测试的发展和职业规划"></a>软件测试的发展和职业规划</h2><h3 id="软件测试发展与职业生涯规划"><a href="#软件测试发展与职业生涯规划" class="headerlink" title="软件测试发展与职业生涯规划"></a>软件测试发展与职业生涯规划</h3><ul>
+<li>软件测试<ul>
+<li>技术方向<ul>
+<li>黑盒测试</li>
+<li>白盒测试</li>
+<li>自动化测试</li>
+<li>性能测试</li>
+<li>安全测试</li>
+<li>测试架构</li>
+</ul>
+</li>
+<li>管理方向<ul>
+<li>测试经理</li>
+<li>项目经理</li>
+<li>SCRUM MASTER</li>
+</ul>
+</li>
+<li>业务方向<ul>
+<li>测试专家</li>
+<li>需求</li>
+<li>产品经理</li>
+<li>金融等行业精英</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="软件测试之“独孤九剑”"><a href="#软件测试之“独孤九剑”" class="headerlink" title="软件测试之“独孤九剑”"></a>软件测试之“独孤九剑”</h3><ol>
+<li>软件测试基础知识<br>最重要的是夯实基础<br>了解测试流程，掌握测试各阶段所需的知识及技能，了解软件生存周期各阶段测试人员的职责</li>
+<li>软件测试流程<br>测试流程是每个测试团队的核心，一个完善的流程才能造就一支高效的团队<br>要学习破解软件测试的流程及测试策略、计划、方案的编写与评审过程</li>
+<li>软件测试设计<br>我们在开始测试时，并非要一步到位直接攻其核心，上手测试<br>需要从设计入手，这部分主要学习常用的测试需求分析、黑盒测试用例设计方法以及常用测试技术应用等</li>
+<li>测试执行管理<br>主要学习测试用例的执行、测试的缺陷管理、跟踪及测试总结，熟悉各种测试文档的撰写</li>
+<li>功能测试项目实践<br>将前面讲解的测试方法串联起来</li>
+<li>测试技术深化<br>从自动化、性能、安全以及白盒测试方法的测试手段和方法，对软件测试技术进行进一步深化</li>
+<li>手机APP测试<br>学习APP测试与WEB测试的不同点，常见的测试点，弱网、兼容性测试模式，并初步介绍APP自动化测试实现方法</li>
+<li>测试总结<br>对测试过程及进行一个总结，有产出才是整个测试的总结</li>
+<li>面试秘籍</li>
+</ol>
+<h2 id="从软件工程到软件测试"><a href="#从软件工程到软件测试" class="headerlink" title="从软件工程到软件测试"></a>从软件工程到软件测试</h2><h3 id="软件的概念"><a href="#软件的概念" class="headerlink" title="软件的概念"></a>软件的概念</h3><p>软件是计算机系统中与硬件相互依存的另一部分，它是包括程序，数据及其相关文档的完整集合<br>程序 是按实现设计的功能和性能要求执行的指令序列<br>数据 是使程序能正常操纵信息的数据结构<br>文档 是与程序开发，维护和使用有关的图文材料</p>
+<h3 id="软件的十大特性"><a href="#软件的十大特性" class="headerlink" title="软件的十大特性"></a>软件的十大特性</h3><ol>
+<li>形态特性<br>软件是无形的、不可见的逻辑实体。度量常规产品的几何尺寸、物理性质和化学成分对它却是毫无意义的</li>
+<li>智能特性<br>软件是复杂的智力产品，它的开发凝聚了人们大量的脑力劳动，它本身也体现了知识实践经验和人类的指挥，具有一定的智能。它可以帮助我们解决复杂的计算、分析、判断和决策问题</li>
+<li>开发特性<br>尽管已经有了一些工具（也是软件）来辅助软件开发工作，但到目前为止尚未实现自动化。软件开发中仍然包括了相当分量的个体劳动，使得这一大规模知识型工作充满了个人行为和个人因素</li>
+<li>质量特性<br>软件是由人编写的，由于其开发特性存在，所以不存在完全没有缺陷的软件</li>
+<li>生产特性<br>与硬件或传统的制造业商品的生产完全不同，软件一旦设计开发出来，如果需要提供多个用户，它的复制十分简单，其成本也极为有限</li>
+<li>管理特性<br>由于上面的特性存在，所以软件过程中的管理显得更为重要，相比传统行业，也更为独特</li>
+<li>环境特性<br>软件的开发与运行都离不开相关的计算机系统环境，包括支持它的开发和运行相关的硬件和软件。软件对于计算机系统的环境有着不可摆脱的依赖性</li>
+<li>维护特性<br>软件投入使用后需要进行维护，但这种维护与传统产业产品的维护概念有着很大差别，维护体现在升级、优化、功能更新等方面，甚至可以全盘重构</li>
+<li>废弃特性<br> 与硬件不同，软件并不是被“用坏”而是被废弃的</li>
+<li>应用特性<br>软件的应用极为广泛，如今它已渗入国民经济和国防的各个领域，现已成为信息产业、先进制造业和服务业的核心，占据了无可取代的地位</li>
+</ol>
+<h3 id="软件的分类"><a href="#软件的分类" class="headerlink" title="软件的分类"></a>软件的分类</h3><ol>
+<li>系统软件<br>系统软件是负责管理计算机系统中各种独立的硬件，使得它们可以协调工作<ul>
+<li>服务型程序：如诊断程序、排错程序、练习程序等</li>
+<li>语言程序：如汇编程序、编译程序、解释程序</li>
+<li>操作系统</li>
+<li>数据库管理系统</li>
+</ul>
+</li>
+<li>应用软件<br>应用系统是为了某种特定的用途而被开发的软件，它可以是一个特定的程序，比如一个图像浏览器，也可以是一组功能联系紧密，可以互相协作的程序的集合</li>
+</ol>
+<h3 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h3><p>软件的生命周期，又称为软件的生存周期。它是按开发软件的规模和复杂程度，从时间上把软件开发的整个过程（从计划开发开始到软件报废为止的整个历史阶段）进行分解，形成相对独立的几个阶段<br>每个阶段又分解成几个具体的任务，然后按规定顺序依次完成各阶段的任务并规定一套标准的文档作为各个阶段的开发成果，最后生产出高质量的软件</p>
+<h3 id="软件的一生"><a href="#软件的一生" class="headerlink" title="软件的一生"></a>软件的一生</h3><p>问题定义 -&gt; 可行性研究 -&gt; 需求分析 -&gt; 概要设计 -&gt; 详细设计 -&gt; 编码和单元测试 -&gt; 综合测试 -&gt; 软件维护</p>
+<p>e.g. 余额宝的诞生</p>
+<p>问题定义：普惠金融与互联网金融的融合 -&gt; 可行性研究：T+0是否可以实现；是否合规 -&gt; 需求分析：细分 story -&gt; 概要设计 -&gt; 详细设计 -&gt; 编码和单元测试 -&gt; 综合测试 -&gt; 软件维护</p>
+<h3 id="软件开发模型"><a href="#软件开发模型" class="headerlink" title="软件开发模型"></a>软件开发模型</h3><p>由于项目、需求的模式不同，所以在软件生命周期过程中选择的软件开发模型也会有所不同，在历史上，软件开发模型经历了“边做边改”、瀑布、原型、螺旋、敏捷等模式的变更</p>
+<ul>
+<li><p>瀑布模型<br>计划 -&gt; 需求分析 -&gt; 设计 -&gt; 编码 -&gt; 测试 -&gt; 运行维护</p>
+<p>特点：</p>
+<ol>
+<li>软件开发的各项活动严格按照线性方式进行</li>
+<li>当前活动接受上一项活动的工作结果</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>由于开发模型是线性的，增加了开发的风险</li>
+<li>早期的错误可能要等到开发后期的阶段才能发现</li>
+</ol>
+</li>
+<li><p>原型模型<br>客户与开发公司紧密联系，开发周期长。开发会受到需求变更的影响</p>
+<p>特点：</p>
+<ol>
+<li>实现客户与系统的交互</li>
+<li>进一步细化待开发软件需求</li>
+<li>开发人员可以确定客户的真正需求是什么</li>
+</ol>
+</li>
+<li><p>螺旋模型<br>制定计划 -&gt; 风险分析 -&gt; 实施工程（需求确认、软件需求、软件产品设计、设计确认与认证、详细设计、开发、测试） -&gt; 客户评估</p>
+<p>特点：</p>
+<ol>
+<li>螺旋模型是将瀑布模型与快速原型模型结合起来</li>
+<li>强调了其他模型所忽视的风险分析</li>
+<li>每一次螺旋包括4个步骤：制定计划、风险分析、实施工程、客户评估</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>强调风险分析，但要求许多客户接受并相信这种分析，是不容易的</li>
+</ol>
+</li>
+<li><p>敏捷模型<br>敏捷开发是一种以人为核心、迭代、循序渐进的开发方法</p>
+<p>特点：</p>
+<ol>
+<li>短周期开发</li>
+<li>增量开发</li>
+<li>由程序员和测试人员编写的自动化测试来监控开发进度</li>
+<li>通过口头沟通、测试和源代码来交流系统的结构和意图</li>
+<li>编写代码之前先写测试代码，也叫做测试先行</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>团队的组建较难，人员素质要求较高</li>
+<li>对测试员要求完全掌握各种脚本语言编程，能执行单元测试、自动化测试</li>
+</ol>
+</li>
+</ul>
+<h3 id="软件开发文档–学会写测试文档"><a href="#软件开发文档–学会写测试文档" class="headerlink" title="软件开发文档–学会写测试文档"></a>软件开发文档–学会写测试文档</h3><p>需求分析文档 -&gt; 概要设计文档 -&gt; 详细设计文档 -&gt; 测试设计文档 -&gt; 测试用例 -&gt; 测试报告</p>
+<h3 id="项目进程"><a href="#项目进程" class="headerlink" title="项目进程"></a>项目进程</h3><ul>
+<li>编程阶段-单元（白盒）<br>测试参与</li>
+<li>编程完成-开发联调（集成测试）<br>开发为主</li>
+<li>提测-冒烟测试（自动化为主，手工为辅）<br>测试执行</li>
+<li>测试阶段-系统测试（黑盒功能测试为主，自动化&#x2F;接口测试为辅，根据项目进行性能、安全测试）</li>
+<li>验收阶段-验收测试<br>测试配合用户或需求</li>
+</ul>
+<h3 id="软件测试概念"><a href="#软件测试概念" class="headerlink" title="软件测试概念"></a>软件测试概念</h3><ul>
+<li>经典定义：<br>软件测试（Software Testing），在规定的条件下对程序进行操作，以发现程序错误，衡量软件质量，并对其是否能满足设计要求进行评估的过程</li>
+<li>标准定义：<br>软件测试是使用人工或自动的手段来运行或测定某个软件系统的过程，其目的是在于检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别</li>
+<li>软件测试目的：<br>软件测试目的在于发现问题，检查系统是否满足需求</li>
+</ul>
+<h3 id="软件测试方法和分类"><a href="#软件测试方法和分类" class="headerlink" title="软件测试方法和分类"></a>软件测试方法和分类</h3><ul>
+<li>软件测试分类<ul>
+<li>按生命周期划分<ul>
+<li>单元测试</li>
+<li>冒烟测试</li>
+<li>集成测试</li>
+<li>系统测试</li>
+<li>验收测试</li>
+</ul>
+</li>
+<li>按测试方法划分<ul>
+<li>白盒测试<ul>
+<li>静态分析</li>
+<li>动态分析<ul>
+<li>逻辑覆盖测试<ul>
+<li>语句覆盖</li>
+<li>判定覆盖</li>
+<li>条件覆盖</li>
+<li>路径覆盖</li>
+</ul>
+</li>
+<li>插桩测试</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>黑盒测试<ul>
+<li>功能测试<ul>
+<li>界面测试</li>
+<li>冒烟测试</li>
+<li>回归测试</li>
+<li>业务测试</li>
+<li>兼容性测试</li>
+<li>易用性测试</li>
+</ul>
+</li>
+<li>自动化测试<ul>
+<li>WEB自动化测试</li>
+<li>接口自动化测试</li>
+</ul>
+</li>
+<li>性能测试<ul>
+<li>性能测试</li>
+<li>负载测试</li>
+<li>压力测试</li>
+<li>容量测试</li>
+<li>并发测试</li>
+<li>持久性测试</li>
+</ul>
+</li>
+<li>安全测试<ul>
+<li>手动操作</li>
+<li>自动化审计</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>灰盒测试</li>
+</ul>
+</li>
+<li>其他<ul>
+<li>随机测试</li>
+<li>探索性测试</li>
+<li>α测试</li>
+<li>β测试</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="性能测试的细分问题"><a href="#性能测试的细分问题" class="headerlink" title="性能测试的细分问题"></a>性能测试的细分问题</h3><ol>
+<li>性能测试：性能测试通常泛指所有类型的性能测试，目标是在特定条件下验证软件系统的性能是否达到预期指标的结果。</li>
+<li>负载测试：负载测试是指模拟真实的用户行为，通过不断加压直到系统性能测试瓶颈或资源达到饱和。负载测试是最常进行的性能测试，用于测量系统的容量，发现系统瓶颈并配合性能调优。</li>
+<li>压力测试：压力测试是指测试系统在一定的饱和状态下系统的处理能力。在负载测试的基础上，继续不断加压到一定阶段。通过压力测试通过CPU使用率达到75%以上或者内存使用率达70%以上（具体的压力指标也可以是数据库达到相关指标，或者中间件连接数达到某种指标等等），用于测试系统在压力环境下的稳定性。<br>注：许多开发人员提出测试申请，说要做一个压力测试，做为专业的性能测试人员，那么需要明确测试需求，开发人员说的压力测试，往往不是真正意义上的压力测试</li>
+<li>可靠性测试：可靠性测试是指加载一定的业务压力，同时让压力持续运行一段时间，测试系统是否可以稳定运行。</li>
+<li>并发测试：并发测试是模拟用户在访问同一应用的测试，用于发现并发问题，例如线程锁、资源争用、数据库死锁等。</li>
+<li>配置测试：配置测试是指验证各种配置对系统性能的影响，常用于性能调优和能力规划。</li>
+<li>疲劳强度测试：在系统稳定运行情况下，以能够支持的最大并发用户数或日常运行用户数，持续执行业务操作一段时间，通过综合分析交易执行指标和资源监控指标，来确定系统处理最大工作强度的性能表现。</li>
+<li>大数据量测试：大数据量测试侧重点在于数据的量上，包括独立的数据量测试和综合数据量测试。独立的数据量测试可以理解为某些系统存储、传输、统计、查询等业务进行大数据量测试，而综合数据量测试一般和压力测试、负载测试、疲劳强度测试相结合进行。</li>
+</ol>
+<h3 id="生命周期各测试方法对比"><a href="#生命周期各测试方法对比" class="headerlink" title="生命周期各测试方法对比"></a>生命周期各测试方法对比</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>单元测试</th>
+<th>集成测试</th>
+<th>冒烟测试</th>
+<th>系统测试</th>
+<th>验收测试</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>测试阶段</td>
+<td>编码后</td>
+<td>单元测试完成后</td>
+<td>提测后</td>
+<td>冒烟测试通过后</td>
+<td>发布前</td>
+</tr>
+<tr>
+<td>测试对象</td>
+<td>最小模块</td>
+<td>模块间的接口</td>
+<td>整个系统</td>
+<td>整个系统</td>
+<td>整个系统</td>
+</tr>
+<tr>
+<td>测试人员</td>
+<td>白盒测试或开发</td>
+<td>白盒测试或开发</td>
+<td>黑盒测试</td>
+<td>黑盒测试</td>
+<td>最终用户或需求方</td>
+</tr>
+<tr>
+<td>测试依据</td>
+<td>代码、注释、详细设计文档</td>
+<td>单元测试模块、概要设计模块</td>
+<td>冒烟测试用例</td>
+<td>需求说明文档、测试方案、测试用例</td>
+<td>用户需求、验收标准</td>
+</tr>
+<tr>
+<td>测试方法</td>
+<td>白盒测试</td>
+<td>黑盒与白盒结合</td>
+<td>黑盒测试（手工或与自动化结合）</td>
+<td>黑盒测试</td>
+<td>黑盒测试</td>
+</tr>
+</tbody></table>
+<h3 id="软件测试常见术语"><a href="#软件测试常见术语" class="headerlink" title="软件测试常见术语"></a>软件测试常见术语</h3><ul>
+<li>缺陷(Bug&#x2F;Defect)<br>软件的Bug指的是软件中（包括程序和文档）不符合用户需求的问题</li>
+<li>测试环境<br>软件测试环境就是软件运行的平台，包括软件、硬件和网络的集合，用一个等式来表示： 测试环境&#x3D;软件+硬件+网络</li>
+<li>测试用例(Test Case)<br>在测试执行之前设计的一套详细的测试方案，包括测试环境、测试步骤、测试数据和预期结果<br>用一个等式来简单表示：测试用例&#x3D;输入+输出+测试环境<br>其中，“输入”包括测试数据和操作步骤，“输出”指的是期望结果，“测试环境”指的是系统环境设置</li>
+<li>冒烟测试(Smoke Testing)<br>在对一个新版本进行系统大规模地测试之前，先验证一下软件的基本功能是否实现，是否具备可测性</li>
+<li>α测试<br>验收测试的一种，指的是由用户、测试人员、开发人员等共同参与的内部测试</li>
+<li>β测试<br>验收测试的一种，指的是内测后的公测，即完全交给最终用户测试</li>
+</ul>
+<h3 id="软件测试常见模型"><a href="#软件测试常见模型" class="headerlink" title="软件测试常见模型"></a>软件测试常见模型</h3><ul>
+<li><p>V模型<br>V模型是我们熟知的瀑布模型的一种改进，瀑布模型将软件生命周期划分为计划、分析、设计、编码、测试和维护六个阶段，由于前期的错误可能要等到开发后期的测试阶阶段才能发现，所以可能带来严重的后果<br>V模型就是在这点改进了瀑布模型，在软件开发的生存期，开发活动和测试活动几乎同时开始，这两个并行的动态的过程就会极大的减少bug和error出现的几率</p>
+</li>
+<li><p>W模型<br>一些高性能高风险的系统、互联网软件，或一个系统难以被具体模块化的时候，就比较难做成V模式所需的各种构建，需要更强调迭代的开发模型或者敏捷开发模型<br>W模型从V模型演化过来，实际上开发是V，测试是并行的V；相对于V模型，W模型增加了软件各开发阶段中应同步进行的验证和确认活动，W明确表示出了测试与开发的并行关系。测试与开发是同步进行的，有利于尽早地全面地发现问题</p>
+</li>
+<li><p>H模型<br>真正的测试级别之间不存在严格的次序关系，各阶段间可以反复出发、迭代、增量<br>为了解决V模型和W模型存在的问题，有专家提出了H模型。它将测试活动完全独立出来，形成一个完全独立的流程，将测试准备活动和测试执行活动清晰地体现出来</p>
+</li>
+<li><p>X模型</p>
+</li>
+</ul>
+<h3 id="软件测试覆盖率"><a href="#软件测试覆盖率" class="headerlink" title="软件测试覆盖率"></a>软件测试覆盖率</h3><ul>
+<li><p>测试覆盖率<br>覆盖率是用来度量测试完整性的一个手段，同时也是测试技术有效性的一个度量<br>覆盖率 &#x3D; （至少被执行一次的item数）&#x2F;item的总数</p>
+<p>特点：</p>
+<ol>
+<li>通过覆盖率数据，可以检测我们的测试是否充分</li>
+<li>分析出测试的弱点在哪方面</li>
+<li>指导我们设计能够增加覆盖率的测试用例，有效提高测试质量，但是测试用例设计不能一味追求覆盖率，因为测试成本随覆盖率的增加而增加</li>
+</ol>
+<p>测试覆盖率对于黑盒测试来说，主要指两个方面： 需求覆盖 和 用例覆盖</p>
+<ul>
+<li>需求覆盖<ol>
+<li>定义：它表示在测试中，有哪些函数被测试到了，其被测试到的频率有多大，这些函数在系统所有函数中占的比例有多大通过设计一定的测试用例，要求每个需求点都被测试到</li>
+<li>计算公式：需求覆盖 &#x3D; （被验证到的需求数量）&#x2F;（总的需求总数）</li>
+</ol>
+</li>
+<li>用例覆盖<ol>
+<li>定义：主要体现在我们每轮测测试验证通过的用例在总用例中的比重</li>
+<li>计算公式：用例覆盖 &#x3D; （验证通过的用例数量）&#x2F;（总的用例总数）</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="测试覆盖率的运用"><a href="#测试覆盖率的运用" class="headerlink" title="测试覆盖率的运用"></a>测试覆盖率的运用</h3><ul>
+<li>简单的测试覆盖率<br>本次测试执行的用例数&#x2F;所有用例数<br>上述覆盖率统计建立在认为总用例数编写全面，一般对于大型系统要求覆盖率100%<br>覆盖率的审核：抽样验收</li>
+<li>基于产品的测试覆盖率<br>已测试需求点&#x2F;设计所有需求数<br>以产品、需求维度统计，无论大型项目或是小需求迭代都要求覆盖率达到100%<br>覆盖率的审核：抽样验收</li>
+<li>基于白盒的测试覆盖率<br>大多工具判断语句覆盖，即单元测试代码覆盖代码行&#x2F;总代码行<br>更多考察研发人员；更多时候要求覆盖率达到80+%<br>缺陷：覆盖率数据只能代表测试过哪些代码，不能代表是否测试好哪些代码；容易遗漏逻辑、判断等场景</li>
+<li>基于自动化的测试覆盖率<br>自动化覆盖的测试场景（测试用例）&#x2F;所有测试场景（用例）<br>80&#x2F;20原则，比如用户80%的时间在使用20%的功能，20%的功能就可以支撑起用户最关键的业务场景，自动化测试的用例选择更注重于这20%的核心功能<br>用途：自动化测试更着重于回归验证，没必要追求过高的覆盖率，而要考虑用例设计</li>
+</ul>
+<h3 id="测试覆盖率的最终意义"><a href="#测试覆盖率的最终意义" class="headerlink" title="测试覆盖率的最终意义"></a>测试覆盖率的最终意义</h3><p>应用最多的地方在测试停止标准</p>
+<p>单纯讨论测试覆盖率，在瀑布式开发模型中并不重要，但在螺旋式、敏捷开发模型中由于不断迭代累加，很难确定哪些模块在开发过程中没有给予足够的测试</p>
+<p>在短迭代、DevOps中，更强调用单元测试覆盖率来评估不断增加的代码数量</p>
+<h3 id="理解测试覆盖率"><a href="#理解测试覆盖率" class="headerlink" title="理解测试覆盖率"></a>理解测试覆盖率</h3><p>我们学习了测试覆盖率的两种统计方式，一种是需求覆盖率，一种是需求覆盖率，那你是怎么理解这两种覆盖率之间的联系的？比如说：是根据不同的覆盖率规则，来设计不同维度的测试用例么？还是根据不同的需求，选择性的进行测试？或者？</p>
+<p>这是我们统计的两种方式，跟我们设计用例没有关系，是统计执行的。</p>
+<p>可以这么来理解，我们假设这次项目有100个需求，你根据需求设计了5000条用例，执行了4800条用例，覆盖了99个需求。</p>
+<p>那么需求覆盖率就是99%，用例覆盖率就是96%。</p>
+<p>测试的工作内容没有变化，只是统计方式有差别。</p>
+<h3 id="软件测试人员需要的知识体系"><a href="#软件测试人员需要的知识体系" class="headerlink" title="软件测试人员需要的知识体系"></a>软件测试人员需要的知识体系</h3><ul>
+<li>软件测试基础知识</li>
+<li>软件测试流程</li>
+<li>测试用例设计方法</li>
+<li>兼容性测试&#x2F;易用性测试</li>
+<li>缺陷管理</li>
+<li>测试工具使用</li>
+<li>测试文档编写</li>
+<li>……</li>
+</ul>
+<h3 id="软件测试人员具备的素质"><a href="#软件测试人员具备的素质" class="headerlink" title="软件测试人员具备的素质"></a>软件测试人员具备的素质</h3><ul>
+<li>踏实细心</li>
+<li>积极主动</li>
+<li>好奇心，怀疑一切</li>
+<li>良好交流能力</li>
+<li>自我提高和总结能力</li>
+<li>责任感</li>
+<li>……</li>
+</ul>
+<h3 id="软件测试的原则"><a href="#软件测试的原则" class="headerlink" title="软件测试的原则"></a>软件测试的原则</h3><ul>
+<li>所有的测试都应追溯到用户需求<br>“产品缺陷的80%以上是产品开发过程中的需求定义阶段引入的，如果需求得到了准确的验证，则可以消除80%的返工问题，节省总项目投入费用的45%”</li>
+<li>尽早启动测试工作</li>
+<li>Pareto法则应用于软件测试<br>Pareto法则是由意大利经济学家Pareto提出的，又称为28效率法则<br>测试中的Pareto法则是说一般情况下，在分析、设计、实现阶段的复审和测试工作能够发现和避免80%的缺陷，而系统测试又能找出其余缺陷中的80%，最后4%的缺陷可能只有在用户的大范围、长时间使用后才会暴露出来</li>
+<li>穷尽测试是不可能的<br>由于很少有机会对一个应用软件进行所有可能的测试，对大多数软件开发项目来说，利用风险分析是适当的。这需要判断技能、常识、感觉和经验。如果有正当理由，也可采用正式的方法</li>
+<li>杀虫剂怪事<br>软件测试越多，其对测试的免疫力越强的现象<br>为了克服杀虫剂怪事，软件测试员必须不断编写不同的、新的测试程序，对程序的不同部分进行测试，以找出更多软件缺陷</li>
+<li>前进两步，后退一步<br>测试中的一个基本问题是–缺陷修复总会以（20-50）%的几率引入新的缺陷</li>
+<li>三心二意<br>细心、信心、耐心<br>团队合作的沟通意识、时刻保持怀疑的态度且有缺陷预防意识</li>
+</ul>
+<h2 id="软件测试流程"><a href="#软件测试流程" class="headerlink" title="软件测试流程"></a>软件测试流程</h2><h3 id="软件测试环境搭建原则"><a href="#软件测试环境搭建原则" class="headerlink" title="软件测试环境搭建原则"></a>软件测试环境搭建原则</h3><ul>
+<li>搭建测试环境前<ul>
+<li>确定测试目的<ul>
+<li>功能测试，稳定性测试，还是性能测试，测试目的不同，搭建测试环境时应注意的点也不同</li>
+<li>功能测试：不需要大量的数据，需要覆盖率高，测试数据要求尽量真实</li>
+<li>性能测试：可能需要大量存量数据或者与实际硬件环境尽可能相似的硬件配置</li>
+</ul>
+</li>
+<li>测试的软件环境尽可能的模拟真实环境<ul>
+<li>尽可能地模拟用户使用环境，选用合适的操作系统和软件平台</li>
+<li>了解符合测试软件运行的最低要求及用户使用的硬件配置</li>
+<li>了解用户常用的软件，避免所有配置所有操作系统下都要进行测试，没有侧重点，浪费时间</li>
+<li>产品化的测试则需要考虑兼容性的方案</li>
+</ul>
+</li>
+<li>营造独立的测试环境<ul>
+<li>不同的项目、不同的公司会对测试环境的独立性有不同的要求</li>
+<li>测试过程中尽量保证测试环境独立，不受其他测试人员以及项目研发人员的影响</li>
+</ul>
+</li>
+<li>构建可复用的测试环境<ul>
+<li>通过备份或数据隔离的方式</li>
+<li>重复运用一套测试环境进行多版本多时间段的测试</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="搭建测试环境过程分析"><a href="#搭建测试环境过程分析" class="headerlink" title="搭建测试环境过程分析"></a>搭建测试环境过程分析</h3><ul>
+<li>线下搭建<ul>
+<li>独立测试服务器或虚拟机</li>
+<li>测试环境配置</li>
+<li>测试项目导入</li>
+</ul>
+</li>
+</ul>
+<h3 id="测试环境配置"><a href="#测试环境配置" class="headerlink" title="测试环境配置"></a>测试环境配置</h3><ul>
+<li>配置java环境（下载jdk并配置环境变量）</li>
+<li>下载并安装中间件（tomcat、jetty或其他）</li>
+<li>安装数据库并导入初始化脚本</li>
+</ul>
+<h3 id="Docker模式"><a href="#Docker模式" class="headerlink" title="Docker模式"></a>Docker模式</h3><ul>
+<li>构建属于自己的image</li>
+<li>一键deploy</li>
+</ul>
+<h3 id="依赖第三方平台"><a href="#依赖第三方平台" class="headerlink" title="依赖第三方平台"></a>依赖第三方平台</h3><ul>
+<li>依赖第三方平台（如蚂蚁金融云）</li>
+</ul>
+<h3 id="浅谈测试环境的建设落地"><a href="#浅谈测试环境的建设落地" class="headerlink" title="浅谈测试环境的建设落地"></a>浅谈测试环境的建设落地</h3><h4 id="环境建设思路"><a href="#环境建设思路" class="headerlink" title="环境建设思路"></a>环境建设思路</h4><ul>
+<li>考虑点：用途、使用成本、维护成本</li>
+<li>基本架构<ul>
+<li>研发环境：用于研发自测、集成测试</li>
+<li>测试环境：用于日常单系统或两两微服务之间测试，可同时集成自动化测试回归</li>
+<li>联测环境：完备环境，用于大型联测</li>
+<li>外联环境（如果有需求）：稳定版本环境，用于外部商户等联调</li>
+<li>灰度&#x2F;沙箱环境：用于生存数据测试，仿真测试</li>
+</ul>
+</li>
+</ul>
+<h4 id="简单的测试过程"><a href="#简单的测试过程" class="headerlink" title="简单的测试过程"></a>简单的测试过程</h4><p>制定测试计划 -&gt; 设计测试用例 -&gt; 执行测试 -&gt; 提交测试发现的问题 -&gt; 所有问题已修复 -&gt; 结束</p>
+<h4 id="测试过程划分"><a href="#测试过程划分" class="headerlink" title="测试过程划分"></a>测试过程划分</h4><p>策划（需求&amp;计划） -&gt; 设计 -&gt; 执行 -&gt; 评估 -&gt; 总结</p>
+<ul>
+<li>在逻辑上，测试活动是按顺序进行的</li>
+<li>在实际测试过程中，这些活动是可以重叠或同时进行的</li>
+</ul>
+<h3 id="测试策划过程"><a href="#测试策划过程" class="headerlink" title="测试策划过程"></a>测试策划过程</h3><ul>
+<li>进行测试需求的分析</li>
+<li>确定需要测试的内容或质量特征</li>
+<li>明确测试的充分性要求</li>
+<li>提出测试的基本方法</li>
+<li>确定测试的资源和技术需求</li>
+<li>进行风险分析与评估</li>
+<li>根据上述分析结果制定测试计划</li>
+<li>根据测试计划开展相应的测试控制活动</li>
+</ul>
+<h3 id="需求测试"><a href="#需求测试" class="headerlink" title="需求测试"></a>需求测试</h3><h4 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h4><ul>
+<li>过往的软件生命周期中，需求分析阶段是没有测试人员参与的</li>
+<li>但随着软件过程的优化，测试人员的加入对需求分析阶段有了更大的作用</li>
+<li>测试工程师参与需求分析，对需求了解很深刻，减少与开发人员的交互，节省时间</li>
+<li>早期确定测试用例的编写思路，为测试打好了基础</li>
+<li>可以获取一些测试数据，为测试用例设计提供帮助</li>
+<li>可以发现需求不合理的地方，降低测试成本</li>
+</ul>
+<h4 id="需求测试的作用"><a href="#需求测试的作用" class="headerlink" title="需求测试的作用"></a>需求测试的作用</h4><ul>
+<li><p>测试需求的分析用来确定整个测试工作，明确测试对象以及测试工作的范围和作用，并作为测试覆盖的基础</p>
+</li>
+<li><p>被确定的测试需求项必须是可核实的，测试需求必须有一个可观察、可评测的结果</p>
+</li>
+<li><p>如果无法核实的需求就不是测试需求</p>
+</li>
+<li><p>测试需求分析还包括与客户的交流以澄清某些混淆</p>
+</li>
+<li><p>明确哪些需求更重要</p>
+</li>
+<li><p>确保风险承担着尽早地对项目达成共识</p>
+</li>
+<li><p>并对将来的产品有个清晰的认识</p>
+</li>
+<li><p>测试需求是制定测试计划的基本依据</p>
+</li>
+<li><p>测试需求是设计测试用例的指导</p>
+</li>
+<li><p>确定了要测什么、测哪些方面才能有效设计用例</p>
+</li>
+</ul>
+<h4 id="需求验证"><a href="#需求验证" class="headerlink" title="需求验证"></a>需求验证</h4><ul>
+<li>审查需求文档<ul>
+<li>对需求文档及相关模型进行仔细检查</li>
+<li>另外在需求开发期间所作的非正式评审也是有所裨益的</li>
+</ul>
+</li>
+<li>以需求为依据编写测试用例<ul>
+<li>编写用户手册</li>
+<li>在需求开发早期即可起草一份浅显易懂的用户手册，用以描述出所有对用户可见的功能并用它作为需求规格说明的参考并辅助需求分析</li>
+</ul>
+</li>
+<li>确定合格的标准<ul>
+<li>让用户描述什么样的产品才算满足他们的要求和适合他们的使用</li>
+<li>将确认合格的测试建立在使用场景描述或使用实例的基础之上</li>
+</ul>
+</li>
+</ul>
+<h4 id="需求规格说明书检查列表"><a href="#需求规格说明书检查列表" class="headerlink" title="需求规格说明书检查列表"></a>需求规格说明书检查列表</h4><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>检查项</th>
+<th>检查结果</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>用户覆盖了用户提出的所有需求项</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>用词是否清晰，语义是否存在有歧义的地方</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>是否清楚地描述了软件需要做什么以及不做什么</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>是否描述了软件的目标环境</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>是否对需求项进行了合理的编号</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>需求项是否前后一致、彼此不冲突</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>是否清楚地说明了系统的每个输入、输出格式，以及输入与输出之间的对应关系</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>是否清晰地描述了软件系统的性能要求</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>需求的优先级是否合理分配</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>是否描述了各种约束条件</td>
+<td>是【】 否【】 NA【】</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="测试策略"><a href="#测试策略" class="headerlink" title="测试策略"></a>测试策略</h3><h4 id="测试前的思考"><a href="#测试前的思考" class="headerlink" title="测试前的思考"></a>测试前的思考</h4><ul>
+<li>你知道要测试的系统是干什么的吗？</li>
+<li>你了解系统有哪些特点吗？</li>
+<li>系统有些什么功能？</li>
+<li>系统哪些部分需要测试？哪些不要测试？</li>
+<li>系统对性能有什么要求？</li>
+<li>系统对安全性有什么要求？</li>
+<li>……</li>
+</ul>
+<h4 id="测试策略是什么"><a href="#测试策略是什么" class="headerlink" title="测试策略是什么"></a>测试策略是什么</h4><ul>
+<li>测试策略是描述测试项目和测试任务之间的关系</li>
+<li>它用来说明要测什么，如何测，如何协调测试资源和测试时间等</li>
+<li>测试策略制定得是否合理高效会对测试项的进度产生很大的影响</li>
+</ul>
+<h4 id="测试策略要素"><a href="#测试策略要素" class="headerlink" title="测试策略要素"></a>测试策略要素</h4><p>测试安排发布计划 -&gt; 测试范围 -&gt; 测试资源 -&gt; 测试环境 -&gt; 测试方法 -&gt; 用例设计方法 -&gt; 文档管理 -&gt; 风险管理 -&gt; 上线跟踪验证</p>
+<ul>
+<li>测试安排、发布计划<ul>
+<li>罗列测试项目本身重要的里程碑</li>
+<li>每个里程碑都需要有明确的结束时间</li>
+<li>这个时间可以指导我们后续的测试</li>
+<li>如果测试时间安排不足，我们就可以在后续的测试范围中挑选优先级比较高的特性来执行测试</li>
+<li>这样可以最大程度的保证产品的质量</li>
+</ul>
+</li>
+<li>测试范围（按优先级排列）<ul>
+<li>分为In Scope和Out Of Scope</li>
+<li>需要说明哪些模块是在测试范围中的，哪些是本阶段测试不考虑的</li>
+<li>对于在测试范围中的模块，需要给出优先级</li>
+<li>以便相应测试时间不足的情况</li>
+<li>对于不在测试范围中的模块，需要给出原因</li>
+<li>为什么在本测试阶段不考虑测</li>
+</ul>
+</li>
+<li>测试资源<ul>
+<li>测试资源在测试策略中也是很重要的一环，它分为人力和工具两部分</li>
+<li>人力资源主要是参与测试的人员，当然可以包括很多的角色，如专业测试人员，客户，产品经理等</li>
+<li>工具主要是指可能用到的其他软件</li>
+</ul>
+</li>
+<li>测试环境<ul>
+<li>测试环境主要包括推荐环境解决方案，操作系统要求，软硬件要求</li>
+<li>对于推荐解决方案，需要陈述的是对测试项目、对其他软件的依赖</li>
+<li>比如测试项目对Java有依赖，推荐版本可能就是1.7</li>
+</ul>
+</li>
+<li>测试方法<ul>
+<li>测试方法的罗列主要是为了说明针对测试项目我们要开展哪些类型的测试</li>
+<li>功能测试是必须的，非功能测试是可选的</li>
+</ul>
+</li>
+<li>文档管理<ul>
+<li>对于一个完整的产品来说，文档是很重要的一环</li>
+<li>它一般包括安装、升级文档，用户指南等</li>
+<li>文档不单单是一个文件</li>
+<li>它需要经过完整的测试才能发布给用户</li>
+<li>差的文档很可能会误导用户，从而使他们对测试项目失去信心</li>
+</ul>
+</li>
+<li>风险管理<ul>
+<li>风险管理模块需要罗列出来现在已知的可能会出现不确定性的因素</li>
+<li>这些因素可能来自技术，资源或者其他方面的</li>
+</ul>
+</li>
+</ul>
+<h3 id="测试计划与测试方案"><a href="#测试计划与测试方案" class="headerlink" title="测试计划与测试方案"></a>测试计划与测试方案</h3><ul>
+<li><strong>测试策略</strong>：侧重需求分析，评估风险，定义测试范围<ul>
+<li>确定测试方法，制定测试启动、停止、完成标准和条件</li>
+</ul>
+</li>
+<li><strong>测试计划</strong>：制定项目测试过程中的测试重点<ul>
+<li>各个阶段的任务分配以及时间进度安排</li>
+<li>并提出对各项任务的评估，风险分析，可以包括测试策略</li>
+</ul>
+</li>
+<li><strong>测试方案</strong>：侧重测试的方法，测试环境的规划<ul>
+<li>测试工具的设计和选择，测试用例的设计方法，测试代码的设计方案</li>
+</ul>
+</li>
+</ul>
+<h4 id="测试策略-vs-测试计划-vs-测试方案"><a href="#测试策略-vs-测试计划-vs-测试方案" class="headerlink" title="测试策略 vs 测试计划 vs 测试方案"></a>测试策略 vs 测试计划 vs 测试方案</h4><ul>
+<li>实际实施过程中；往往存在这样类似的方式</li>
+<li>测试方案 &#x3D; 测试计划 + 用例设计方案 + 工具选择 + 自动化&#x2F;性能测试具体方案</li>
+<li>测试计划 &#x3D; 测试策略 + 测试任务分配 + 时间进度安排</li>
+</ul>
+<h4 id="测试方案列表"><a href="#测试方案列表" class="headerlink" title="测试方案列表"></a>测试方案列表</h4><ul>
+<li>1 需求说明<ul>
+<li>1.1 需求汇总</li>
+<li>1.2 需求变更</li>
+</ul>
+</li>
+<li>2 总体计划安排和负责人<ul>
+<li>2.1 测试计划进度表</li>
+</ul>
+</li>
+<li>3 测试方案<ul>
+<li>3.1 测试重点</li>
+<li>3.2 联测方案</li>
+<li>3.3 测试策略方法</li>
+<li>3.4 测试工具平台</li>
+</ul>
+</li>
+<li>4 环境搭建部署及数据准备<ul>
+<li>4.1 环境拓扑</li>
+<li>4.2 应用部署</li>
+<li>4.3 数据准备</li>
+</ul>
+</li>
+<li>5 测试执行计划<ul>
+<li>5.1 测试计划</li>
+<li>5.2 正向用例</li>
+<li>5.3 反向用例</li>
+<li>5.4 用例评审</li>
+</ul>
+</li>
+<li>6 测试工单<ul>
+<li>6.1 冒烟工单</li>
+<li>6.2 单测工单</li>
+<li>6.3 联测工单</li>
+<li>6.4 预发布验证工单</li>
+<li>6.5 灰度验证工单</li>
+<li>6.6 线上验证工单</li>
+</ul>
+</li>
+<li>7 测试限制及无法测试功能列表</li>
+<li>8 测试情况日汇总&amp;风险点、待确认列表<ul>
+<li>8.1 每日测试情况及风险点</li>
+</ul>
+</li>
+</ul>
+<h3 id="测试方案评审"><a href="#测试方案评审" class="headerlink" title="测试方案评审"></a>测试方案评审</h3><p>目前，开发有需求说明会、设计评审会、代码复审会等各种会议，但多是站在开发的角度，从需求和代码层面进行复审和风险规避，在测试环节和测试阶段缺少以测试为主体的评审机制和沟通机制</p>
+<p>容易造成以下几方面问题：</p>
+<ul>
+<li><p>仅从文档、沟通获取信息，可能会造成信息不对称，认识片面，理解错误或不深入等问题</p>
+</li>
+<li><p>缺少同行交叉评审和开发评审机制，无法充分发挥集体智慧，个人的思维难以突破，可能会出现测试遗漏的情况</p>
+</li>
+<li><p>评审目的</p>
+<ul>
+<li>呈现测试的工作</li>
+<li>与开发达成共识</li>
+<li>不同的思维方式碰撞出火花，借鉴别人的思考方式</li>
+<li>培养这样的行为模式：愿意为团队或他人出谋划策</li>
+<li>发挥团队协作，最大限度发挥个人的经验，特长，实现技能互补</li>
+</ul>
+</li>
+<li><p>评审重点</p>
+<ul>
+<li>采用的测试方法</li>
+<li>等价类划分的依据</li>
+<li>测试数据的选取和准备方法</li>
+<li>流程测试的路径组合</li>
+<li>数据比对选取的对象和数据检查点</li>
+<li>是否需要模拟数据及模拟数据的方法</li>
+<li>基于风险的测试取舍</li>
+</ul>
+</li>
+</ul>
+<h2 id="软件测试设计"><a href="#软件测试设计" class="headerlink" title="软件测试设计"></a>软件测试设计</h2><h3 id="测试设计"><a href="#测试设计" class="headerlink" title="测试设计"></a>测试设计</h3><p>测试设计是将概括的测试目标转化为具体的测试条件和测试用例的一系列活动</p>
+<h4 id="测试分析和设计的主要任务"><a href="#测试分析和设计的主要任务" class="headerlink" title="测试分析和设计的主要任务"></a>测试分析和设计的主要任务</h4><ul>
+<li>评审测试依据（需求，系统架构、设计和接口说明）</li>
+<li>评估设计依据和测试对象的可靠性</li>
+<li>通过对测试项、规格说明、测试对象行为和结构的分析，识别测试条件并确定优先级</li>
+<li>设计测试用例，并确定优先级</li>
+<li>确定测试条件和测试用例所需的必要的测试数据</li>
+</ul>
+<h4 id="确定测试条件"><a href="#确定测试条件" class="headerlink" title="确定测试条件"></a>确定测试条件</h4><ul>
+<li>依据在测试策略或测试计划中确定的测试技术</li>
+<li>通过对测试依据和测试目标的分析，可以确定需要测试的内容，获得测试条件</li>
+</ul>
+<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><ul>
+<li>测试用例是通过使用在测试计划中确定的测试技术，对于已确定的测试条件进行逐步推敲，精炼而设计出来的重点说明如何具体操作产生何种结果的文档</li>
+<li>测试用例应该具有可重复性、可验证性和需求可追踪性</li>
+</ul>
+<h4 id="测试用例设计包括以下关键点"><a href="#测试用例设计包括以下关键点" class="headerlink" title="测试用例设计包括以下关键点"></a>测试用例设计包括以下关键点</h4><ul>
+<li>前提条件，如项目或局部测试环境的需求，及其交付计划</li>
+<li>测试步骤</li>
+<li>测试数据</li>
+<li>预期结果</li>
+</ul>
+<h4 id="测试用例案例"><a href="#测试用例案例" class="headerlink" title="测试用例案例"></a>测试用例案例</h4><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>模块名称</th>
+<th>测试子项</th>
+<th>用例名称（测试意图）</th>
+<th>用例级别</th>
+<th>预置条件</th>
+<th>测试步骤</th>
+<th>预期结果</th>
+<th>测试结果</th>
+<th>缺陷编号</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="测试用例常用设计方法"><a href="#测试用例常用设计方法" class="headerlink" title="测试用例常用设计方法"></a>测试用例常用设计方法</h4><ul>
+<li>等价类划分法</li>
+<li>边界值法</li>
+<li>因果图设计法</li>
+<li>判定表设计法</li>
+<li>正交实验法</li>
+</ul>
+<h3 id="等价类划分法"><a href="#等价类划分法" class="headerlink" title="等价类划分法"></a>等价类划分法</h3><p>等价类划分的办法是把程序的输入域划分为若干部分，然后从每个部分中选取少数代表性数据当作测试用例，每一类的代表性数据在测试中的作用等价于这一类中的其他值，也就是说，如果某一类中的一个例子发现了错误，这一等价类的其他例子也能发现同样的错误。反之，如果某一类中的一个例子没有发现错误，则这一类中的其他例子也不会查出错误。</p>
+<h4 id="等价类划分方法"><a href="#等价类划分方法" class="headerlink" title="等价类划分方法"></a>等价类划分方法</h4><ul>
+<li>如果输入条件规定了取值的范围或值的个数，则可以确定一个有效等价类和两个无效等价类</li>
+<li>如果一个输入条件说明了一个“必须成立”的情况，则可划分一个有效等价类和一个无效等价类</li>
+<li>如果输入条件规定了输入数据的一组可能的值，而且程序是用不同的方式处理每一种值，则可为每一种值划分一个有效等价类，并划分一个无效等价类</li>
+<li>如果我们确知，已划分的某等价类中的各元素（例子）在程序中的处理方式是不同的，则应据此将此等价类进一步划分成更小的等价类</li>
+<li>在确定了等价类之后，建立等价类表，列出所有划分出的等价类</li>
+</ul>
+<h4 id="基于等价类划分的用例设计"><a href="#基于等价类划分的用例设计" class="headerlink" title="基于等价类划分的用例设计"></a>基于等价类划分的用例设计</h4><ul>
+<li>明确测试对象，非测试对象保证正确</li>
+<li>为每个等价类规定一个唯一的编号</li>
+<li>设计一个新的测试用例，使其尽可能多地覆盖尚未覆盖的有效等价类。重复这一步，最后使得所有有效等价类均被测试用例所覆盖</li>
+<li>设计一个新的测试用例，使其只覆盖一个无效等价类。重复这一步使所有无效等价类被覆盖</li>
+</ul>
+<h3 id="等价类划分实战"><a href="#等价类划分实战" class="headerlink" title="等价类划分实战"></a>等价类划分实战</h3><ul>
+<li>STEP1：根据测试需求可以分为三个等价类：<ul>
+<li>一个有效数据的等价类，两个无效数据等价类</li>
+<li>有效数据等价类就是：由那些对程序的规格说明有意义的、合理的输入数据所构成的集合</li>
+<li>无效数据等价类就是：那些对程序的规格说明不合理的或无意义的输入数据所构成的集合</li>
+</ul>
+</li>
+<li>STEP2：建立等价类表<ul>
+<li>在实际工作中，我们通常在确立了等价类以后，把程序中所有等价类建立等价类表，以便在编写测试用例的时候有所依据</li>
+</ul>
+</li>
+<li>STEP3：确定测试用例<ul>
+<li>为等价类表中的每一个等价类分配一个唯一的编号</li>
+<li>设计一个新的测试用例，使它能够尽量覆盖尚未覆盖的有效等价类</li>
+<li>重复这一步骤，从而使所有有效等价类均被测试用例所覆盖</li>
+<li>与上步类似，设计一个新的测试用例，使它只覆盖一个无效等价类</li>
+<li>重复这一步骤，从而使所有无效等价类均被测试用例所覆盖</li>
+</ul>
+</li>
+<li>STEP4：细化等价类划分</li>
+<li>STEP5：完善测试用例</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/06/10/hello-world/">Hello World<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/06/13/Linux-Studying/">Linux_Studying<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="Fam044/bloghexo-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://fam044.github.io/">@Fam044</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
