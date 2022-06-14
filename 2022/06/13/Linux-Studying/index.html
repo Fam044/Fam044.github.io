@@ -21,15 +21,15 @@
   <title>Linux_Studying - Fam044's Blog</title>
 
   
-    <meta name="description" content="Linux终端的概念通常我们在使用 Linux 时，并不是直接与系统打交道，而是通过一个叫做 Shell 的中间程序来完成的，在图形界面下为了实现让我们在一个窗口中完成用户输入和显示输出，Linux 系统还提供了一个叫做终端模拟器的程序（Terminal）。 下面是几个比较常见的终端模拟器： gnome-terminal，Konsole，xterm，rxvt，kvt，nxterm 和 eterm">
+    <meta name="description" content="以下内容来自蓝桥云课 Linux基础入门，仅为学习整理如有侵权，请联系删除 终端的概念通常我们在使用 Linux 时，并不是直接与系统打交道，而是通过一个叫做 Shell 的中间程序来完成的，在图形界面下为了实现让我们在一个窗口中完成用户输入和显示输出，Linux 系统还提供了一个叫做终端模拟器的程序（Terminal）。 下面是几个比较常见的终端模拟器： gnome-terminal，Konso">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux_Studying">
 <meta property="og:url" content="https://fam044.github.io/2022/06/13/Linux-Studying/index.html">
 <meta property="og:site_name" content="Fam044&#39;s Blog">
-<meta property="og:description" content="Linux终端的概念通常我们在使用 Linux 时，并不是直接与系统打交道，而是通过一个叫做 Shell 的中间程序来完成的，在图形界面下为了实现让我们在一个窗口中完成用户输入和显示输出，Linux 系统还提供了一个叫做终端模拟器的程序（Terminal）。 下面是几个比较常见的终端模拟器： gnome-terminal，Konsole，xterm，rxvt，kvt，nxterm 和 eterm">
+<meta property="og:description" content="以下内容来自蓝桥云课 Linux基础入门，仅为学习整理如有侵权，请联系删除 终端的概念通常我们在使用 Linux 时，并不是直接与系统打交道，而是通过一个叫做 Shell 的中间程序来完成的，在图形界面下为了实现让我们在一个窗口中完成用户输入和显示输出，Linux 系统还提供了一个叫做终端模拟器的程序（Terminal）。 下面是几个比较常见的终端模拟器： gnome-terminal，Konso">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-13T07:04:56.000Z">
-<meta property="article:modified_time" content="2022-06-13T07:37:56.734Z">
+<meta property="article:modified_time" content="2022-06-13T23:23:52.735Z">
 <meta property="article:author" content="Fam044">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -84,7 +84,8 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>Linux_Studying</span></h1>
-<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="终端的概念"><a href="#终端的概念" class="headerlink" title="终端的概念"></a>终端的概念</h2><p>通常我们在使用 Linux 时，并不是直接与系统打交道，而是通过一个叫做 Shell 的中间程序来完成的，在图形界面下为了实现让我们在一个窗口中完成用户输入和显示输出，Linux 系统还提供了一个叫做终端模拟器的程序（Terminal）。 下面是几个比较常见的终端模拟器： gnome-terminal，Konsole，xterm，rxvt，kvt，nxterm 和 eterm 。</p>
+<p><em>以下内容来自蓝桥云课 <a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/1">Linux基础入门</a>，仅为学习整理<br>如有侵权，请联系删除</em></p>
+<h2 id="终端的概念"><a href="#终端的概念" class="headerlink" title="终端的概念"></a>终端的概念</h2><p>通常我们在使用 Linux 时，并不是直接与系统打交道，而是通过一个叫做 Shell 的中间程序来完成的，在图形界面下为了实现让我们在一个窗口中完成用户输入和显示输出，Linux 系统还提供了一个叫做终端模拟器的程序（Terminal）。 下面是几个比较常见的终端模拟器： gnome-terminal，Konsole，xterm，rxvt，kvt，nxterm 和 eterm 。</p>
 <p>终端本质上是对应着 Linux 上的 &#x2F;dev&#x2F;tty 设备，Linux 的多用户登录就是通过不同的 &#x2F;dev&#x2F;tty 设备完成的，Linux 默认提供了 6 个纯命令行界面的 “terminal”（准确的说这里应该是 6 个 virtual consoles）来让用户登录。在物理机系统上你可以通过使用[Ctrl]+[Alt]+[F1]～[F6]进行切换。</p>
 <h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p>通常在图形界面中对实际体验带来差异的不是上述的不同发行版的各种终端模拟器，而是这个 Shell（壳）。有壳就有核，这里的核就是指 UNIX&#x2F;Linux 内核，Shell 是指“提供给使用者使用界面”的软件（命令解析器），类似于 DOS 下的 command（命令行）和后来的 cmd.exe 。普通意义上的 Shell 就是可以接受用户输入命令的程序。它之所以被称作 Shell 是因为它隐藏了操作系统底层的细节。同样的 UNIX&#x2F;Linux 下的图形用户界面 GNOME 和 KDE，有时也被叫做“虚拟 shell”或“图形 shell”。</p>
 <p>UNIX&#x2F;Linux 操作系统下的 Shell 既是用户交互的界面，也是控制系统的脚本语言。当然这一点也有别于 Windows 下的命令行，虽然该命令行也提供了很简单的控制语句。在 Windows 操作系统下，有些用户从来都不会直接使用 Shell，然而在 UNIX 系列操作系统下，Shell 仍然是控制系统启动、X11 启动和很多其它实用工具的脚本解释程序。</p>
@@ -245,26 +246,9 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man 1 ls</span><br></pre></td></tr></table></figure>
 
 <p>会显示第一区段中的ls命令 man 页面。</p>
-<p>所有的手册页遵循一个常见的布局，为了通过简单的 ASCII 文本展示而被优化，而这种情况下可能没有任何形式的高亮或字体控制。一般包括以下部分内容：</p>
-<p><strong>NAME（名称）</strong></p>
+<p>所有的手册页遵循一个常见的布局，为了通过简单的 ASCII 文本展示而被优化，而这种情况下可能没有任何形式的高亮或字体控制。一般包括以下部分内容：<br><strong>NAME（名称）</strong></p>
 <blockquote>
-<p>该命令或函数的名称，接着是一行简介。</p>
-</blockquote>
-<p><strong>SYNOPSIS（概要）</strong></p>
-<blockquote>
-<p>对于命令，正式的描述它如何运行，以及需要什么样的命令行参数。对于函数，介绍函数所需的参数，以及哪个头文件包含该函数的定义。</p>
-</blockquote>
-<p><strong>DESCRIPTION（说明）</strong></p>
-<blockquote>
-<p>命令或函数功能的文本描述。</p>
-</blockquote>
-<p><strong>EXAMPLES（示例）</strong></p>
-<blockquote>
-<p>常用的一些示例。</p>
-</blockquote>
-<p><strong>SEE ALSO（参见）</strong></p>
-<blockquote>
-<p>相关命令或函数的列表。</p>
+<p>该命令或函数的名称，接着是一行简介。<br><strong>SYNOPSIS（概要）</strong><br>对于命令，正式的描述它如何运行，以及需要什么样的命令行参数。对于函数，介绍函数所需的参数，以及哪个头文件包含该函数的定义。<br><strong>DESCRIPTION（说明）</strong><br>命令或函数功能的文本描述。<br><strong>EXAMPLES（示例）</strong><br>常用的一些示例。<br><strong>SEE ALSO（参见）</strong><br>相关命令或函数的列表。</p>
 </blockquote>
 <p>也可能存在其它部分内容，但这些部分没有得到跨手册页的标准化。常见的例子包括：OPTIONS（选项），EXIT STATUS（退出状态），ENVIRONMENT（环境），BUGS（程序漏洞），FILES（文件），AUTHOR（作者），REPORTING BUGS（已知漏洞），HISTORY（历史）和 COPYRIGHT（版权）。</p>
 <p>通常 man 手册中的内容很多，你可能不太容易找到你想要的结果，不过幸运的是你可以在 man 中使用搜索&#x2F;&lt;你要搜索的关键字&gt;，查找完毕后你可以使用n键切换到下一个关键字所在处，shift+n为上一个关键字所在处。使用Space（空格键）翻页，Enter（回车键）向下滚动一行，或者使用k，j（vim 编辑器的移动键）进行向前向后滚动一行。按下h键为显示使用帮助（因为 man 使用 less 作为阅读器，实为less工具的帮助），按下q退出。</p>
@@ -314,8 +298,7 @@
 <blockquote>
 <p>root 权限，系统权限的一种，与 SYSTEM 权限可以理解成一个概念，但高于 Administrator 权限，root 是 Linux 和 UNIX 系统中的超级管理员用户帐户，该帐户拥有整个系统至高无上的权力，所有对象他都可以操作，所以很多黑客在入侵系统的时候，都要把权限提升到 root 权限，这个操作等同于在 Windows 下就是将新建的非法帐户添加到 Administrators 用户组。更比如安卓操作系统中（基于 Linux 内核）获得 root 权限之后就意味着已经获得了手机的最高权限，这时候你可以对手机中的任何文件（包括系统文件）执行所有增、删、改、查的操作。</p>
 </blockquote>
-<p>大部分 Linux 系统在安装时都会建议用户新建一个用户而不是直接使用 root 用户进行登录，当然也有直接使用 root 登录的例如 Kali（基于 Debian 的 Linux 发行版，集成大量工具软件，主要用于数字取证的操作系统）。一般我们登录系统时都是以普通账户的身份登录的，要创建用户需要 root 权限，这里就要用到 sudo 这个命令了。不过使用这个命令有两个大前提，一是你要知道当前登录用户的密码，二是当前用户必须在 sudo 用户组。shiyanlou 用户也属于 sudo 用户组（稍后会介绍如何查看和添加用户组）。</p>
-<p><strong>su，su- 与 sudo</strong></p>
+<p>大部分 Linux 系统在安装时都会建议用户新建一个用户而不是直接使用 root 用户进行登录，当然也有直接使用 root 登录的例如 Kali（基于 Debian 的 Linux 发行版，集成大量工具软件，主要用于数字取证的操作系统）。一般我们登录系统时都是以普通账户的身份登录的，要创建用户需要 root 权限，这里就要用到 sudo 这个命令了。不过使用这个命令有两个大前提，一是你要知道当前登录用户的密码，二是当前用户必须在 sudo 用户组。shiyanlou 用户也属于 sudo 用户组（稍后会介绍如何查看和添加用户组）。<br><strong>su，su- 与 sudo</strong></p>
 <p><strong>需要注意 Linux 环境下输入密码是不会显示的。</strong></p>
 <p>su &lt;user&gt; 可以切换到用户 user，执行时需要输入目标用户的密码，sudo &lt;cmd&gt; 可以以特权级别运行 cmd 命令，需要当前用户属于 sudo 组，且需要输入当前用户的密码。su - &lt;user&gt; 命令也是切换用户，但是同时用户的环境变量和工作目录也会跟着改变成目标用户所对应的。</p>
 <p>现在我们新建一个叫 lilei 的用户：</p>
@@ -431,7 +414,7 @@
 
 <p>g、o 还有 u 分别表示 group（用户组）、others（其他用户） 和 user（用户），+ 和 - 分别表示增加和去掉相应的权限。</p>
 <blockquote>
-<p><strong>adduser 和 useradd 的区别是什么</strong><br>答：useradd 只创建用户，不会创建用户密码和工作目录，创建完了需要使用 passwd <username> 去设置新用户的密码。adduser 在创建用户的同时，会创建工作目录和密码（提示你设置），做这一系列的操作。其实 useradd、userdel 这类操作更像是一种命令，执行完了就返回。而 adduser 更像是一种程序，需要你输入、确定等一系列操作。</p>
+<p><strong>adduser 和 useradd 的区别是什么</strong><br>答：useradd 只创建用户，不会创建用户密码和工作目录，创建完了需要使用 passwd &lt;username&gt; 去设置新用户的密码。adduser 在创建用户的同时，会创建工作目录和密码（提示你设置），做这一系列的操作。其实 useradd、userdel 这类操作更像是一种命令，执行完了就返回。而 adduser 更像是一种程序，需要你输入、确定等一系列操作。</p>
 </blockquote>
 <h2 id="Linux目录结构及文件基础操作"><a href="#Linux目录结构及文件基础操作" class="headerlink" title="Linux目录结构及文件基础操作"></a>Linux目录结构及文件基础操作</h2><h3 id="Linux目录结构"><a href="#Linux目录结构" class="headerlink" title="Linux目录结构"></a>Linux目录结构</h3><p>在讲 Linux 目录结构之前，你首先要清楚一点，那就是 Linux 的目录与 Windows 的目录的区别，或许对于一般操作上的感受来说没有多大不同，但从它们的实现机制来说是完全不同的。</p>
 <p>一种不同是体现在目录与存储介质（磁盘，内存，DVD 等）的关系上，以往的 Windows 一直是以存储介质为主的，主要以盘符（C 盘，D 盘…）及分区来实现文件管理，然后之下才是目录，目录就显得不是那么重要，除系统文件之外的用户文件放在任何地方任何目录也是没有多大关系。所以通常 Windows 在使用一段时间后，磁盘上面的文件目录会显得杂乱无章（少数善于整理的用户除外吧）。然而 UNIX&#x2F;Linux 恰好相反，UNIX 是以目录为主的，Linux 也继承了这一优良特性。 Linux 是以树形目录结构的形式来构建整个系统的，可以理解为树形目录是一个用户可操作系统的骨架。虽然本质上无论是目录结构还是操作系统内核都是存储在磁盘上的，但从逻辑上来说 Linux 的磁盘是“挂在”（挂载在）目录上的，每一个目录不仅能使用本地磁盘分区的文件系统，也可以使用网络上的文件系统。举例来说，可以利用网络文件系统（Network File System，NFS）服务器载入某特定目录等。</p>
@@ -572,7 +555,7 @@
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/06/11/Software-Testing-Learning-Note/">Software_Testing_Learning_Note<span class="note">较早</span></a><div class="line"></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/06/11/Software-Testing-Learning-Note/">Software_Testing_Learning_Note<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/06/14/Games-Categories/">Games_Categories<span class="note">较新</span></a></section></div>
 
 
 

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.2.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Kotlin_Notes - Fam044's Blog</title>
+
+  
+    <meta name="description" content="笔记源于《第一行代码》-郭霖 2.3 变量和函数2.3.1 变量Kotlin中定义一个变量，只允许在变量前声明两种关键字：val 和 var  val用来声明一个不可变的变量，这种变量在初始赋值后就再也不能重新赋值，对应Java中的final变量var用来声明一个可变的变量，这种变量在初始赋值后可以重新赋值，对应Java中的非final变量  要注意的是，在Kotlin中每行代码的结尾是不需要加分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin_Notes">
+<meta property="og:url" content="https://fam044.github.io/2022/06/14/Kotlin-Notes/index.html">
+<meta property="og:site_name" content="Fam044&#39;s Blog">
+<meta property="og:description" content="笔记源于《第一行代码》-郭霖 2.3 变量和函数2.3.1 变量Kotlin中定义一个变量，只允许在变量前声明两种关键字：val 和 var  val用来声明一个不可变的变量，这种变量在初始赋值后就再也不能重新赋值，对应Java中的final变量var用来声明一个可变的变量，这种变量在初始赋值后可以重新赋值，对应Java中的非final变量  要注意的是，在Kotlin中每行代码的结尾是不需要加分">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-14T00:55:34.000Z">
+<meta property="article:modified_time" content="2022-06-14T00:58:05.297Z">
+<meta property="article:author" content="Fam044">
+<meta property="article:tag" content="Kotlin">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Fam044's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%8F%98%E9%87%8F%E5%92%8C%E5%87%BD%E6%95%B0"><span class="toc-text">2.3 变量和函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E5%8F%98%E9%87%8F"><span class="toc-text">2.3.1 变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E5%87%BD%E6%95%B0"><span class="toc-text">2.3.2 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%80%BB%E8%BE%91%E6%8E%A7%E5%88%B6"><span class="toc-text">2.4 程序的逻辑控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-if%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">2.4.1 if条件语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-when%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">2.4.2 when条件语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">2.4.3 循环语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-text">2.5 面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="toc-text">2.5.1 类与对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">2.5.2 继承与构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3-%E6%8E%A5%E5%8F%A3"><span class="toc-text">2.5.3 接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-4-%E6%95%B0%E6%8D%AE%E7%B1%BB%E4%B8%8E%E5%8D%95%E4%BE%8B%E7%B1%BB"><span class="toc-text">2.5.4 数据类与单例类</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Fam044" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Kotlin/">Kotlin</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/Kotlin/Android/">Android</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-06-14T00:55:34.000Z">2022-06-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Kotlin_Notes</span></h1>
+<p><em>笔记源于《第一行代码》-郭霖</em></p>
+<h2 id="2-3-变量和函数"><a href="#2-3-变量和函数" class="headerlink" title="2.3 变量和函数"></a>2.3 变量和函数</h2><h3 id="2-3-1-变量"><a href="#2-3-1-变量" class="headerlink" title="2.3.1 变量"></a>2.3.1 变量</h3><p>Kotlin中定义一个变量，只允许在变量前声明两种关键字：val 和 var</p>
+<blockquote>
+<p>val用来声明一个不可变的变量，这种变量在初始赋值后就再也不能重新赋值，对应Java中的final变量<br>var用来声明一个可变的变量，这种变量在初始赋值后可以重新赋值，对应Java中的非final变量</p>
+</blockquote>
+<p>要注意的是，在Kotlin中每行代码的结尾是不需要加分号的</p>
+<p>为什么只有两种变量类型？<br>因为Kotlin有类型推导机制。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> a = <span class="number">10</span> <span class="comment">//a自动推导成整型变量</span></span><br><span class="line">    println(<span class="string">&quot;a = &quot;</span> + a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是Kotlin的类型推导机制并不是总可以正常工作的，如果我们对一个变量延迟赋值的话，Kotlin就无法自动推导它的类型了。这时候就需要显式地声明变量类型才行。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> a: <span class="built_in">Int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p>既然val关键字有这些束缚，为何还要使用这个关键字？<br>Kotlin这样的设计是为了解决Java中final关键字没有被合理利用的问题。<br>在Java中，除非主动在变量前声明final关键字，否则该变量就是可变的。但当项目愈发复杂的时候，一个可变的变量很有可能不知道就被谁修改了，就会出现难以想象的问题，因此，一个好的习惯就是，除非一个变量明确允许被修改，否则都应该加上final关键字，但是许多人都没有这样的习惯，所以Kotlin在设计时就提供了val和var两个关键字，必须由开发者自行选择该变量是否可变。<br>在开发时应该优先使用val，当val无法满足使用时再使用var。</p>
+<p>Kotlin的数据类型的名称与Java的有所区别，Kotlin中的数据类型的名称的首字母是大写的，而Java中则全为小写。不要小看两者大小写之间的差距，这表示Kotlin完全抛弃了Java中的基本数据类型，全部使用了对象数据类型。在Java中int是关键字，而在Kotlin中Int变成了一个类，它拥有自己的方法和继承结构。</p>
+<table>
+<thead>
+<tr>
+<th align="center">Kotlin</th>
+<th align="center">Java</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Int</td>
+<td align="center">int</td>
+</tr>
+<tr>
+<td align="center">Long</td>
+<td align="center">long</td>
+</tr>
+<tr>
+<td align="center">Short</td>
+<td align="center">short</td>
+</tr>
+<tr>
+<td align="center">Float</td>
+<td align="center">float</td>
+</tr>
+<tr>
+<td align="center">Double</td>
+<td align="center">double</td>
+</tr>
+<tr>
+<td align="center">Char</td>
+<td align="center">char</td>
+</tr>
+<tr>
+<td align="center">Boolean</td>
+<td align="center">boolean</td>
+</tr>
+<tr>
+<td align="center">Byte</td>
+<td align="center">byte</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-2-函数"><a href="#2-3-2-函数" class="headerlink" title="2.3.2 函数"></a>2.3.2 函数</h3><p>Kotlin的函数语法规则大致如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">methodName</span><span class="params">(param1: <span class="type">Int</span>, param2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span>&#123; <span class="comment">//fun是定义函数的关键字</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数的声明格式是“参数名:参数类型”，如果不想接收任何参数，就只写一对空括号即可。<br>参数括号后面的那部分是可选的，用于声明该函数会返回什么类型的数据，如果函数不需要返回任何数据，这部分可以不写。</p>
+<p>mian函数是kotlin程序的入口函数。<br>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> a = <span class="number">35</span></span><br><span class="line">    <span class="keyword">val</span> b = <span class="number">45</span></span><br><span class="line">    <span class="keyword">val</span> value = largerNumber(a, b)</span><br><span class="line">    println(<span class="string">&quot;larger number is &quot;</span> + value)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">定义了一个名为largerNumber的函数，该函数接收两个整型参数，</span></span><br><span class="line"><span class="comment">并返回两个参数中更大的一个</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> max(num1, num2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当一个函数中只有一行代码时，Kotlin允许不必编写函数体，可以直接将唯一的一行代码写在函数定义的尾部，中间用等号连接即可，比如上方的largerNumber()函数可以简化：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> = max(num1, num2)</span><br></pre></td></tr></table></figure>
+
+<p>使用这种语法，return关键字也可以省略，等号足以表达返回值的意思，另外，上方还提到了kotlin的类型推导机制，在此也可以发挥作用。由于max()函数返回的是一个Int值，且我们在largerNumber()函数的尾部使用了等号连接max()函数，因此Kotlin可以推导出largerNumber()函数返回的必然是一个Int值，这样就不用显式地声明返回值类型了。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span> = max(num1, num2)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-程序的逻辑控制"><a href="#2-4-程序的逻辑控制" class="headerlink" title="2.4 程序的逻辑控制"></a>2.4 程序的逻辑控制</h2><h3 id="2-4-1-if条件语句"><a href="#2-4-1-if条件语句" class="headerlink" title="2.4.1 if条件语句"></a>2.4.1 if条件语句</h3><p>Kotlin中的条件语句主要有两种实现方式：if和when<br>可以将上方的largerNumber()改写：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span>(num1 &gt; num2)&#123;</span><br><span class="line">        value = num1</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        value = num2</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin中的if语句比Java的多了一个额外功能，它可以有返回值，返回值就是if语句中每一个条件中最后一行代码的返回值。因此，上述代码就可以简化：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">if语句使用每个条件的最后一行代码作为返回值，</span></span><br><span class="line"><span class="comment">并将返回值赋值给了value变量</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">val</span> value = <span class="keyword">if</span>(num1 &gt; num2)&#123;</span><br><span class="line">        num1</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        num2</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是上述代码可以再精简，value变量也可以删去</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span>:<span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span>(num1 &gt; num2)&#123;</span><br><span class="line">        num1</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        num2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，在Kotlin中当一个函数只有一行代码时，可以省略函数体部分，直接将这一行代码使用等号串联在函数定义的尾部。虽然上述函数代码不只一行，但是它和只有一行代码的作用是相同的，只是返回了if的返回值，符合语法糖的使用条件。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span> = <span class="keyword">if</span>(num1 &gt; num2)&#123;</span><br><span class="line">    num1</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    num2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//更简化版</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">largerNumber</span><span class="params">(num1: <span class="type">Int</span>, num2: <span class="type">Int</span>)</span></span> = <span class="keyword">if</span>(num1 &gt; num2) num1 <span class="keyword">else</span> num2</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-2-when条件语句"><a href="#2-4-2-when条件语句" class="headerlink" title="2.4.2 when条件语句"></a>2.4.2 when条件语句</h3><p>Kotlin中的when语句有点类似与Java中的switch语句，但它的功能较多。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//if功能实现getScore()函数</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getScore</span><span class="params">(name: <span class="type">String</span>)</span></span> = <span class="keyword">if</span>(name == <span class="string">&quot;Tom&quot;</span>)&#123;</span><br><span class="line">    <span class="number">86</span></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(name == <span class="string">&quot;Jim&quot;</span>)&#123;</span><br><span class="line">    <span class="number">77</span></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(name == <span class="string">&quot;Jack&quot;</span>)&#123;</span><br><span class="line">    <span class="number">95</span></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(name == <span class="string">&quot;Lily)&#123;</span></span><br><span class="line"><span class="string">    100</span></span><br><span class="line"><span class="string">&#125;else&#123;</span></span><br><span class="line"><span class="string">    0</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//when功能实现getScore()函数</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getScore</span><span class="params">(name: <span class="type">String</span>)</span></span> = <span class="keyword">when</span>(name)&#123;</span><br><span class="line">    <span class="string">&quot;Tom&quot;</span> -&gt; <span class="number">86</span></span><br><span class="line">    <span class="string">&quot;Jim&quot;</span> -&gt; <span class="number">77</span></span><br><span class="line">    <span class="string">&quot;Jack&quot;</span> -&gt; <span class="number">95</span></span><br><span class="line">    <span class="string">&quot;Lily&quot;</span> -&gt; <span class="number">100</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>when语句和if语句一样，也是可以有返回值的。<br>when语句允许传入一个任意类型的参数，然后可以在when的结构体中定义一系列的条件，格式是：</p>
+<blockquote>
+<p>匹配值 -&gt; {执行逻辑}</p>
+</blockquote>
+<p>当执行逻辑只有一行代码时，{}可以省略。<br>除了精确匹配外，when语句还允许进行类型匹配。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这里的is关键字相当于Java中的instanceof关键字</span></span><br><span class="line"><span class="comment">由于checkNumber()函数接受一个Number类型的参数</span></span><br><span class="line"><span class="comment">这是Kotlin内置的一个抽象类</span></span><br><span class="line"><span class="comment">想Int,Long,Float等与数字相关的类都是他的子类</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">checkNumber</span><span class="params">(num: <span class="type">Number</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">when</span>(num)&#123;</span><br><span class="line">        <span class="keyword">is</span> <span class="built_in">Int</span> -&gt; println(<span class="string">&quot;number is Int&quot;</span>)</span><br><span class="line">        <span class="keyword">is</span> <span class="built_in">Double</span> -&gt; println(<span class="string">&quot;number is Double&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span> -&gt; println(<span class="string">&quot;number not support&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>when语句还有一种不带参数的用法</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这种用法是将判断的表达式完整地写在when的结构体中</span></span><br><span class="line"><span class="comment">Kotlin中判断字符串或对象是否相等可以直接使用==关键字</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getScore</span><span class="params">(name: <span class="type">String</span>)</span></span> = <span class="keyword">when</span>&#123;</span><br><span class="line">    name == <span class="string">&quot;Tom&quot;</span> -&gt; <span class="number">86</span></span><br><span class="line">    name == <span class="string">&quot;jim&quot;</span> -&gt; <span class="number">77</span></span><br><span class="line">    name == <span class="string">&quot;Jack&quot;</span> -&gt; <span class="number">95</span></span><br><span class="line">    name == <span class="string">&quot;Lily&quot;</span> -&gt; <span class="number">100</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">假设所有名字以Tom开头的人，分数都为86分，使用不带参数的when语句</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">getScore</span><span class="params">(name: <span class="type">String</span>)</span></span> = <span class="keyword">when</span>&#123;</span><br><span class="line">    name.startsWith(<span class="string">&quot;Tom&quot;</span>) -&gt; <span class="number">86</span></span><br><span class="line">    name == <span class="string">&quot;jim&quot;</span> -&gt; <span class="number">77</span></span><br><span class="line">    name == <span class="string">&quot;Jack&quot;</span> -&gt; <span class="number">95</span></span><br><span class="line">    name == <span class="string">&quot;Lily&quot;</span> -&gt; <span class="number">100</span></span><br><span class="line">    <span class="keyword">else</span> -&gt; <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-3-循环语句"><a href="#2-4-3-循环语句" class="headerlink" title="2.4.3 循环语句"></a>2.4.3 循环语句</h3><p>Kotlin也提供了while循环和for循环，其中while循环不管是语法还是使用技巧上都和Java中的while循环没有任何区别。<br>我认为Kotlin中的for循环类似于Python中的for循环。<br>用Kotlin代码表示一个区间：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">上述代码创建了一个0到10的区间，并且两端都是闭区间，</span></span><br><span class="line"><span class="comment">这意味着0到10这两个端点都是包含在区间中的</span></span><br><span class="line"><span class="comment">其中，..是创建两端闭区间的关键字。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">val</span> range = <span class="number">0.</span><span class="number">.10</span></span><br></pre></td></tr></table></figure>
+
+<p>有了区间后，就可以通过for-in循环来遍历这个区间</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">0.</span><span class="number">.10</span>)&#123;</span><br><span class="line">        println(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是在很多情况下，双端闭区间却不如单端闭区间好用，许多数组的下标都是从0开始，一个长度为10的数组，下标范围为0到9，因此左闭右开的区间在程序设计中更常用。Kotlin中可以使用until关键字来创建一个左闭右开的区间</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> range = <span class="number">0</span> until <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<p>Kotlin中也有步长step关键字</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until <span class="number">10</span> step <span class="number">2</span>)&#123;</span><br><span class="line">        println(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>创建降序的区间，可以使用downTo关键字</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">10</span> downTo <span class="number">1</span>)&#123;</span><br><span class="line">        println(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5-面向对象编程"><a href="#2-5-面向对象编程" class="headerlink" title="2.5 面向对象编程"></a>2.5 面向对象编程</h2><p>Kotlin是面向对象的</p>
+<h3 id="2-5-1-类与对象"><a href="#2-5-1-类与对象" class="headerlink" title="2.5.1 类与对象"></a>2.5.1 类与对象</h3><p>Kotlin中也是使用class关键字来声明一个类</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">var</span> age = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">eat</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(name + <span class="string">&quot; is eating. He is &quot;</span> + age + <span class="string">&quot; years old.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin中如何对类进行实例化？</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Kotlin中实例化一个类的方式和Java是基本类似的，</span></span><br><span class="line"><span class="comment">只是去掉了new关键字而已</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">val</span> p = Person()</span><br></pre></td></tr></table></figure>
+
+<p>可以在main()函数中对p对象进行一些操作</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> p = Person()</span><br><span class="line">    p.name = <span class="string">&quot;Jack&quot;</span></span><br><span class="line">    p.age = <span class="number">19</span></span><br><span class="line">    p.eat()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-2-继承与构造函数"><a href="#2-5-2-继承与构造函数" class="headerlink" title="2.5.2 继承与构造函数"></a>2.5.2 继承与构造函数</h3><p>要是子类继承父类，第一件事，使父类可以被继承。可能有人会觉得奇怪，一个类本身不就是可以被继承的吗？为什么还要父类可以继承？这就是Kotlin不同的地方，在Kotlin中任何一个非抽象类默认都是不可以被继承的，相当于在Java中给类声明了final关键字。之所以这么设计，其实和val关键字的原因差不多，因为类和变量一样，最好都是不可变的，而一个类允许被继承的话，它无法预知子类会如何实现。<br>所以Kotlin默认所有非抽象类都是不可被继承的。要使父类可以被继承，只需要在父类前面加上open关键字就可以了：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">加上open关键字后，就是在主动告诉Kotlin编译器，</span></span><br><span class="line"><span class="comment">Person这个类是专门为继承而设计的，这样Person类就允许被继承了</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>()&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二件事，要让子类继承父类，在Java中继承的关键字是extends，而在Kotlin中变成一个冒号：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> : <span class="type">Person</span></span>()&#123;</span><br><span class="line">    <span class="keyword">var</span> sno = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">var</span> grade = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>继承的写法如果只是替换一下关键字倒也简单，但是为什么Person类的后面要加上一对括号呢？因为这里还设计主构造函数、次构造函数等方面的知识。<br>任何一个面向对象的编程语言都会有构造函数的概念，Kotlin中也有，但是Kotlin将构造函数分为两种：主构造函数和次构造函数。<br>主构造函数将会是你最常用的构造函数，每个类默认都会有一个不带参数的主构造函数当然也可以显式地指明参数。主构造函数的特点是没有函数体，直接定义在类名的后面即可：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(<span class="keyword">val</span> sno: String, <span class="keyword">val</span> grade: <span class="built_in">Int</span>) : Person()&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里将学号和年级两个字段都放在主构造函数中，就表明在对Student类进行实例化的时候，必须传入构造函数中要求的所有参数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这样我们就创建了一个Student对象，</span></span><br><span class="line"><span class="comment">同时学号为a123，年级是5</span></span><br><span class="line"><span class="comment">由于构造函数中的参数是创建实例时传入的，不像之前的写法那样要重新赋值，</span></span><br><span class="line"><span class="comment">因此可以将参数全部声明为val</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">val</span> student = Student(<span class="string">&quot;a123&quot;</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>那如果主构造函数没有函数体，想在主构造函数中编写一些逻辑该怎么办？<br>Kotlin提供了一个init机构提，所有主构造函数中的逻辑都可以写在里面：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(<span class="keyword">val</span> sno: String, <span class="keyword">val</span> grade: <span class="built_in">Int</span>) : Person()&#123;</span><br><span class="line">    <span class="keyword">init</span>&#123;</span><br><span class="line">        println(<span class="string">&quot;sno is &quot;</span> + sno)</span><br><span class="line">        println(<span class="string">&quot;grade is &quot;</span> + grade)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那这些跟那对括号有什么关系呢？这就涉及到Java继承特性中的一个规定，子类中的构造函数必须调用父类中的构造函数，在Kotlin中也要遵守。<br>回头看一下Student类，现在我们声明了一个主构造函数，根据继承特性的规定，子类的构造函数必须调用父类的构造函数，可是主构造函数并没有函数体，该如何去调用父类的构造函数？你可能会说，在init结构体中调用不就好了？这或许是一种办法，但绝对不是一种好办法，因为在绝大多数的场景下，我们是不需要编写init结构体的。<br>Kotlin采用了一种简单但是不太好理解的设计方式：括号。子类的主构造函数调用父类中的哪个构造函数，在继承的时候通过括号来指定。所以回头再看一遍这段函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Person类后面的一对空括号表示</span></span><br><span class="line"><span class="comment">Student类的主构造函数在初始化的时候会调用Person类的无参数构造函数，</span></span><br><span class="line"><span class="comment">即使在无参数的情况下，这对括号也不能省略。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(<span class="keyword">val</span> sno: String, <span class="keyword">val</span> grade: <span class="built_in">Int</span>): Person()&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果我们将Person改造一下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">此时Student类一定会报错，错误的原因很明显，</span></span><br><span class="line"><span class="comment">Person类后面的空括号表示要去调用Person类中无参的构造函数，</span></span><br><span class="line"><span class="comment">但是Person类现在已经没有无参的构造函数了。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果想解决这错误，就必须给Person类的构造函数传入name和age字段 ，可是Student类也没有这两个字段。没有的话那就加上，我们可以在Student类的主构造函数中加上name和age两个参数，再将这两个参数传给Person类的构造函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">注意，在Student类的主构造函数中增加name和age这两个字段时，</span></span><br><span class="line"><span class="comment">不能再将它们声明成val，</span></span><br><span class="line"><span class="comment">因为在主构造函数中声明成val或者var的参数将自动成为该类的字段，</span></span><br><span class="line"><span class="comment">这就会导致和父类中同名的name和age字段造成冲突。</span></span><br><span class="line"><span class="comment">因此，这里的name和age参数前面不用加任何关键字，</span></span><br><span class="line"><span class="comment">让它的作用域仅限定在主构造函数中即可。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(<span class="keyword">val</span> sno: String, <span class="keyword">val</span> grade: <span class="built_in">Int</span>, name: String, age: <span class="built_in">Int</span>): Person(name, age)&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那什么是次构造函数呢？任何一个类只能有一个主构造函数，但是可以有多个次构造函数。次构造函数可以用于实例化一个类，这一点和主构造函数没什么不同，只不过它是有函数体的。<br>Kotlin规定，当一个类既有主构造函数又有次构造函数时，所有次构造函数都必须调用主构造函数（包括间接调用）。<br>例：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">次构造函数是通过constructor关键字来定义的，</span></span><br><span class="line"><span class="comment">这里我们定义了两个次构造函数：</span></span><br><span class="line"><span class="comment">第一个次构造函数接收name和age参数，然后它又通过this关键字调用了主构造函数，</span></span><br><span class="line"><span class="comment">并将sno和grade这两个参数赋值成初始值；</span></span><br><span class="line"><span class="comment">第二个次构造函数不接受任何参数，</span></span><br><span class="line"><span class="comment">它通过this关键字调用了刚才定义的第一个次构造函数，</span></span><br><span class="line"><span class="comment">并将name和age参数也赋值成初始值，由于第二个次构造函数间接调用了主构造函数，</span></span><br><span class="line"><span class="comment">因此这仍然是合法的。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(<span class="keyword">val</span> sno: String, <span class="keyword">val</span> grade: <span class="built_in">Int</span>, name: String, age: <span class="built_in">Int</span>): Person(name, age)&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name: String, age: <span class="built_in">Int</span>): <span class="keyword">this</span>(<span class="string">&quot;&quot;</span>, <span class="number">0</span>, name, age)&#123;&#125;</span><br><span class="line">    constructot(): <span class="keyword">this</span>(<span class="string">&quot;&quot;</span>,<span class="number">0</span>)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一种非常特殊的情况：类中只有次构造函数，没有主构造函数。这种情况真的十分少见，但在Kotlin中是允许的。当一个类没有显式地定义主构造函数且定义了次构造函数时，它就是没有主构造函数的。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">注意此处Student类的后面没有显式地定义主构造函数，</span></span><br><span class="line"><span class="comment">同时又因为定义了次构造函数，所以现在Student类是没有主构造函数的。</span></span><br><span class="line"><span class="comment">既然没有主构造函数，继承Person类的时候也就不需要再加上括号了。</span></span><br><span class="line"><span class="comment">另外，由于没有主构造函数，次构造函数只能直接调用父类的构造函数，</span></span><br><span class="line"><span class="comment">此段代码也是将this关键字换成了super关键字。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>: <span class="type">Person&#123;</span></span></span><br><span class="line">    <span class="keyword">constructor</span>(name: String, age: <span class="built_in">Int</span>): <span class="keyword">super</span>(name, age)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-3-接口"><a href="#2-5-3-接口" class="headerlink" title="2.5.3 接口"></a>2.5.3 接口</h3><p>接口是用于实现多态编程的重要组成部分。我们都知道，Java是单继承结构的语言，任何一个类最多只能继承一个父类，但是却可以实现任意多个接口，Kotlin也是如此。我们可以在接口中定义一系列的抽象行为，然后由具体的类去实现。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Study</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">readBooks</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doHomework</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Java中继承使用的关键字是extends，实现接口使用的关键字是implements，</span></span><br><span class="line"><span class="comment">而Kotlin中统一使用冒号，中间用逗号进行分隔。</span></span><br><span class="line"><span class="comment">此段代码就表示Student类继承了Person类，同时还实现了Study接口。</span></span><br><span class="line"><span class="comment">另外接口后面不用加上括号，因为他没有构造函数可以去调用。</span></span><br><span class="line"><span class="comment">Kotlin中使用override关键字来重写父类或者实现接口中的函数。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>(name: String, age: <span class="built_in">Int</span>): Person(name, age), Study&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">readBooks</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(name + <span class="string">&quot; is reading.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">doHomework</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(name + <span class="string">&quot; is doing homework.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以在main()函数中编写如下代码来调用两个接口中的函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> student = Student(<span class="string">&quot;Jack&quot;</span>, <span class="number">19</span>)</span><br><span class="line">    doStudy(student)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doStudy</span><span class="params">(study: <span class="type">Study</span>)</span></span>&#123;</span><br><span class="line">    study.readBooks()</span><br><span class="line">    study.doHomework()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin还有一个额外的功能：允许对接口中定义的函数进行默认实现。其实Java在JDK1.8后也开始支持这个功能了，因此总体来说，Kotlin和Java在接口方面的功能仍然是一模一样的。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">我们在doHomework()函数加上了函数体，并且在里面打印了一行日志。</span></span><br><span class="line"><span class="comment">如果接口中的一个函数拥有了函数体，这个函数体中的内容就是它的默认实现。</span></span><br><span class="line"><span class="comment">现在当一个类去实现Study接口时，只会强制要求实现readBooks()函数，</span></span><br><span class="line"><span class="comment">而doHomework()函数则可以自由选择实现或者不实现，</span></span><br><span class="line"><span class="comment">不实现时就会自动使用默认的实现逻辑。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Study</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">readBooks</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doHomework</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(<span class="string">&quot;do homework default implementation.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们在来看一下Kotlin和Java相比变化较大的部分–函数的可见性修饰符。<br>熟悉Java的人都知道，Java中有public, private, protected, default（什么都不写）这4种函数可见性修饰符。Kotlin中也有4中，分别是public, private, protected, internal,需要使用哪种修饰符时，直接定义在fun关键字的前面即可。</p>
+<table>
+<thead>
+<tr>
+<th align="center">修饰符</th>
+<th align="center">Java</th>
+<th align="center">Kotlin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">public</td>
+<td align="center">所有类可见</td>
+<td align="center">所有类可见（默认）</td>
+</tr>
+<tr>
+<td align="center">private</td>
+<td align="center">当前类可见</td>
+<td align="center">当前类可见</td>
+</tr>
+<tr>
+<td align="center">protected</td>
+<td align="center">当前类、子类、同一包路径下的类可见</td>
+<td align="center">当前类、子类可见</td>
+</tr>
+<tr>
+<td align="center">default</td>
+<td align="center">同一包路径下的类可见（默认）</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center">internal</td>
+<td align="center">无</td>
+<td align="center">同一模块中的类可见</td>
+</tr>
+</tbody></table>
+<h3 id="2-5-4-数据类与单例类"><a href="#2-5-4-数据类与单例类" class="headerlink" title="2.5.4 数据类与单例类"></a>2.5.4 数据类与单例类</h3><p>在一个规范的系统架构中，数据类通常占据着非常重要的角色，它们用于将服务器端或者数据库中的数据映射到内存中，为编程逻辑提供数据模型的支持。<br>Kotlin中只需要在一个类前面声明了data关键字，就表明你希望这个类是一个数据类，Kotlin会根据主构造函数中的参数帮你将equals(), hashCode(), toString()等固定且无实际逻辑意义的方法自动生成，从而大大减少开发的工作量。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Cellphone</span></span>(<span class="keyword">val</span> brand: String, <span class="keyword">val</span> price: <span class="built_in">Double</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试数据类</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> cellphone1 = Cellphone(<span class="string">&quot;Samsung&quot;</span>, <span class="number">1299.99</span>)</span><br><span class="line">    <span class="keyword">val</span> cellphone2 = Cellphone(<span class="string">&quot;Samsung&quot;</span>, <span class="number">1299.99</span>)</span><br><span class="line">    println(cellphone1)</span><br><span class="line">    println(<span class="string">&quot;cellphone1 equals cellphone2 &quot;</span> + (cellphone1 == cellphone2))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Kotlin中创建一个单例类的方式极其简单，只需要将class关键字改成object关键字即可。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Singleton&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在Singleton就已经是一个单例类了，我们可以直接在这个类中编写需要的函数</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> Singleton&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">singletonTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(<span class="string">&quot;singletonTest is called.&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，在Kotlin中我们不需要私有化构造函数，也不需要提供getInstance()这样的静态方法，只需要把class关键字改成object关键字，一个单例类就创建完成了，而调用单例类中的函数也很简单，比较类似于Java中静态方法的调用方式：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Singleton.singletonTest()</span><br></pre></td></tr></table></figure>
+
+<p>这种写法虽然看上去像是静态方法的调用，但其实Kotlin在背后自动帮我们创建了一个Singleton类的实例，并且保证全局只会存在一个Singleton实例。</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/06/14/Games-Categories/">Games_Categories<span class="note">较早</span></a><div class="line"></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="Fam044/bloghexo-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://fam044.github.io/">@Fam044</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
