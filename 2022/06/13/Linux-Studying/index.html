@@ -84,7 +84,7 @@
 
 <article class='content md post'>
 <h1 class="article-title"><span>Linux_Studying</span></h1>
-<p><em>以下内容来自蓝桥云课 <a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/1">Linux基础入门</a>，仅为学习整理<br>如有侵权，请联系删除</em></p>
+<p><em>以下内容来自蓝桥云课 <a href="https://www.lanqiao.cn/courses/1">Linux基础入门</a>，仅为学习整理<br>如有侵权，请联系删除</em></p>
 <h2 id="终端的概念"><a href="#终端的概念" class="headerlink" title="终端的概念"></a>终端的概念</h2><p>通常我们在使用 Linux 时，并不是直接与系统打交道，而是通过一个叫做 Shell 的中间程序来完成的，在图形界面下为了实现让我们在一个窗口中完成用户输入和显示输出，Linux 系统还提供了一个叫做终端模拟器的程序（Terminal）。 下面是几个比较常见的终端模拟器： gnome-terminal，Konsole，xterm，rxvt，kvt，nxterm 和 eterm 。</p>
 <p>终端本质上是对应着 Linux 上的 &#x2F;dev&#x2F;tty 设备，Linux 的多用户登录就是通过不同的 &#x2F;dev&#x2F;tty 设备完成的，Linux 默认提供了 6 个纯命令行界面的 “terminal”（准确的说这里应该是 6 个 virtual consoles）来让用户登录。在物理机系统上你可以通过使用[Ctrl]+[Alt]+[F1]～[F6]进行切换。</p>
 <h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><p>通常在图形界面中对实际体验带来差异的不是上述的不同发行版的各种终端模拟器，而是这个 Shell（壳）。有壳就有核，这里的核就是指 UNIX&#x2F;Linux 内核，Shell 是指“提供给使用者使用界面”的软件（命令解析器），类似于 DOS 下的 command（命令行）和后来的 cmd.exe 。普通意义上的 Shell 就是可以接受用户输入命令的程序。它之所以被称作 Shell 是因为它隐藏了操作系统底层的细节。同样的 UNIX&#x2F;Linux 下的图形用户界面 GNOME 和 KDE，有时也被叫做“虚拟 shell”或“图形 shell”。</p>
@@ -360,15 +360,15 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
 
 <p>你可能除了知道最后面那一项是文件名之外，其它项就不太清楚了，那么到底是什么意思呢：</p>
-<p><a target="_blank" rel="noopener" href="https://doc.shiyanlou.com/linux_base/3-9.png">文件各项参数</a></p>
+<p><a href="https://doc.shiyanlou.com/linux_base/3-9.png">文件各项参数</a></p>
 <p>可能你还是不太明白，比如第一项文件类型和权限那一堆东西具体指什么，链接又是什么，何为最后修改时间，下面一一道来：</p>
-<p><a target="_blank" rel="noopener" href="https://doc.shiyanlou.com/linux_base/3-10.png">文件权限</a></p>
+<p><a href="https://doc.shiyanlou.com/linux_base/3-10.png">文件权限</a></p>
 <h5 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h5><p>关于文件类型，这里有一点你必需时刻牢记 <strong>Linux 里面一切皆文件</strong>，正因为这一点才有了设备文件（ &#x2F;dev 目录下有各种设备文件，大都跟具体的硬件设备相关）这一说。 socket：网络套接字，具体是什么，感兴趣的用户可以去学习实验楼的后续相关课程。pipe 管道，这个东西很重要，我们以后将会讨论到，这里你先知道有它的存在即可。软链接文件：链接文件是分为两种的，另一种当然是“硬链接”（硬链接不常用，具体内容不作为本课程讨论重点，而软链接等同于 Windows 上的快捷方式，你记住这一点就够了）。</p>
 <h5 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h5><p>读权限，表示你可以使用 cat &lt;file name&gt; 之类的命令来读取某个文件的内容；写权限，表示你可以编辑和修改某个文件的内容；</p>
 <p>执行权限，通常指可以运行的二进制程序文件或者脚本文件，如同 Windows 上的 exe 后缀的文件，不过 Linux 上不是通过文件后缀名来区分文件的类型。你需要注意的一点是，<strong>一个目录同时具有读权限和执行权限才可以打开并查看内部文件，而一个目录要有写权限才允许在其中创建其它文件</strong>，这是因为目录文件实际保存着该目录里面的文件的列表等信息。</p>
 <p>所有者权限，这一点相信你应该明白了，至于所属用户组权限，是指你所在的用户组中的所有其它用户对于该文件的权限，比如，你有一个 iPad，那么这个用户组权限就决定了你的兄弟姐妹有没有权限使用它破坏它和占有它。</p>
 <h5 id="链接数"><a href="#链接数" class="headerlink" title="链接数"></a>链接数</h5><blockquote>
-<p>链接到该文件所在的 inode 结点的文件名数目（关于这个概念涉及到 Linux 文件系统的相关概念知识，不在本课程的讨论范围，感兴趣的用户可以查看 <a target="_blank" rel="noopener" href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html#major2">硬链接和软链接的联系与区别</a>）。</p>
+<p>链接到该文件所在的 inode 结点的文件名数目（关于这个概念涉及到 Linux 文件系统的相关概念知识，不在本课程的讨论范围，感兴趣的用户可以查看 <a href="https://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/index.html#major2">硬链接和软链接的联系与区别</a>）。</p>
 </blockquote>
 <h5 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h5><blockquote>
 <p>以 inode 结点大小为单位来表示的文件大小，你可以给 ls 加上 -lh 参数来更直观的查看文件的大小。</p>
@@ -399,7 +399,7 @@
 
 <p>现在查看，发现文件所有者成功修改为 shiyanlou。</p>
 <h4 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h4><p>如果你有一个自己的文件不想被其他用户读、写、执行，那么就需要对文件的权限做修改。文件的权限有两种表示方式：</p>
-<h5 id="方式一：二进制数字表示"><a href="#方式一：二进制数字表示" class="headerlink" title="方式一：二进制数字表示"></a>方式一：二进制数字表示</h5><p><a target="_blank" rel="noopener" href="https://doc.shiyanlou.com/linux_base/3-14.png">文件权限二进制数字表示</a></p>
+<h5 id="方式一：二进制数字表示"><a href="#方式一：二进制数字表示" class="headerlink" title="方式一：二进制数字表示"></a>方式一：二进制数字表示</h5><p><a href="https://doc.shiyanlou.com/linux_base/3-14.png">文件权限二进制数字表示</a></p>
 <p>每个文件有三组固定的权限，分别对应拥有者，所属用户组，其他用户，记住<strong>这个顺序是固定的</strong>。文件的读写执行对应字母 rwx，以二进制表示就是 111，用十进制表示就是 7，对进制转换不熟悉的同学可以看看 进制转换。例如我们刚刚新建的文件 iphone11 的权限是 rw-rw-rw-，换成对应的十进制表示就是 666，这就表示这个文件的拥有者，所属用户组和其他用户具有读写权限，不具有执行权限。</p>
 <p>如果我要将文件 iphone11 的权限改为只有我自己可以用那么就可以用这个方法更改它的权限。</p>
 <p>为了演示，我先在文件里加点内容：</p>
@@ -424,8 +424,8 @@
 </blockquote>
 <p>FHS 定义了两层规范，第一层是， &#x2F; 下面的各个目录应该要放什么文件数据，例如 &#x2F;etc 应该放置设置文件，&#x2F;bin 与 &#x2F;sbin 则应该放置可执行文件等等。</p>
 <p>第二层则是针对 &#x2F;usr 及 &#x2F;var 这两个目录的子目录来定义。例如 &#x2F;var&#x2F;log 放置系统日志文件，&#x2F;usr&#x2F;share 放置共享数据等等。</p>
-<p><a target="_blank" rel="noopener" href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf">FHS_3.0 标准文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://doc.shiyanlou.com/linux_base/4-1.png">FHS结构图</a></p>
+<p><a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf">FHS_3.0 标准文档</a></p>
+<p><a href="https://doc.shiyanlou.com/linux_base/4-1.png">FHS结构图</a></p>
 <p>如果你觉得看这个不明白，那么可以试试最真实最直观的方式，执行如下命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tree /</span><br></pre></td></tr></table></figure>
 
@@ -433,7 +433,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 因为我们的环境的原因，每次新启动实验会清除系统恢复到初始状态，所以需要手动更新软件包索引，以便我们安装时能找到相应软件包的源。</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get install tree</span><br></pre></td></tr></table></figure>
 
 <p>关于上面提到的 FHS，这里还有个很重要的内容你一定要明白，FHS 是根据以往无数 Linux 用户和开发者的经验总结出来的，并且会维持更新，FHS 依据文件系统使用的频繁与否以及是否允许用户随意改动（注意，不是不能，学习过程中，不要怕这些），将目录定义为四种交互作用的形态，如下表所示：</p>
-<p><a target="_blank" rel="noopener" href="https://doc.shiyanlou.com/document-uid18510labid59timestamp1482919171956.png">目录的四种交互作用的形态</a></p>
+<p><a href="https://doc.shiyanlou.com/document-uid18510labid59timestamp1482919171956.png">目录的四种交互作用的形态</a></p>
 <h4 id="目录路径"><a href="#目录路径" class="headerlink" title="目录路径"></a>目录路径</h4><h5 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h5><p>有人可能不明白这路径是指什么，有什么用。顾名思义，路径就是你要去哪儿的路线嘛。如果你想进入某个具体的目录或者想获得某个目录的文件（目录本身也是文件）那就得用路径来找到了。</p>
 <p>使用 cd 命令可以切换目录，在 Linux 里面使用 . 表示当前目录，.. 表示上一级目录（注意，我们上一节介绍过的，以 . 开头的文件都是隐藏文件，所以这两个目录必然也是隐藏的，你可以使用 ls -a 命令查看隐藏文件），- 表示上一次所在目录，～ 通常表示当前用户的 home 目录。使用 pwd 命令可以获取当前所在路径（绝对路径）。</p>
 <p>进入上一级目录：</p>
@@ -553,7 +553,7 @@
 <blockquote>
 <p>变量的作用域即变量的有效范围（比如一个函数中、一个源文件中或者全局范围），在该范围内只能有一个同名变量。一旦离开则该变量无效，如同不存在这个变量一般。</p>
 </blockquote>
-<p>在 Shell 中如何创建一个变量，如何给变量赋值和如何读取变量的值呢？这部分内容会在<a target="_blank" rel="noopener" href="https://www.lanqiao.cn/courses/944">高级 bash 脚本编程指南</a>这门课中详细介绍，这里我简单举例说明一下：</p>
+<p>在 Shell 中如何创建一个变量，如何给变量赋值和如何读取变量的值呢？这部分内容会在<a href="https://www.lanqiao.cn/courses/944">高级 bash 脚本编程指南</a>这门课中详细介绍，这里我简单举例说明一下：</p>
 <p>使用 declare 命令创建一个变量名为 tmp 的变量：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">declare tmp</span><br></pre></td></tr></table></figure>
 
@@ -569,7 +569,7 @@
 <p>注意：并不是任何形式的变量名都是可用的，变量名只能是英文字母、数字或者下划线，且不能以数字作为开头。</p>
 
 
-<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section></div>
 
 </article>
@@ -598,8 +598,8 @@
 
 
       
-<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
-<p>本站由 <a href="https://fam044.github.io/">@Fam044</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://fam044.github.io/">@Fam044</a> 创建，使用 <a href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
 </div></footer>
 
       <div class='float-panel mobile-only blur' style='display:none'>
