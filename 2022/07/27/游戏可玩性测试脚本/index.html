@@ -4,7 +4,7 @@
 <head>
   <meta name="generator" content="Hexo 6.2.0">
   <meta charset="utf-8">
-  <meta name="robots" content="noindex,follow">
+  
 
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
@@ -18,15 +18,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8">
-  <title>归档 - Fam044's Blog</title>
+  <title>游戏可玩性测试脚本 - Fam044's Blog</title>
 
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://fam044.github.io/archives/index.html">
+    <meta name="description" content="以下内容部分源于游戏设计梦工厂-Tracy Fullerton(Third Edition)，仅为学习整理如有侵权，请联系删除 游戏中的观察在这里写下你在观察测试者进行测试时的想法。 游戏中的问题在测试者测试时你要问他们的问题。  新手引导有让你感觉困惑吗？（有无从下手的感觉吗？） 你在游玩过程中有什么感觉？ 你为什么会去做这个任务？（为什么会去干这件事？） 你为什么在哪里暂停了？（是哪里令你需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游戏可玩性测试脚本">
+<meta property="og:url" content="https://fam044.github.io/2022/07/27/%E6%B8%B8%E6%88%8F%E5%8F%AF%E7%8E%A9%E6%80%A7%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="Fam044&#39;s Blog">
+<meta property="og:description" content="以下内容部分源于游戏设计梦工厂-Tracy Fullerton(Third Edition)，仅为学习整理如有侵权，请联系删除 游戏中的观察在这里写下你在观察测试者进行测试时的想法。 游戏中的问题在测试者测试时你要问他们的问题。  新手引导有让你感觉困惑吗？（有无从下手的感觉吗？） 你在游玩过程中有什么感觉？ 你为什么会去做这个任务？（为什么会去干这件事？） 你为什么在哪里暂停了？（是哪里令你需要">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-27T13:32:05.000Z">
+<meta property="article:modified_time" content="2022-07-27T13:49:11.721Z">
 <meta property="article:author" content="Fam044">
+<meta property="article:tag" content="Game">
 <meta name="twitter:card" content="summary">
   
   
@@ -49,8 +54,10 @@
   
 
 
+
+
   <div class='l_body' id='start'>
-    <aside class='l_left' layout=''>
+    <aside class='l_left' layout='post'>
     
 
 
@@ -60,223 +67,111 @@
 <nav class="menu dis-select"></nav></header>
 
 <div class="widgets">
-<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">A normal Blog</span></div><div class="widget-body fs14"><p>Welcome to Fam044’s Blog!</p>
-</div></div>
 
-<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/2022/08/02/%E5%A6%84%E6%83%B3%E5%B1%B1%E6%B5%B7%E7%B3%BB%E7%BB%9F%E6%8B%86%E8%A7%A3%E6%A1%88/">妄想山海系统拆解案</a></div><div class="more-item"><a class="title" href="/2022/07/27/%E6%B8%B8%E6%88%8F%E5%8F%AF%E7%8E%A9%E6%80%A7%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/">游戏可玩性测试脚本</a></div><div class="more-item"><a class="title" href="/2022/07/25/Excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%AC%E5%BC%8F/">Excel快捷键及公式</a></div><div class="more-item"><a class="title" href="/2022/07/23/Game-Design-Workshop-Notes/">Game_Design_Workshop_Notes</a></div><div class="more-item"><a class="title" href="/2022/06/11/Software-Testing-Learning-Note/">Software_Testing_Learning_Note</a></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%9A%84%E8%A7%82%E5%AF%9F"><span class="toc-text">游戏中的观察</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">游戏中的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E5%90%8E%E9%97%AE%E9%A2%98"><span class="toc-text">游戏后问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E9%97%AE%E9%A2%98"><span class="toc-text">通用问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%A2%E5%BC%8F%E5%85%83%E7%B4%A0"><span class="toc-text">形式元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%8F%E5%89%A7%E5%85%83%E7%B4%A0"><span class="toc-text">戏剧元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E3%80%81%E8%A7%84%E5%88%99%E3%80%81%E7%95%8C%E9%9D%A2%E5%8F%8A%E6%93%8D%E4%BD%9C"><span class="toc-text">流程、规则、界面及操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%BE%E5%A3%B0"><span class="toc-text">尾声</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%9A%84%E6%83%B3%E6%B3%95"><span class="toc-text">修改的想法</span></a></li></ol></div></div></div>
+
+
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Fam044" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=285668870" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a></div></footer>
 
     </aside>
-    <div class='l_main list'>
+    <div class='l_main'>
       
-  
-
-<header class="header mobile-only">
-
-<div class="logo-wrap"><a class="title" href="/"><div class="main">Fam044's Blog</div></a></div>
-</header>
-
-
 
       
 
-  
-  <div class='nav-wrap'>
-  <nav class='sub post cap'>
-    
-      <a href='/'>近期发布</a>
-    
-    
-      
-        <a href='/categories'>分类</a>
-      
-    
-    
-      
-        <a href='/tags'>标签</a>
-      
-    
-    
-      
-        <a class='active' href='/archives'>归档</a>
-      
-    
-  </nav>
-</div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Game/">Game</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-07-27T13:32:05.000Z">2022-07-27</time></div></div>
 
-  <div class='post-list'>
-  	
-  	
-  		
-  		
-  			
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  		
-  		
-  	
-  	
-  		<article class='' id='archive'>
-  			<div class='archive-header h4'>2022</div>
-  			
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				
-  		    
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/08/02/%E5%A6%84%E6%83%B3%E5%B1%B1%E6%B5%B7%E7%B3%BB%E7%BB%9F%E6%8B%86%E8%A7%A3%E6%A1%88/">
-    					<time>08-02</time>
-    					<span>
-                
-      						妄想山海系统拆解案
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/07/27/%E6%B8%B8%E6%88%8F%E5%8F%AF%E7%8E%A9%E6%80%A7%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/">
-    					<time>07-27</time>
-    					<span>
-                
-      						游戏可玩性测试脚本
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/07/25/Excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%AC%E5%BC%8F/">
-    					<time>07-25</time>
-    					<span>
-                
-      						Excel快捷键及公式
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/07/23/Game-Design-Workshop-Notes/">
-    					<time>07-23</time>
-    					<span>
-                
-      						Game_Design_Workshop_Notes
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/07/02/%E9%A6%96%E6%AC%A1%E7%BC%96%E5%86%99Appium%E7%BB%83%E4%B9%A0%E8%84%9A%E6%9C%AC%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
-    					<time>07-02</time>
-    					<span>
-                
-      						首次编写Appium练习脚本注意事项
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/07/01/Appium%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85%EF%BC%88%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%EF%BC%89/">
-    					<time>07-01</time>
-    					<span>
-                
-      						Appium下载与安装（我遇到的坑）
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/06/14/Kotlin-Notes/">
-    					<time>06-14</time>
-    					<span>
-                
-      						Kotlin_Notes
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/06/14/Games-Categories/">
-    					<time>06-14</time>
-    					<span>
-                
-      						Games_Categories
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/06/13/Linux-Studying/">
-    					<time>06-13</time>
-    					<span>
-                
-      						Linux_Studying
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  				<div class='archive-list'>
-            <a class='post fs14' href="/2022/06/11/Software-Testing-Learning-Note/">
-    					<time>06-11</time>
-    					<span>
-                
-      						Software_Testing_Learning_Note
-      					
-              </span>
-    				</a>
-          </div>
-  			
-  		</article>
-  	
+<article class='content md post'>
+<h1 class="article-title"><span>游戏可玩性测试脚本</span></h1>
+<p><em>以下内容部分源于游戏设计梦工厂-Tracy Fullerton(Third Edition)，仅为学习整理<br>如有侵权，请联系删除</em></p>
+<h2 id="游戏中的观察"><a href="#游戏中的观察" class="headerlink" title="游戏中的观察"></a>游戏中的观察</h2><p><em>在这里写下你在观察测试者进行测试时的想法。</em></p>
+<h2 id="游戏中的问题"><a href="#游戏中的问题" class="headerlink" title="游戏中的问题"></a>游戏中的问题</h2><p><em>在测试者测试时你要问他们的问题。</em></p>
+<ol>
+<li>新手引导有让你感觉困惑吗？（有无从下手的感觉吗？）</li>
+<li>你在游玩过程中有什么感觉？</li>
+<li>你为什么会去做这个任务？（为什么会去干这件事？）</li>
+<li>你为什么在哪里暂停了？（是哪里令你需要进行思考或抉择的地方吗？）（或者是哪里的提示不到位？）</li>
+</ol>
+<h2 id="游戏后问题"><a href="#游戏后问题" class="headerlink" title="游戏后问题"></a>游戏后问题</h2><p><em>测试结束后你要问的问题。</em></p>
+<h2 id="通用问题"><a href="#通用问题" class="headerlink" title="通用问题"></a>通用问题</h2><ol>
+<li>你的第一印象是什么？</li>
+<li>这个第一印象有改变你的玩法吗？</li>
+<li>有没有什么东西让你感到挫败的？</li>
+<li>有没有什么地方比较拖拉？（让你感觉无聊的地方）</li>
+<li>有没有什么特定的地方让你觉得非常满意的？</li>
+<li>游戏中最让你觉得兴奋的地方是哪里？</li>
+<li>游戏的长度会太肝或者太氪吗？</li>
+</ol>
+<h2 id="形式元素"><a href="#形式元素" class="headerlink" title="形式元素"></a>形式元素</h2><ol>
+<li>描述游戏的目标。</li>
+<li>游戏的目标是不是任何时候都很清晰？</li>
+<li>你在游戏中都做过哪些类型的选择？</li>
+<li>你做出最重要的决策是什么？</li>
+<li>你游玩的流程是什么？</li>
+<li>你有在系统中发现任何漏洞吗？</li>
+<li>你会怎么描述游戏中的冲突呢？</li>
+<li>你怎么评价游戏的成长曲线（成长难度）呢？</li>
+<li>你怎么和其他人交互？</li>
+<li>你更喜欢游戏中的PVE元素还是PVP元素？</li>
+<li>你觉得什么元素是可以被改进的？</li>
+</ol>
+<h2 id="戏剧元素"><a href="#戏剧元素" class="headerlink" title="戏剧元素"></a>戏剧元素</h2><ol>
+<li>游戏的剧情让你兴奋吗？</li>
+<li>剧情是强化了游戏还是让你分心了？</li>
+<li>在你玩的时候，剧情是否有随着游戏而发展？</li>
+<li>这款游戏对于目标用户来说合适吗？</li>
+<li>在一张纸上画出游戏过程中你的情感投入程度。</li>
+<li>随着游戏的进展，你有没有感觉到戏剧的高潮？</li>
+<li>你会怎么让故事和游戏更好地结合成一个整体？</li>
+</ol>
+<h2 id="流程、规则、界面及操作"><a href="#流程、规则、界面及操作" class="headerlink" title="流程、规则、界面及操作"></a>流程、规则、界面及操作</h2><ol>
+<li>总体的游戏流程好了解吗？</li>
+<li>流程和规则好理解吗？</li>
+<li>操作感觉怎么样，好接受吗？</li>
+<li>你能在界面上找到你需要的信息吗？</li>
+<li>界面上有什么你想要修改的地方吗？</li>
+<li>有什么东西你觉得笨重或者不顺手吗？</li>
+<li>有没有什么你觉得应该加入的操作或者界面要素？</li>
+</ol>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><ol>
+<li>整体来说，你会怎么评价游戏的表现？</li>
+<li>你会买这款游戏吗？（你会为这款游戏投入多少金钱？）</li>
+<li>游戏的什么元素吸引你？</li>
+<li>游戏里缺少什么？</li>
+<li>如果你只能修改一样东西，你会修改什么？</li>
+<li>你觉得谁会是这款游戏的目标用户？</li>
+<li>如果你准备把这款游戏当成一个礼物，你会送给谁？</li>
+</ol>
+<h2 id="修改的想法"><a href="#修改的想法" class="headerlink" title="修改的想法"></a>修改的想法</h2><p>在这里写下你对修改游戏的想法。</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/07/25/Excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%AC%E5%BC%8F/">Excel快捷键及公式<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/08/02/%E5%A6%84%E6%83%B3%E5%B1%B1%E6%B5%B7%E7%B3%BB%E7%BB%9F%E6%8B%86%E8%A7%A3%E6%A1%88/">妄想山海系统拆解案<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="Fam044/bloghexo-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
   </div>
+
 
 
       

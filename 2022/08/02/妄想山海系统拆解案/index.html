@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.2.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>妄想山海系统拆解案 - Fam044's Blog</title>
+
+  
+    <meta name="description" content="基础  角色  角色创建该系统为现如今MMORPG游戏标配，玩家可以创建自己感兴趣的角色形象，这样游玩起来更具趣味性&#x2F;代入感 种族选择 捏脸系统 生日 阵营 出生地   角色基础信息 等级将不同系统的等级分开，更方便对各系统进行管理，也方便进行各种资源的管理，一定程度上避免各种资源间的转换所带来的问题 经脉等级 该等级为大荒世界的等级，为基础刷怪、日常任务与对战的等级   混沌等级 该等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="妄想山海系统拆解案">
+<meta property="og:url" content="https://fam044.github.io/2022/08/02/%E5%A6%84%E6%83%B3%E5%B1%B1%E6%B5%B7%E7%B3%BB%E7%BB%9F%E6%8B%86%E8%A7%A3%E6%A1%88/index.html">
+<meta property="og:site_name" content="Fam044&#39;s Blog">
+<meta property="og:description" content="基础  角色  角色创建该系统为现如今MMORPG游戏标配，玩家可以创建自己感兴趣的角色形象，这样游玩起来更具趣味性&#x2F;代入感 种族选择 捏脸系统 生日 阵营 出生地   角色基础信息 等级将不同系统的等级分开，更方便对各系统进行管理，也方便进行各种资源的管理，一定程度上避免各种资源间的转换所带来的问题 经脉等级 该等级为大荒世界的等级，为基础刷怪、日常任务与对战的等级   混沌等级 该等">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-02T08:33:45.000Z">
+<meta property="article:modified_time" content="2022-08-02T08:42:18.654Z">
+<meta property="article:author" content="Fam044">
+<meta property="article:tag" content="Game">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Fam044's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/2022/08/02/%E5%A6%84%E6%83%B3%E5%B1%B1%E6%B5%B7%E7%B3%BB%E7%BB%9F%E6%8B%86%E8%A7%A3%E6%A1%88/">妄想山海系统拆解案</a></div><div class="more-item"><a class="title" href="/2022/07/27/%E6%B8%B8%E6%88%8F%E5%8F%AF%E7%8E%A9%E6%80%A7%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/">游戏可玩性测试脚本</a></div><div class="more-item"><a class="title" href="/2022/07/25/Excel%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%8F%8A%E5%85%AC%E5%BC%8F/">Excel快捷键及公式</a></div><div class="more-item"><a class="title" href="/2022/07/23/Game-Design-Workshop-Notes/">Game_Design_Workshop_Notes</a></div><div class="more-item"><a class="title" href="/2022/06/11/Software-Testing-Learning-Note/">Software_Testing_Learning_Note</a></div></div></div>
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Fam044" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=285668870" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Game/">Game</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-08-02T08:33:45.000Z">2022-08-02</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>妄想山海系统拆解案</span></h1>
+<p><strong>基础</strong></p>
+<ul>
+<li><p>角色</p>
+<ul>
+<li>角色创建<br>该系统为现如今MMORPG游戏标配，玩家可以创建自己感兴趣的角色形象，这样游玩起来更具趣味性&#x2F;代入感<ul>
+<li>种族选择</li>
+<li>捏脸系统</li>
+<li>生日</li>
+<li>阵营</li>
+<li>出生地</li>
+</ul>
+</li>
+<li>角色基础信息<ul>
+<li>等级<br>将不同系统的等级分开，更方便对各系统进行管理，也方便进行各种资源的管理，一定程度上避免各种资源间的转换所带来的问题<ul>
+<li>经脉等级<ul>
+<li>该等级为大荒世界的等级，为基础刷怪、日常任务与对战的等级</li>
+</ul>
+</li>
+<li>混沌等级<ul>
+<li>该等级为该游戏中混沌模式内的等级</li>
+</ul>
+</li>
+<li>家园等级<ul>
+<li>该等级为家园建设的等级，随着家园等级的上升，可建造的建筑越多</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>魅力</li>
+<li>实力总览<ul>
+<li>大荒实力</li>
+<li>混沌实力</li>
+<li>家园实力</li>
+</ul>
+</li>
+<li>基本属性<br>该游戏里面大世界的基本属性较多，从各方面对角色的行为造成影响，可以尽可能地营造真实感，实测下来发现除非较为极端的环境，一般而言不会对玩家造成过大影响；但是在环境比较极端的地图中，玩家就必须留意这些参数的变化所带来的影响，可以给玩家带来较真实的感觉<ul>
+<li>重力<ul>
+<li>当角色身处异常区域 、 经历特殊天气 或 被神秘外力影响时，会受到重力影响</li>
+<li>重力升高会使行动沉重，重力降低会使行动轻盈</li>
+</ul>
+</li>
+<li>意志力<ul>
+<li>在混沌星球中意志力会随时间受到侵蚀</li>
+<li>相当于大逃杀模式中的信号值</li>
+</ul>
+</li>
+<li>饱食度<ul>
+<li>饱食度随时间下降，砍树、采集等行为会加速饱食度下降</li>
+<li>饱腹状态<ul>
+<li>攻击力和负重能力得到提升</li>
+</ul>
+</li>
+<li>正常状态</li>
+<li>微饿状态</li>
+<li>饥饿状态<ul>
+<li>攻击力、移动速度和负重上限都降低 ，并且每段时间会扣除一定血量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>体力</li>
+<li>精力<ul>
+<li>玩家每次进行采集行为（伐木、采矿等）都会消耗一定精力</li>
+<li>精力值可以通过在线自然恢复或食用食物等形式恢复</li>
+</ul>
+</li>
+<li>凝神<ul>
+<li>当与巨兽进行战斗时会扣除凝神，可以在家园、篝火处休息、随时间或食用部分高级食物恢复凝神力</li>
+<li>集中状态<ul>
+<li>增加对巨兽的伤害，减少受到巨兽的伤害</li>
+</ul>
+</li>
+<li>正常状态</li>
+<li>涣散状态<ul>
+<li>减少对巨兽的伤害，增加受到巨兽的伤害</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>吐纳<ul>
+<li>玩家潜水时会持续消耗吐纳值</li>
+<li>吐纳值不足时，每段时间都会消耗一定生命值</li>
+<li>脱离潜水状态即刻恢复（恢复也是按一定速率，不是立刻回复满）</li>
+</ul>
+</li>
+<li>耐力</li>
+<li>元炁<ul>
+<li>使用灵契器魂时自动消耗元炁，部分觉醒了特定神力的武器技能，在使用时也会消耗元炁</li>
+<li>元炁不足消耗时，灵契器魂依然可以使用，但不会造成元素类伤害效果，也不会触发神力融合效果</li>
+</ul>
+</li>
+<li>毒素<ul>
+<li>当处于浓雾天气时，毒素会上升；脱离浓雾天气时，毒素会慢慢下降，可以吃抗毒的食物或者装备具有抗毒词条的耳环应对</li>
+<li>轻度污染状态<ul>
+<li>禁用加速跑并且微微持续掉血</li>
+</ul>
+</li>
+<li>重度污染状态<ul>
+<li>禁用加速跑并且持续掉血</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>湿度<ul>
+<li>当处于下雨或下雪天气时，湿度会上升；当脱离下雨或下雪天气时，湿度会慢慢降低，可以吃抗潮湿的食物或者装备具有抗潮湿的词条的耳环应对</li>
+<li>轻微受潮状态（湿度在40-60之间）<ul>
+<li>轻度降低负重上限</li>
+</ul>
+</li>
+<li>中度受潮状态（湿度在60-80之间）<ul>
+<li>中度降低负重上限</li>
+</ul>
+</li>
+<li>重度受潮状态（湿度在大于80）<ul>
+<li>重度降低负重上限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>体感<ul>
+<li>当处于炎热&#x2F;寒冷区域、昼夜切换或者部分天气发生时，体感会发生改变，可以通过吃耐寒&#x2F;耐热的食物或者装备具有耐寒&#x2F;耐热词条的耳环应对</li>
+<li>极度受寒状态（体感在-30度到-22度之间）<ul>
+<li>持续掉血，减速，加速消耗饱食度</li>
+</ul>
+</li>
+<li>重度受寒状态（体感在-22度到-13度之间）<ul>
+<li>微微掉血，稍微减速，加速消耗饱食度</li>
+</ul>
+</li>
+<li>中度受寒状态（体感在-13度到-4度之间）<ul>
+<li>稍微减速，加速消耗饱食度</li>
+</ul>
+</li>
+<li>轻度受寒状态（体感在-4度到5度之间）<ul>
+<li>加速消耗饱食度</li>
+</ul>
+</li>
+<li>轻度高温状态（体感在35度到44度之间）<ul>
+<li>稍微减速，加速消耗饱食度</li>
+</ul>
+</li>
+<li>中度高温状态（体感在44度到53度之间）<ul>
+<li>微微掉血，稍微减速，大量加速消耗饱食度</li>
+</ul>
+</li>
+<li>重度高温状态（体感在53度到62度之间）<ul>
+<li>持续掉血，大量加速消耗饱食度</li>
+</ul>
+</li>
+<li>极度高温状态（体感在62度到70度之间）<ul>
+<li>持续大量掉血，大量加速消耗饱食度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>隐匿<ul>
+<li>部分怪物会对目标的隐匿度高低采取不同的行为策略</li>
+<li>隐匿值可从星宿房宿中获得，也可使用如拟态、草区域生成器等道具获得</li>
+</ul>
+</li>
+<li>杀气<ul>
+<li>击杀大世界上的异兽或群侠会增长杀气，且目标等级越高，击杀所获得的杀气就越高，也可使用道具杀戮饮提升自身杀气</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>战斗属性<br>为当前RPG或一般网游较为常见的属性，该游戏将大荒属性和混沌属性分开，因为在该游戏中大荒世界和混沌世界属于两种不同的玩法，而朔风属性和烈金属性则为大荒属性的分支（属于元素属性，对攻击的目标造成不同元素的伤害）<ul>
+<li>大荒属性<ul>
+<li>基础属性<ul>
+<li>生命</li>
+<li>攻击</li>
+<li>防御</li>
+<li>追加防御率</li>
+<li>防御穿透</li>
+<li>追加穿透率</li>
+<li>追加伤害</li>
+<li>抵挡伤害</li>
+<li>伤害加成</li>
+<li>伤害减免</li>
+<li>对玩家伤害加成</li>
+<li>对玩家伤害减免</li>
+</ul>
+</li>
+<li>近战属性<ul>
+<li>暴击</li>
+<li>追加暴击率</li>
+<li>暴击伤害</li>
+<li>暴击伤害减免</li>
+<li>韧性</li>
+<li>追加韧性率</li>
+<li>近距离伤害加成</li>
+<li>近距离伤害减免</li>
+</ul>
+</li>
+<li>远程属性<ul>
+<li>弱点率</li>
+<li>弱点率减免</li>
+<li>弱点伤害</li>
+<li>弱点伤害减免</li>
+<li>远距离伤害加成</li>
+<li>远距离伤害减免</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>混沌属性<ul>
+<li>基础属性<ul>
+<li>护盾</li>
+<li>攻击</li>
+<li>防御</li>
+<li>追加防御率</li>
+<li>追加伤害</li>
+<li>抵挡伤害</li>
+<li>伤害加成</li>
+<li>伤害减免</li>
+<li>对玩家伤害增加</li>
+<li>对玩家伤害减免</li>
+</ul>
+</li>
+<li>近战属性<ul>
+<li>暴击</li>
+<li>追加暴击率</li>
+<li>暴击伤害</li>
+<li>暴击伤害减免</li>
+<li>韧性</li>
+<li>追加韧性率</li>
+<li>近距离伤害加成</li>
+<li>近距离伤害减免</li>
+</ul>
+</li>
+<li>远程属性<ul>
+<li>弱点率</li>
+<li>弱点率减免</li>
+<li>弱点伤害</li>
+<li>弱点伤害减免</li>
+<li>远距离伤害加成</li>
+<li>远距离伤害减免</li>
+</ul>
+</li>
+<li>特殊属性<ul>
+<li>灵能积分结算浮动</li>
+<li>灵智积分结算浮动</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>朔风属性<ul>
+<li>基础属性<ul>
+<li>护盾</li>
+<li>攻击</li>
+<li>防御</li>
+<li>追加防御率</li>
+<li>防御穿透</li>
+<li>追加穿透率</li>
+<li>追加伤害</li>
+<li>抵挡伤害</li>
+</ul>
+</li>
+<li>特殊属性<ul>
+<li>朔风伤害</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>烈金属性<ul>
+<li>基础属性<ul>
+<li>护盾</li>
+<li>攻击</li>
+<li>防御</li>
+<li>追加防御率</li>
+<li>防御穿透</li>
+<li>追加穿透率</li>
+<li>追加伤害</li>
+<li>抵挡伤害</li>
+</ul>
+</li>
+<li>特殊属性<ul>
+<li>烈金伤害</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>角色变强（的方法）<ul>
+<li>星宿<br>星宿内的节点需要花费星宿点来升级（大荒星宿需要花费大荒星宿点，混沌星宿需要花费混沌星宿点），星宿内的所有节点达到1级后解锁对应星宿的天赋 类似于其他游戏中的属性加点，不过该星宿系统里星宿点的获得渠道比较多样，不是仅仅通过升级获得，还可以通过家园建造等方式获得，让不同玩家通过不同方式游玩都可以得到一定提升<ul>
+<li>大荒星宿<ul>
+<li>识海<ul>
+<li>识海<ul>
+<li>基础星宿</li>
+<li>激活此星宿才可解锁识天、识地、识人三个星宿</li>
+</ul>
+</li>
+<li>识天<ul>
+<li>掌管通用型天赋</li>
+<li>激活此星宿才可解锁北斗、中天、南斗三个星宿</li>
+</ul>
+</li>
+<li>识地<ul>
+<li>掌管近距离通用型天赋</li>
+<li>激活此星宿才可解锁白虎、玄武两个星宿</li>
+</ul>
+</li>
+<li>识人<ul>
+<li>掌管远距离通用型天赋</li>
+<li>激活此星宿才可解锁青龙、朱雀两个星宿</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>玄武之魂<ul>
+<li>近战系星象</li>
+<li>可强化大锤，盾，斧钺，重剑，定海神针，九缚等近战控制类兵器</li>
+</ul>
+</li>
+<li>青龙之魂<ul>
+<li>远程系星象</li>
+<li>可强化元戎弩，步弩，夹弩，千机弩，神臂弩等远程冷兵类兵器</li>
+</ul>
+</li>
+<li>朱雀之魂<ul>
+<li>远程系星象</li>
+<li>可强化掣电铳，五类铳，连珠铳，梅花镖，手铳等远程热兵类兵器</li>
+</ul>
+</li>
+<li>白虎之魂<ul>
+<li>近战系星象</li>
+<li>可强化血刃，横刀，双刀，月刃，长枪，传虹剑，昆吾剑等近战攻击类兵器</li>
+</ul>
+</li>
+<li>北斗之星<ul>
+<li>远程系星象</li>
+<li>可强化灼心弩，排铳，喷火器，弓，火炮，星霆弩等远程特殊类兵器</li>
+</ul>
+</li>
+<li>中天之星<ul>
+<li>近战系星象</li>
+<li>可强化基础行为</li>
+</ul>
+</li>
+<li>南斗之星<ul>
+<li>中程系星象</li>
+<li>可强化青玉笛，红貘，停云扇，杖，琵琶，梦魂灯，御剑等中程类兵器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>混沌星宿<ul>
+<li>混沌</li>
+<li>弥罗</li>
+<li>夜冥</li>
+<li>俢摩</li>
+<li>幽提</li>
+</ul>
+</li>
+<li>星宿天赋配置<ul>
+<li>所有在星宿界面激活了的星宿天赋才可以配置</li>
+<li>只有装入星盘中的天赋才可以生效</li>
+<li>每个天赋上方的数字表示该天赋所消耗的星盘点数，点击备选星宿天赋可以将其装入星盘中，总点数不能超过星盘总点数</li>
+<li>星盘总点数随玩家等级提升而增加</li>
+<li>星盘方案最多可以预存3个，只能选择一个生效</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>研习<ul>
+<li>研习需要氏族内已研发相对应的属性秘术</li>
+<li>研习还需要消耗一定的资源（氏族贡献、脂玉和贝币）</li>
+</ul>
+</li>
+<li>灵蕴<br>相当于王者或者LOL以前的符文页，通过升级和增强符文来变强，不同类型的符文组合也有不同效果<ul>
+<li>注灵<ul>
+<li>将灵蕴注入灵蕴槽位 ，角色会获得属性提升</li>
+<li>不同类型的灵蕴注入的槽位类型也不同</li>
+</ul>
+</li>
+<li>融合<ul>
+<li>将多个相同类型、等级的灵蕴融合为更高级的灵蕴，高级灵蕴可提供更多属性</li>
+</ul>
+</li>
+<li>熔炼<ul>
+<li>没用的灵蕴可通过熔炼炉熔炼成灵蕴精华，可在成长商店中购买随机灵蕴包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>生活<br>为模拟经营方面的成长体系，部分高级生活技能的解锁需要先把技能熟练度提升上来，给玩家一个较为适宜的挑战曲线，不至于短时间内解锁完所有的功能，失去挑战性，有利于用户的留存<ul>
+<li>名词解释<ul>
+<li>职业经验<ul>
+<li>获取职业经验提升职业等级</li>
+</ul>
+</li>
+<li>精力值<ul>
+<li>采集、伐木、采矿、搜索、收集种植物都需要消耗精力值，精力值不足时无法获得产物</li>
+</ul>
+</li>
+<li>职业技能点<ul>
+<li>职业等级提升时可获得职业技能点，消耗职业技能点可学习职业技能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>生活技能分类<ul>
+<li>采集</li>
+<li>伐木</li>
+<li>采矿</li>
+<li>搜寻</li>
+<li>炼器</li>
+<li>加工</li>
+<li>种植</li>
+<li>攻城</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>血脉<br>角色属性的提升多少与宠物的战力高低相关，这就意味着玩家想要让角色提高更多的战力，就需要在宠物方面多花时间或金钱，而连接宠物的槽位多寡又与家园建设值相挂钩，这就又需要玩家在家园建设上多花心思<ul>
+<li>通过提升家园建设值来提升血脉等级</li>
+<li>通过与宠物进行连接来获得血脉带来的属性</li>
+</ul>
+</li>
+<li>神兵<ul>
+<li>获取<ul>
+<li>需要完成神兵任务后才可解锁神兵</li>
+</ul>
+</li>
+<li>神技<ul>
+<li>释放神兵技能可破除巨兽的封印，提升神兵等级可同时破除更多的巨兽封印</li>
+</ul>
+</li>
+<li>寄魂<ul>
+<li>可将兵魂寄生在神兵上提升神兵能力</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>装备<br>装备系统中将武器和防具分开进行管理，说明该游戏的武器和防具是差异化管理的，会分成武器子系统和防具子系统，配件又分成一个额外的子系统，这样将各个子系统分开管理便于后续增加功能</p>
+<ul>
+<li>武器<ul>
+<li>武器品质分为：白 绿 蓝 紫 橙 红</li>
+<li>武器存在物品总实力<ul>
+<li>部分物品会拥有多种类型的实力</li>
+</ul>
+</li>
+<li>武器具有材料属性</li>
+<li>武器类型多样</li>
+<li>武器具有耐久值和坚固值<ul>
+<li>回复耐久值会消耗坚固值</li>
+<li>修复耐久值需要消耗道具</li>
+</ul>
+</li>
+<li>武器具有基础属性和词条属性<ul>
+<li>同类装备可以将词条转移到另一个装备上，转移后原有装备的词条将会消失</li>
+<li>只能往同品质或更高品质的装备转移词条</li>
+<li>同类型的词条一件装备只能存在一个</li>
+</ul>
+</li>
+<li>高级武器具有技能</li>
+</ul>
+</li>
+<li>护甲<ul>
+<li>武器之外的装备统称防具</li>
+<li>防具具有材料属性</li>
+<li>防具类型<ul>
+<li>头盔</li>
+<li>耳环</li>
+<li>肩甲</li>
+<li>衣服</li>
+<li>戒指</li>
+<li>面具</li>
+</ul>
+</li>
+<li>防具具有耐久值和坚固值<ul>
+<li>回复耐久值会消耗坚固值</li>
+<li>修复耐久值需要消耗道具</li>
+</ul>
+</li>
+<li>防具具有材料属性</li>
+<li>防具有不同类型和品质</li>
+<li>防具具有各种属性，部分防具具有特殊效果</li>
+</ul>
+</li>
+<li>改造<ul>
+<li>改造武器需要能提供改造属性的武器</li>
+</ul>
+</li>
+<li>配件<ul>
+<li>部分武器可以装备配件</li>
+<li>配件栏数量有限</li>
+<li>配件具有特殊属性</li>
+<li>配件具有耐久值和坚固值<ul>
+<li>回复耐久值会消耗坚固值</li>
+<li>修复耐久值需要消耗道具</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>附魂<ul>
+<li>附魂可以将装备原有技能替换为器魂所具有的技能</li>
+<li>不同器魂具有不同技能</li>
+<li>不同器魂所能附魂的武器类型不同</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>资源<br>此处的资源是用于购买各种物品的货币，与家园模式里的木头、石头等资源是区分开的 这种货币间的分级也是现如今游戏里面常见的做法，该游戏中将其分为婴玉、勾玉和脂玉，不同等级的货币可以购买不同数量或者级别的物品，有的活动奖励需要特殊的活动货币进行兑换，不同货币也有不同的获取方式 有时候一些更新补偿或者活动的时候，就可以赠送一些级别较高但不是最高的货币，这样对于微氪玩家来说是一种不错的福利</p>
+<ul>
+<li>婴玉·储值</li>
+</ul>
+</li>
+</ul>
+<p>相当于Q币或是充值所得的点券，可以用于购买商店大部分商品，只可以通过充值获得<br>    - 用于在商店中购买物品<br>    - 可以将其兑换成勾玉和脂玉</p>
+<ul>
+<li><p>勾玉·流通</p>
+<ul>
+<li>用于在商店、拍卖行购买物品</li>
+<li>获取渠道<ul>
+<li>可以通过在商店购买礼包或者直接购买活动礼包获得</li>
+<li>可以在拍卖行中出售物品获得</li>
+<li>可以购买月卡获得</li>
+<li>可以通过婴玉兑换</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>脂玉·绑定</p>
+<ul>
+<li>在商店中购买物品</li>
+<li>获取渠道<ul>
+<li>可以在商店购买礼包获得</li>
+<li>可以通过试炼挑战获得<ul>
+<li>围狩试炼</li>
+<li>图腾试炼</li>
+</ul>
+</li>
+<li>可以通过完成任务获得<ul>
+<li>氏族任务</li>
+<li>小队任务</li>
+<li>福利任务</li>
+</ul>
+</li>
+<li>可以通过探索风景点获得</li>
+<li>可以通过婴玉兑换</li>
+<li>可以通过世界探索获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>贝币</p>
+<ul>
+<li>很多地方都可以用到，是该游戏中最基础的货币（其他游戏里金币的概念）</li>
+<li>获取渠道<ul>
+<li>可以在商店购买礼包获得</li>
+<li>可以通过围狩试炼获得</li>
+<li>可以通过小队任务获得</li>
+<li>可以通过开启日常活跃宝箱获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>灵能</p>
+<ul>
+<li>在混沌商店兑换物资</li>
+<li>获取渠道<ul>
+<li>通过混沌战场获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>灵智之核</p>
+<ul>
+<li>在混沌商店兑换物资</li>
+<li>获取渠道<ul>
+<li>通过混沌战场获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>灵智</p>
+<ul>
+<li>在混沌商店兑换物资</li>
+<li>获取渠道<ul>
+<li>通过混沌战场获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>朔云石</p>
+<ul>
+<li>在貔貅台、北山商城购买物品</li>
+<li>获取渠道<ul>
+<li>通过参与限时活动获得</li>
+<li>可以参与悬赏任务获得</li>
+<li>可以催化神草获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>紫幽石</p>
+<ul>
+<li>在貔貅台、异人部落、紫幽石商店购买物品</li>
+<li>获得渠道<ul>
+<li>可以挑战大荒图腾获得</li>
+<li>可以通过悬赏任务获得</li>
+<li>可以购买活动礼包获得</li>
+<li>可以参加限时活动获得</li>
+<li>可以进行特定巨兽狩猎获得</li>
+<li>可以完成异人部落特定挑战获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>墨箴石</p>
+<ul>
+<li>在貔貅台、异人部落、墨箴石商店购买物品</li>
+<li>获得渠道<ul>
+<li>NPC处购买</li>
+<li>大荒图腾</li>
+<li>悬赏任务</li>
+<li>狩猎特定巨兽</li>
+<li>购买活动礼包</li>
+<li>异人部落特定挑战</li>
+<li>限时活动</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>青佩</p>
+<ul>
+<li>在青佩商店购买物品</li>
+<li>获得渠道<ul>
+<li>和好友一起完成小队任务</li>
+<li>和好友一起完成围狩试炼</li>
+<li>和好友一起完成家园守护活动</li>
+<li>和好友一起完成狩猎巨兽</li>
+<li>送花给其他玩家</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>曳星英华</p>
+<ul>
+<li>用于强化铭星灵蕴</li>
+<li>获取渠道<ul>
+<li>通过熔炼铭星灵蕴或带词条的铭星道具获得</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>灵蕴精华</p>
+<ul>
+<li>在灵蕴商店购买物品</li>
+<li>获取渠道<ul>
+<li>以队长身份完成巨兽图或魔化蚩尤图挑战</li>
+<li>通过熔炼炉熔炼灵蕴</li>
+<li>完成家园守护活动</li>
+<li>在杂货商或貔貅台购买礼包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>氏族贡献</p>
+<ul>
+<li>在氏族商店购买物品</li>
+<li>获取渠道<ul>
+<li>氏族捐献</li>
+<li>氏族任务</li>
+<li>氏族守护</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>背包</p>
+<ul>
+<li>负重值<ul>
+<li>超重后角色移动速度会降低</li>
+<li>负重上限受到生活技能，特殊食物，天气以及饱食度等的影响</li>
+</ul>
+</li>
+<li>背包格数<ul>
+<li>固定数量，无法扩充</li>
+</ul>
+</li>
+<li>背包整理（整合、排序）<ul>
+<li>按品质排序</li>
+<li>按类型排序</li>
+<li>按负重排序</li>
+</ul>
+</li>
+<li>装备栏<ul>
+<li>放置防具</li>
+</ul>
+</li>
+<li>快捷栏<ul>
+<li>可以放置背包任何物品</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>大荒探索</strong></p>
+<ul>
+<li><p>山海巨兽</p>
+<ul>
+<li>异兽</li>
+<li>大荒巨兽</li>
+<li>深海巨兽</li>
+<li>荣誉巨兽</li>
+<li>星空巨兽</li>
+</ul>
+</li>
+<li><p>图腾战斗</p>
+<ul>
+<li>战斗图腾</li>
+<li>狩猎图腾</li>
+<li>高等战斗图腾</li>
+<li>高等狩猎图腾</li>
+<li>首领图腾</li>
+<li>神兽图腾</li>
+<li>神秘图腾</li>
+</ul>
+</li>
+<li><p>山海拾荒</p>
+<ul>
+<li>装备拾荒</li>
+<li>宝箱拾荒</li>
+<li>元胎拾荒</li>
+<li>家具拾荒</li>
+</ul>
+</li>
+<li><p>山海群侠</p>
+<ul>
+<li>游荡群侠</li>
+<li>游荡坐骑群侠</li>
+<li>群侠小屋</li>
+</ul>
+</li>
+<li><p>钓鱼</p>
+</li>
+<li><p>资源搜索器</p>
+</li>
+<li><p>解锁天枢</p>
+</li>
+<li><p>风景点</p>
+</li>
+<li><p>秘境</p>
+</li>
+</ul>
+<p><strong>家园</strong><br>家园建造为该游戏中重要的玩法之一，玩家通过收集建造所需的基础资源，去打造属于自己的家园。 家园的建造所需要的基础资源需要通过采集或者狩猎获得，而家园的各项功能的开启又是阶段性的，各种家具与灵器（特殊家具，如木匠台、缝纫机、锻造台等）需要消耗不同等级的资源去开启，越往后需要等级越高的资源，这样就形成了一个 收集&#x2F;狩猎-&amp;gt;升级-&amp;gt;建造-&amp;gt;收集&#x2F;狩猎 的循环的过程，而成长曲线是由收集物品的难度和数量所决定的。</p>
+<ul>
+<li>选址摆放<ul>
+<li>在大荒中找到一块合适的地方放置灵池即完成选址</li>
+<li>需要注意放置时边框变蓝才可放置，且附近不能有其他玩家的建筑</li>
+</ul>
+</li>
+</ul>
+<p>建造操作</p>
+<ul>
+<li><p>模式</p>
+<ul>
+<li>建造<ul>
+<li>在家园范围内选择具体的建筑部件进行建造</li>
+</ul>
+</li>
+<li>摆菜<ul>
+<li>将菜肴放在桌子上（必须要有桌子）</li>
+</ul>
+</li>
+<li>耕种<ul>
+<li>可以在家园附近种植植物</li>
+</ul>
+</li>
+<li>修理<ul>
+<li>对家园里受到损坏的部件或家具进行修复</li>
+</ul>
+</li>
+<li>装修<ul>
+<li>对家园内部件进行喷漆或作壁画</li>
+</ul>
+</li>
+<li>野营<ul>
+<li>在家园外的地方进行野营可以进行休息和烹饪</li>
+<li>营地每个小时都需要消耗一定的营地的能量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>家园升级</p>
+<ul>
+<li>在家园的建造值达到一定数额后，消耗特定资源即可对家园进行升级</li>
+<li>升级可以提高家园各属性的上限</li>
+<li>息壤能力的提升受到家园等级的限制</li>
+</ul>
+</li>
+<li><p>家园属性</p>
+<ul>
+<li>基础属性<ul>
+<li>结构<br>即房屋的一些基本的组成结构，地基、地板、墙面、窗户等的部件<ul>
+<li>筑基、椽置、凭栏为结构</li>
+</ul>
+</li>
+<li>家具<ul>
+<li>灵器不算在家具里面</li>
+<li>家具是指桌子、椅子、柜子等的部件</li>
+</ul>
+</li>
+<li>器械<ul>
+<li>器械是指架火炮、铁砂炮、床弩等器械</li>
+</ul>
+</li>
+<li>挂件<br>即房屋的房顶和屋檐此类部件<ul>
+<li>望轩和脊檐为挂件</li>
+</ul>
+</li>
+<li>种植<ul>
+<li>即家园范围内种植的植物</li>
+</ul>
+</li>
+<li>鱼苗<ul>
+<li>即养殖在浴缸内的鱼类</li>
+</ul>
+</li>
+<li>室温<ul>
+<li>当前室内温度</li>
+</ul>
+</li>
+<li>运输<ul>
+<li>千乘的数量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>范围属性<ul>
+<li>范围<ul>
+<li>家园所占的范围大小</li>
+</ul>
+</li>
+<li>纳气转化率<ul>
+<li>通过建造远山台（灵器）获取灵气（每段时间会产生一定数量的经验值，需要手动收取）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>仓库</p>
+<ul>
+<li>建造柜类家具可以用于摆放物品</li>
+<li>柜子内的存放数量有限</li>
+<li>快速使用仓库内物品<ul>
+<li>在家园范围内时，材料总数会显示背包+仓库中所有的材料</li>
+<li>在自己家园范围外时，材料总数只会显示背包中所有该材料</li>
+<li>消耗材料的优先级为：背包中绑定、背包中未绑定、仓库中绑定、仓库中未绑定</li>
+<li>若有材料所在的仓库已损坏，消耗时会加以提醒</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>家园共建</p>
+<ul>
+<li>创建队伍后邀请队友参加共建即可</li>
+</ul>
+</li>
+<li><p>家园迁移</p>
+<ul>
+<li>在家园界面中点击收家园</li>
+<li>然后选择合适的地方放置灵池即可</li>
+</ul>
+</li>
+<li><p>家园招领</p>
+<ul>
+<li>招领功能可领取被玩家、系统或NPC摧毁的可返还的家具和灵器</li>
+</ul>
+</li>
+<li><p>蓝图</p>
+<ul>
+<li>蓝图槽位<ul>
+<li>蓝图槽位可以用于保存家园的状态</li>
+<li>槽位1为默认操作，每次保存时可更新为当前家园状态</li>
+</ul>
+</li>
+<li>蓝图解锁<ul>
+<li>除了槽位1外，其余槽位需要消耗贝币或勾玉解锁</li>
+<li>解锁按顺序进行</li>
+</ul>
+</li>
+<li>蓝图使用<ul>
+<li>使用蓝图时，需要处于无家园状态，如有家园需要先回收</li>
+</ul>
+</li>
+<li>蓝图修理<ul>
+<li>蓝图摆放后，在材料齐全的情况下，使用界面上的修理按钮，将蓝图全部修理，即可获得蓝图中的家园</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>灵器<br>即特殊家具，类似缝纫机、织布机或者一些可以进行任务、活动的家具，区别于一般的柜子、桌子等家具</p>
+</li>
+<li><p>息壤</p>
+<ul>
+<li>息壤可以用于将初级的家园资源转换成家具等物品</li>
+<li>较高级的物品需要借助灵器才能建造</li>
+<li>息壤能力</li>
+</ul>
+</li>
+</ul>
+<p>相当于家园模块里的科技树功能，点亮科技树节点才可以建造对应的家具<br>    - 解锁<br>      - 每个息壤能力需要满足前置解锁条件后才可以解锁<br>    - 激活<br>      - 激活息壤能力需要花费一定的资源和时间<br>      - 取消激活<br>        - 激活过程中的息壤能力可以主动取消<br>        - 取消成功后会返还所有资源<br>      - 完成激活<br>        - 激活完成后的息壤能力还需要进行一次手动激活才可以生效<br>    - 模块分类<br>      - 建设<br>        - 房屋基本结构的构建能力，比如说墙壁、屋檐等<br>      - 制作<br>        - 制作是部分灵器的升级研究<br>      - 玄秘<br>        - 玄秘是部分灵器的升级研究<br>      - 育灵<br>        - 宠物、种植和鱼苗的升级研究<br>      - 巧具<br>        - 一些道具类的升级研究，比如说捕捉宠物的器械等<br>      - 千乘<br>        - 驾驶工具的升级研究<br>      - 履迹<br>      - 基建<br>        - 房屋基建的研究，地基和农田的研究等</p>
+<p><strong>混沌星球</strong></p>
+<ul>
+<li><p>名词手册</p>
+<ul>
+<li>图文并茂解释一些符号和名称的意义</li>
+</ul>
+</li>
+<li><p>地图</p>
+</li>
+<li><p>结算<br>该模式的两种结算的方式</p>
+<ul>
+<li>提交道具保留点数</li>
+<li>成功返回【章尾墟】</li>
+</ul>
+</li>
+<li><p>跨服匹配</p>
+</li>
+<li><p>降生</p>
+</li>
+<li><p>分数道具</p>
+</li>
+<li><p>搜索</p>
+</li>
+<li><p>意志力</p>
+</li>
+<li><p>混沌背包与负重</p>
+</li>
+<li><p>跨服背包-幽渊之契</p>
+</li>
+<li><p>混沌装备</p>
+</li>
+<li><p>属性</p>
+</li>
+<li><p>经验</p>
+</li>
+<li><p>星宿</p>
+</li>
+<li><p>活动流程</p>
+</li>
+<li><p>载具</p>
+</li>
+<li><p>建造</p>
+</li>
+<li><p>装备</p>
+</li>
+<li><p>能力</p>
+</li>
+</ul>
+<p><strong>宠物</strong><br>该游戏中有（坐骑）宠物和侍从两种可以伴随角色一起作战，前者可以作为坐骑，而后者只能进行作战，前者可以通过捕捉或购买获得，而后者只能通过招募获得</p>
+<ul>
+<li><p>（坐骑）宠物</p>
+<ul>
+<li>宠物捕捉<ul>
+<li>当动物血量低于一定程度时，就会出现可捕捉的标记</li>
+<li>可以使用特定武器去捕捉动物，动物等级越高，成功率越低</li>
+</ul>
+</li>
+<li>宠物孵化<ul>
+<li>玩家可通过商店购买等渠道获取元胎（相当于宠物蛋）</li>
+<li>孵化元胎需要在家园中放置孵化巢</li>
+<li>每个蛋有一个孵化适宜温度，只要角色满足这个温度，孵化速度就会很快，如果温度相差较远，孵化将不会进行</li>
+<li>如果多人在一个家园同时孵化，能极大加快孵化速度</li>
+<li>孵化后的宠物自动进入宠物栏</li>
+</ul>
+</li>
+<li>宠物放生<ul>
+<li>放生宠物会失去该宠物</li>
+<li>放生宠物会获得随机技能书，技能书的等级与宠物被放生时的等级有关</li>
+</ul>
+</li>
+<li>宠物升级<ul>
+<li>可以通过打怪、投喂食物、经验药、宠物吞噬来提升宠物等级</li>
+<li>宠物会自动消耗饱食度获得灵气（无论主人是否在线）</li>
+</ul>
+</li>
+<li>宠物资质<ul>
+<li>三种资质<ul>
+<li>攻击</li>
+<li>生命</li>
+<li>防御</li>
+</ul>
+</li>
+<li>可以通过化育丹提升宠物资质</li>
+</ul>
+</li>
+<li>宠物技能<ul>
+<li>宠物具有天生技能，并且可以学习传承技能</li>
+<li>宠物通过学习技能书，可以增加新的传承技能</li>
+</ul>
+</li>
+<li>宠物服炼<ul>
+<li>放置服炼需要玩家有动物元胎，出战宠物会自动服炼放置在地上的动物元胎</li>
+<li>宠物等级越高，服炼属性上限越高，每5级提升服炼属性上限</li>
+<li>吞食元胎会获得服炼属性点，服炼属性点会随机加到服炼属性上</li>
+</ul>
+</li>
+<li>宠物蜕变<ul>
+<li>宠物蜕变前需要服炼一定数量的宠物元胎</li>
+<li>满足蜕变条件后需要使用丹药令宠物蜕变</li>
+<li>宠物蜕变后属性会得到提升</li>
+</ul>
+</li>
+<li>宠物吞噬<ul>
+<li>宠物被捕捉后有可能获得临时宠物</li>
+<li>当前出战宠物可以吞噬临时宠物</li>
+<li>吞噬后，有几率获得对方吞噬部位</li>
+<li>宠物吞噬时，目标等级越高，提供的灵气越高</li>
+</ul>
+</li>
+<li>喂养<ul>
+<li>可以喂养宠物，目前可以喂养饱食度、灵气、资质、生命恢复等的道具</li>
+</ul>
+</li>
+<li>宠物进化<ul>
+<li>宠物进化需要前往指定NPC处进行</li>
+</ul>
+</li>
+<li>斗兽<ul>
+<li>和其他玩家进行宠物间的决斗</li>
+<li>失败一方的宠物将被吞噬永久消失</li>
+</ul>
+</li>
+<li>寿命<ul>
+<li>宠物死亡后，再次召唤需要消耗寿命</li>
+<li>骑宠可以吞噬巨兽恢复寿命</li>
+</ul>
+</li>
+<li>血脉<ul>
+<li>宠物属性越高，给角色带来的血脉加成越高</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>侍从</p>
+<ul>
+<li>侍从获取<ul>
+<li>访客招募<ul>
+<li>特殊访客需要玩家在家园内摆放相应家具才可以招募</li>
+<li>招募访客需要消耗一定资源</li>
+</ul>
+</li>
+<li>异人部落招募<ul>
+<li>前往异人部落寻找NPC，消耗一定物品进行招募</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>侍从放生<ul>
+<li>放生侍从会失去该宠物</li>
+<li>放生侍从会获得随机技能书，技能书的等级与侍从被放生时的等级有关</li>
+</ul>
+</li>
+<li>侍从升级<ul>
+<li>可以通过打怪、投喂食物、经验药来提升侍从等级</li>
+</ul>
+</li>
+<li>侍从装备<ul>
+<li>侍从可以穿戴玩家赐予的装备，装备为武器+防具（共七件）</li>
+<li>不是所有武器都可赐予侍从</li>
+</ul>
+</li>
+<li>侍从属性<ul>
+<li>三种资质<ul>
+<li>攻击</li>
+<li>生命</li>
+<li>防御</li>
+</ul>
+</li>
+<li>可以通过化育丹提升宠物资质</li>
+</ul>
+</li>
+<li>侍从技能<ul>
+<li>侍从具有天生技能，并且可以学习传承技能</li>
+<li>侍从通过学习技能书，可以增加新的传承技能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>战斗</strong></p>
+<ul>
+<li><p>角色&#x2F;宠物动作</p>
+<ul>
+<li>普攻</li>
+<li>技能</li>
+</ul>
+</li>
+<li><p>特效</p>
+</li>
+<li><p>音效</p>
+</li>
+<li><p>镜头</p>
+</li>
+<li><p>掉落</p>
+</li>
+</ul>
+<p><strong>剧情</strong></p>
+<ul>
+<li><p>表达形式</p>
+<ul>
+<li>通过任务文字和过场动画</li>
+</ul>
+</li>
+<li><p>剧情分配</p>
+<ul>
+<li>不同剧情分配给不同NPC</li>
+</ul>
+</li>
+</ul>
+<p><strong>商业化</strong></p>
+<ul>
+<li><p>商店</p>
+<ul>
+<li>好物<ul>
+<li>新品<ul>
+<li>主要推销活动相关商品和日常优惠商品</li>
+</ul>
+</li>
+<li>热销<ul>
+<li>主要出售每日礼盒</li>
+</ul>
+</li>
+<li>特惠</li>
+<li>蓝图</li>
+</ul>
+</li>
+<li>专区</li>
+<li>成长</li>
+<li>宠物</li>
+<li>幻装</li>
+<li>幻石</li>
+<li>居家</li>
+<li>珍玩</li>
+<li>兑换</li>
+<li>鲜生</li>
+</ul>
+</li>
+<li><p>充值<br>都为如今常见成熟商业模式 月卡、成长基金、礼包、云海遨游令这些模式都可以在一定程度上提高日活数并提高用户在线时长</p>
+<ul>
+<li>月卡</li>
+<li>首充双倍</li>
+<li>成长基金<ul>
+<li>达到特定等级可以获得奖励</li>
+<li>奖励随着等级提升而递增</li>
+</ul>
+</li>
+<li>礼包<ul>
+<li>每日六倍福利礼包</li>
+<li>每日减负礼包<br>每日的付费礼包适合氪金玩家，可以节省获取资源的时间，减少肝度，并且为每日都可购买<ul>
+<li>付费礼包<br>以量取胜<ul>
+<li>1元</li>
+<li>3元</li>
+<li>6元</li>
+</ul>
+</li>
+<li>免费礼包<ul>
+<li>给予不氪或微氪玩家的一种礼包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>云海遨游令<br>通行证类型商业化模式，通过完成任务获取通行证经验，作用类似于成长基金<ul>
+<li>设有精良、珍稀、豪华三档，价格分别为0元（默认所有玩家开启），28元，68元</li>
+<li>设有云海商城，该商城货币为云海遨游令中获取的特定物品</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>拍卖行<br>玩家们各取所需，建造一个系统内市场，可以让资源流通；氪金较多的玩家可以减轻肝度，快速获得大量耗材，比较佛系（喜欢建造、模拟经营和探索）的玩家，也可以通过拍卖行去出售自己过多的资源</p>
+<ul>
+<li>竞拍<ul>
+<li>商品分类</li>
+<li>搜索框</li>
+<li>选中商品后可以参与竞拍和一口价拍下商品</li>
+<li>竞拍相关<ul>
+<li>竞拍时需要输入竞拍加价</li>
+<li>参与竞拍的商品会出现在收藏栏，方便玩家了解竞拍过程</li>
+<li>出价被超越后会发送邮件提醒玩家</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>出售<ul>
+<li>只能出售非绑定商品</li>
+<li>玩家可以看到正在出售中相同物品的价格</li>
+<li>相关参数<ul>
+<li>系统会自动填充相关参数</li>
+<li>出售数量</li>
+<li>一口价</li>
+<li>起拍价</li>
+<li>上架时长</li>
+<li>手续费<ul>
+<li>由卖家支付</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>求购<ul>
+<li>求购模块<ul>
+<li>选择具体的求购物品</li>
+<li>填写具体求购数据<ul>
+<li>数量</li>
+<li>单价</li>
+<li>时长</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>出售模块<ul>
+<li>玩家可在该模块查看其他玩家求购的物品，若玩家拥有该物品，可以进行出售</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>公示<ul>
+<li>出售的商品，部分会经过公示过程</li>
+<li>公示过程中可以预约，公示结束后可以竞拍或一口价购买</li>
+</ul>
+</li>
+<li>审核<ul>
+<li>部分商品成交时，系统会自动审核</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>社交</strong></p>
+<ul>
+<li><p>聊天（频道）</p>
+<ul>
+<li>大荒<ul>
+<li>同服务器中大荒模式（日常打怪、建造的模式）的聊天频道</li>
+</ul>
+</li>
+<li>阵营<ul>
+<li>同服务器同阵营的聊天频道</li>
+</ul>
+</li>
+<li>氏族<ul>
+<li>氏族相当于家族，或者工会</li>
+</ul>
+</li>
+<li>邻居<ul>
+<li>在以玩家的家园为中心，一定距离范围内的玩家的聊天频道</li>
+</ul>
+</li>
+<li>队伍<ul>
+<li>临时组队的聊天频道</li>
+</ul>
+</li>
+<li>附近</li>
+</ul>
+</li>
+<li><p>好友系统</p>
+<ul>
+<li>好友<ul>
+<li>好友交互<ul>
+<li>亲密度<ul>
+<li>获取方式<ul>
+<li>组队战斗</li>
+<li>好友送花</li>
+<li>燃放烟花</li>
+</ul>
+</li>
+<li>达到特定亲密度后Buff<ul>
+<li>可以传送到对方家园</li>
+<li>增加额外攻击力</li>
+<li>增加获得青佩的效率<ul>
+<li>青佩可在商店兑换物品</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>申请入队</li>
+<li>聊天</li>
+<li>查看家园位置</li>
+<li>举报</li>
+<li>解除好友</li>
+</ul>
+</li>
+<li>邻居交互<ul>
+<li>加为好友</li>
+<li>申请入队</li>
+<li>聊天</li>
+<li>查看家园位置</li>
+<li>举报</li>
+<li>解除好友</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>仇人<br>相当于黑名单，在战斗模式中击杀仇人不会增加干戈值，是处理恶意击杀同服务器其他玩家的一种方式，让有矛盾的玩家自行解决，可以保护喜欢和平的玩家<ul>
+<li>宿怨值<ul>
+<li>遭到玩家攻击后，对该玩家的宿怨值+1</li>
+<li>击杀该玩家，对该玩家宿怨值-1，该数值为0后将该玩家从仇人表中移出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>添加好友</li>
+<li>好友申请</li>
+</ul>
+</li>
+<li><p>氏族</p>
+<ul>
+<li>氏族信息<ul>
+<li>氏族捐献<ul>
+<li>文贝捐献<ul>
+<li>捐献文贝<ul>
+<li>可获得氏族资金和氏族贡献度</li>
+</ul>
+</li>
+<li>捐献贝币<ul>
+<li>可获得氏族资金和氏族贡献度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高级捐献<ul>
+<li>捐献脂玉<ul>
+<li>可获得氏族资金和氏族贡献度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>物资捐献<ul>
+<li>捐献木头<ul>
+<li>可获得氏族木材和氏族贡献度</li>
+</ul>
+</li>
+<li>捐献石头<ul>
+<li>可获得氏族石头和氏族贡献度</li>
+</ul>
+</li>
+<li>捐献兽皮<ul>
+<li>可获得氏族兽皮和氏族贡献度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>工作台<ul>
+<li>可以进行氏族建筑建造</li>
+</ul>
+</li>
+<li>秘术<ul>
+<li>分类<ul>
+<li>生产秘术<ul>
+<li>生产秘术是对研究属性秘术的增益，主要效果有减少研发时间，降低研发消耗和增加研发队列的效果</li>
+</ul>
+</li>
+<li>属性秘术<ul>
+<li>属性秘术可以为所有氏族成员带来属性增益，比如说攻击力、生命值等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>秘术相关<ul>
+<li>秘术效果</li>
+<li>研发消耗</li>
+<li>研发时间</li>
+<li>研发队列</li>
+<li>秘术维护</li>
+<li>续费<ul>
+<li>氏族资金不足以支付秘术消耗后，会停止对氏族成员的加成，点击续费后，会重新激活加成并扣除相对应的氏族资金</li>
+</ul>
+</li>
+<li>扣费时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>氏族成员<ul>
+<li>职位</li>
+<li>成员信息</li>
+<li>贡献度</li>
+<li>状态<ul>
+<li>显示在线信息（多久前在线）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>氏族活动<ul>
+<li>氏族守护<ul>
+<li>守护氏族，消灭敌人<ul>
+<li>相当于家族作战，比较常见的组队作战类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>氏族任务<br>相当于公会每日任务，完成任务后可获得经验，达到一定经验值后可获得宝箱<ul>
+<li>排名<ul>
+<li>按贡献的经验值排名，可以调动成员积极性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>氏族研究<ul>
+<li>可与其他氏族组成研究组进行研究</li>
+</ul>
+</li>
+<li>氏族日志<ul>
+<li>显示氏族贡献等信息<ul>
+<li>调度氏族内成员积极性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>氏族家园<br>可以拉近氏族成员间的距离<ul>
+<li>氏族成员可以在氏族家园内见面和进行活动</li>
+<li>氏族家园内可以摆放氏族建筑</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>活动</strong></p>
+<ul>
+<li><p>（限时&#x2F;运营）活动</p>
+<ul>
+<li>云巅众神</li>
+<li>山海蹦迪狂欢夜</li>
+<li>新神兽三青鸟</li>
+<li>新版本盛惠合集</li>
+<li>海西经开启<br>大版本更新，新地图及新玩法介绍</li>
+<li>感恩送钱<br>拉新活动，也邀请回归玩家</li>
+<li>三青鸟应援计划</li>
+<li>对新玩家的礼包</li>
+<li>山海秘宝</li>
+<li>十巫侍从兑换</li>
+</ul>
+</li>
+<li><p>（日常&#x2F;常驻）活动</p>
+<ul>
+<li>每日占卜<br>每日登录抽奖</li>
+<li>任务<br>成就类的奖励，比如：达到固定等级（5、10、15、20）；砍倒多少树木；击杀多少怪兽；解锁多少图鉴<ul>
+<li>等级冲刺</li>
+<li>伐木达人</li>
+<li>矿世奇才</li>
+<li>采集专家</li>
+<li>猎皮者</li>
+<li>探险家</li>
+<li>狩兽人</li>
+<li>建造者</li>
+<li>天行客</li>
+<li>山海行客</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>社区活动</p>
+<ul>
+<li>自嗨锅夏日联动</li>
+<li>助力三青鸟成团</li>
+<li>巫溪联动优惠购票</li>
+<li>关注B站官号</li>
+<li>关注公众号</li>
+<li>加群领好礼</li>
+<li>嘻王母侃山海</li>
+<li>绑定手机领奖</li>
+<li>关注TapTap</li>
+<li>关注藏宝阁</li>
+<li>官方入驻抖音</li>
+<li>参与共生计划</li>
+<li>CDk兑换</li>
+<li>口令码兑换</li>
+</ul>
+</li>
+</ul>
+<p><strong>活跃任务</strong><br>完成活跃度相关活动获取活跃度，达到特定活跃度可获得相应宝箱，宝箱分为日宝箱和周宝箱，日宝箱每日刷新，周宝箱每周刷新</p>
+<ul>
+<li><p>生产经营</p>
+<ul>
+<li>氏族捐献<ul>
+<li>完成氏族捐献</li>
+</ul>
+</li>
+<li>沙海淘金<ul>
+<li>去海边淘金点用淘金釜进行淘金</li>
+</ul>
+</li>
+<li>家园种植<ul>
+<li>在家园里种植植物</li>
+</ul>
+</li>
+<li>氏族福利<ul>
+<li>参与氏族附灵或者氏族聚餐</li>
+<li>可以回复精力值</li>
+</ul>
+</li>
+<li>家具制作<ul>
+<li>制作家具</li>
+</ul>
+</li>
+<li>洒扫清洁<ul>
+<li>进行家园打扫</li>
+</ul>
+</li>
+<li>炼器之道<ul>
+<li>通过炼器台合成武器或装备</li>
+</ul>
+</li>
+<li>厨艺精进<ul>
+<li>使用灶台制作食物</li>
+</ul>
+</li>
+<li>我是药神<ul>
+<li>使用神农鼎合成药物</li>
+</ul>
+</li>
+<li>炼金铸币<ul>
+<li>使用铸币机完成铸币</li>
+</ul>
+</li>
+<li>回收利用<ul>
+<li>使用熔炼炉完成回收</li>
+</ul>
+</li>
+<li>息壤能力<ul>
+<li>升级一次息壤能力</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>每日玩法</p>
+<ul>
+<li>蕴养洗礼</li>
+<li>悬赏任务<br>悬赏类的任务，完成所有任务后可以获得奖励，此类活动可以让玩家通过各种渠道去获取多种资源，用以提交悬赏所需材料，尤其对于轻氪玩家，材料的获取往往需要很长一段时间</li>
+<li>秘境历练<ul>
+<li>小型副本</li>
+</ul>
+</li>
+<li>图腾挑战<ul>
+<li>在图腾附近生成几波怪物，全部击杀完成后可获得一定奖励</li>
+</ul>
+</li>
+<li>狩猎巨兽<ul>
+<li>巨兽具有较高属性，需要玩家组队前往</li>
+</ul>
+</li>
+<li>家园守护<ul>
+<li>与狩猎巨兽类似，也是要击杀一只属性较高的怪物，不过玩家可以选择单人前往，也可组队前往</li>
+</ul>
+</li>
+<li>围狩试炼<ul>
+<li>副本</li>
+</ul>
+</li>
+<li>小队合作<ul>
+<li>与好友一起进行合作，完成对应任务，可获取额外的好感度和青佩奖励</li>
+</ul>
+</li>
+<li>神草催化<ul>
+<li>寻找资源的玩法，可以获得特定资源</li>
+</ul>
+</li>
+<li>乐舞狂欢<ul>
+<li>限时休闲活动，可以获得少量资源</li>
+</ul>
+</li>
+<li>分享游戏<ul>
+<li>推广游戏的方式</li>
+</ul>
+</li>
+<li>微信专属</li>
+<li>氏族任务</li>
+<li>纳灵<ul>
+<li>远山台为一个固定时间内生成固定经验的灵器</li>
+<li>玩家可以通过该装置获得少量经验，对玩家的一种奖励机制</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>挑战冒险</p>
+<ul>
+<li>盗乱之患<ul>
+<li>玩家单人或组队前往完成异人部落发布的任务</li>
+<li>每日的NPC任务</li>
+</ul>
+</li>
+<li>混沌魔方<ul>
+<li>在商店用灵能兑换并使用混沌魔方礼盒</li>
+</ul>
+</li>
+<li>天魔灵视<ul>
+<li>在商店用灵智兑换并使用混沌魔方礼盒</li>
+</ul>
+</li>
+<li>世界至理<ul>
+<li>在商店用灵智之核兑换并使用混沌魔方礼盒</li>
+</ul>
+</li>
+<li>山海幻境<ul>
+<li>通过床或椅子进入入定状态</li>
+<li>进入入定状态可以进入环境挑战山海强者，挑战后可获得奖励</li>
+<li>类似于打BOSS类的副本</li>
+</ul>
+</li>
+<li>技巧训练<ul>
+<li>通关游戏机内的任意关卡</li>
+<li>游戏机内有四个固定的休闲关卡（游戏）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>闲情逸致</p>
+<ul>
+<li>珍宝拍卖<ul>
+<li>浏览拍卖行</li>
+</ul>
+</li>
+<li>手有余香<br>可以增加游戏的社交属性和模拟经营属性<ul>
+<li>给其他用户送花</li>
+<li>花束可以通过种植获得</li>
+</ul>
+</li>
+<li>灵兽吞噬<br>宠物获取经验的渠道之一，归属养成系统<ul>
+<li>完成1次宠物吞噬</li>
+<li>宠物吞噬需要有临时宠物</li>
+<li>临时宠物需要去进行捕捉或开启道具获得</li>
+</ul>
+</li>
+<li>日常寻宝<br>增加游戏的探索元素<ul>
+<li>寻找1个散落宝箱</li>
+<li>宝箱随机分布在大世界，需要玩家进行找寻，且宝箱需要钥匙打开</li>
+</ul>
+</li>
+<li>冲浪竞速<br>增加游戏休闲和竞速元素<ul>
+<li>参与一次冲浪竞速</li>
+</ul>
+</li>
+<li>灵兽捕捉<ul>
+<li>捕捉灵兽宠物</li>
+<li>捕捉需要用纳芥御弩和捕捉弹</li>
+</ul>
+</li>
+<li>闲来垂钓<ul>
+<li>钓鱼</li>
+</ul>
+</li>
+<li>家园互动<ul>
+<li>为其他玩家的家园点赞</li>
+</ul>
+</li>
+<li>阵营聊天<ul>
+<li>阵营频道发送聊天消息</li>
+</ul>
+</li>
+<li>山海掠影<ul>
+<li>完成摄影任务</li>
+</ul>
+</li>
+<li>鸟瞰全景<ul>
+<li>与风景点进行交互</li>
+</ul>
+</li>
+<li>灵兽喂养<ul>
+<li>喂养宠物</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>其他</strong></p>
+<ul>
+<li><p>个性装扮<br>给玩家个性化定制，不同玩家对不同的装扮感兴趣 有的玩家喜欢较为炫酷的装扮（攀比心理）（排行榜同理）</p>
+<ul>
+<li>宠物个性DIY<ul>
+<li>分成整体和部分身形的改变</li>
+<li>进行宠物外貌DIY需要消耗一定的资源</li>
+</ul>
+</li>
+<li>幻兵<br>即武器的皮肤<ul>
+<li>每个皮肤使用后会对一类武器生效</li>
+<li>皮肤会提供一部分属性，皮肤提供的属性只有在使用状态，并且是在拔出对应类型武器后才会生效</li>
+</ul>
+</li>
+<li>幻器<ul>
+<li>灵器的皮肤</li>
+<li>皮肤会提供一部分属性</li>
+</ul>
+</li>
+<li>时装<ul>
+<li>不同时装可以提供不同的魅力属性</li>
+<li>时装可以增加魅力值</li>
+</ul>
+</li>
+<li>易容<ul>
+<li>易容需要消耗焕颜粉</li>
+</ul>
+</li>
+<li>化形<ul>
+<li>用于转换种族</li>
+<li>化形需要消耗化形石</li>
+<li>化形需要前往NPC处进行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>邮箱</p>
+<ul>
+<li>邮箱可以存储200封邮件，超出数量上限时，将会自动删除已领取邮件，若无已领取的邮件，将会自动删除时间最早的邮件</li>
+<li>拍卖所得会通过邮箱发送</li>
+<li>拍卖信息也会通过邮箱发送</li>
+<li>活动奖励、补偿物品也会通过邮箱发送</li>
+<li>一键领取</li>
+<li>一键删除</li>
+</ul>
+</li>
+<li><p>排行榜<br>设置排行榜可以给玩家展示自己的战力（炫耀）</p>
+<ul>
+<li>实力榜<ul>
+<li>战斗实力</li>
+<li>家园实力</li>
+<li>侍从实力</li>
+<li>宠物实力</li>
+</ul>
+</li>
+<li>山海榜<ul>
+<li>山海榜战力</li>
+</ul>
+</li>
+<li>氏族榜<ul>
+<li>氏族资金排行</li>
+</ul>
+</li>
+<li>魅力榜<ul>
+<li>个人魅力</li>
+<li>家园魅力</li>
+<li>家园点赞</li>
+</ul>
+</li>
+<li>混沌榜<ul>
+<li>混沌实力</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设置</p>
+<ul>
+<li>基础<ul>
+<li>基础信息<ul>
+<li>服务器</li>
+<li>账号序列号</li>
+<li>实名认证</li>
+<li>退出登录</li>
+</ul>
+</li>
+<li>基础设置<ul>
+<li>音乐</li>
+<li>音效</li>
+<li>音量</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>画面<ul>
+<li>角色数量个数设置</li>
+<li>帧率设置</li>
+<li>画面（画质）设置</li>
+</ul>
+</li>
+<li>战斗<ul>
+<li>战斗基础<ul>
+<li>优先锁定目标</li>
+<li>目标选择方向</li>
+<li>快捷栏自动收起</li>
+<li>攻击自动锁定</li>
+</ul>
+</li>
+<li>远程武器<ul>
+<li>辅助瞄准</li>
+<li>枪口顶墙提示</li>
+<li>狙击、散弹开火方式</li>
+<li>开镜模式</li>
+</ul>
+</li>
+<li>宠物战斗<ul>
+<li>宠物吞噬动画</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>镜头<ul>
+<li>视角跟随程度<ul>
+<li>普通视角</li>
+<li>车载视角</li>
+</ul>
+</li>
+<li>角色相机风格</li>
+<li>飞行模式下俯仰反转</li>
+<li>相机缓动补正（缓慢效果）<ul>
+<li>普通相机</li>
+<li>车载相机</li>
+</ul>
+</li>
+<li>陀螺仪选项</li>
+<li>灵敏度设置<ul>
+<li>摇杆<ul>
+<li>小眼睛</li>
+<li>技能轮盘</li>
+</ul>
+</li>
+<li>陀螺仪灵敏度</li>
+<li>全局灵敏度</li>
+<li>镜头灵敏度<ul>
+<li>未开火时</li>
+<li>开火时</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>界面<ul>
+<li>自定义界面</li>
+<li>受伤害数字<ul>
+<li>自身</li>
+<li>地方</li>
+</ul>
+</li>
+<li>拾取列表</li>
+<li>冷却时间<ul>
+<li>技能</li>
+<li>物品</li>
+</ul>
+</li>
+<li>头顶信息数量</li>
+<li>自动隐藏追踪任务栏</li>
+</ul>
+</li>
+<li>滤镜</li>
+<li>隐私<ul>
+<li>麦克风授权</li>
+<li>排行榜个人信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>公告</p>
+<ul>
+<li>更新公告</li>
+<li>处罚公告</li>
+<li>往期更新</li>
+</ul>
+</li>
+<li><p>山海经<br>图鉴&#x2F;成就 完成对应成就会获得少量属性加成</p>
+<ul>
+<li>故事<ul>
+<li>春忙</li>
+<li>古猿部落</li>
+<li>饱腹之食</li>
+</ul>
+</li>
+<li>探索<ul>
+<li>风景点</li>
+</ul>
+</li>
+<li>战斗<ul>
+<li>鸟兽</li>
+<li>传说</li>
+<li>群侠</li>
+</ul>
+</li>
+<li>休闲<ul>
+<li>钓鱼</li>
+<li>农田</li>
+</ul>
+</li>
+<li>收集<ul>
+<li>美食</li>
+<li>侍从</li>
+<li>创造</li>
+<li>宠物</li>
+<li>宠物外观</li>
+<li>进化宠物</li>
+</ul>
+</li>
+<li>资源<ul>
+<li>基础采集</li>
+</ul>
+</li>
+<li>玩法<ul>
+<li>围狩图</li>
+<li>神树蕴养</li>
+</ul>
+</li>
+<li>时装<ul>
+<li>发饰</li>
+<li>服饰</li>
+<li>背饰</li>
+</ul>
+</li>
+<li>化形</li>
+<li>幻兵<ul>
+<li>珍品</li>
+<li>远古</li>
+<li>传世</li>
+<li>不朽</li>
+</ul>
+</li>
+<li>混沌<ul>
+<li>傀兽</li>
+<li>风景点</li>
+<li>混沌之力</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/07/27/%E6%B8%B8%E6%88%8F%E5%8F%AF%E7%8E%A9%E6%80%A7%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/">游戏可玩性测试脚本<span class="note">较早</span></a><div class="line"></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="Fam044/bloghexo-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://fam044.github.io/">@Fam044</a> 创建，使用 <a href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
