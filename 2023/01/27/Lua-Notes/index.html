@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.2.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Lua-Notes - Fam044's Blog</title>
+
+  
+    <meta name="description" content="Lua-NotesLua相关网站 Lua官网 LuaForWindows 菜鸟教程  标识符与关键字 Lua的标识符以字母与下划线开头，数字不能开头，不允许使用特殊字符  Lua区分大小写的  注意：最好避免用“下划线+大写字母”，因为系统Lua使用（比如：_Age 不推荐使用）  Lua中的关键字：            and break do else elseif   end false">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lua-Notes">
+<meta property="og:url" content="https://fam044.github.io/2023/01/27/Lua-Notes/index.html">
+<meta property="og:site_name" content="Fam044&#39;s Blog">
+<meta property="og:description" content="Lua-NotesLua相关网站 Lua官网 LuaForWindows 菜鸟教程  标识符与关键字 Lua的标识符以字母与下划线开头，数字不能开头，不允许使用特殊字符  Lua区分大小写的  注意：最好避免用“下划线+大写字母”，因为系统Lua使用（比如：_Age 不推荐使用）  Lua中的关键字：            and break do else elseif   end false">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-27T14:25:40.000Z">
+<meta property="article:modified_time" content="2023-01-27T14:25:40.137Z">
+<meta property="article:author" content="Fam044">
+<meta property="article:tag" content="Lua">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Fam044's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lua-Notes"><span class="toc-text">Lua-Notes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua%E7%9B%B8%E5%85%B3%E7%BD%91%E7%AB%99"><span class="toc-text">Lua相关网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E4%B8%8E%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">标识符与关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua%E6%8F%92%E4%BB%B6"><span class="toc-text">Lua插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDEA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">IDEA常用快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">Lua数据类型与运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80"><span class="toc-text">字符串常用基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E8%B5%8B%E5%80%BC"><span class="toc-text">多重赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="toc-text">全局与局部变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">流程控制语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if%E8%AF%AD%E5%8F%A5"><span class="toc-text">if语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#while%E8%AF%AD%E5%8F%A5"><span class="toc-text">while语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#repeat%E8%AF%AD%E5%8F%A5"><span class="toc-text">repeat语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E8%AF%AD%E5%8F%A5"><span class="toc-text">for语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ipairs%E4%B8%8Epairs%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">ipairs与pairs迭代器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#break%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">break关键字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">定义函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F-1"><span class="toc-text">全局与局部变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%A4%9A%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">函数的多返回值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E8%B5%8B%E5%80%BC"><span class="toc-text">函数的赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-text">匿名函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AE%9A%E4%B9%89"><span class="toc-text">字符串定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">转义字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-text">字符串常用函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8"><span class="toc-text">表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%EF%BC%88Table%EF%BC%89%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">表（Table）的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E7%9A%84%E6%9E%84%E9%80%A0%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AE%BF%E9%97%AE"><span class="toc-text">表的构造与基本访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E7%9A%84%E8%B5%8B%E5%80%BC%E4%B8%8E%E8%BF%AD%E4%BB%A3%E8%BE%93%E5%87%BA"><span class="toc-text">表的赋值与迭代输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%87%BD%E6%95%B0%E8%BE%93%E5%87%BA"><span class="toc-text">使用迭代器函数输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%87%BD%E6%95%B0"><span class="toc-text">表函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lua%E4%B8%AD%E7%9A%84OOP%E7%BC%96%E7%A8%8B"><span class="toc-text">Lua中的OOP编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-text">定义字段和方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A8%E5%AF%B9%E8%B1%A1self%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">表对象self关键字的作用</span></a></li></ol></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Fam044" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=285668870" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Lua/">Lua</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-01-27T14:25:40.000Z">2023-01-27</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Lua-Notes</span></h1>
+<h2 id="Lua-Notes"><a href="#Lua-Notes" class="headerlink" title="Lua-Notes"></a>Lua-Notes</h2><h3 id="Lua相关网站"><a href="#Lua相关网站" class="headerlink" title="Lua相关网站"></a>Lua相关网站</h3><ul>
+<li><a href="https://www.lua.org/">Lua官网</a></li>
+<li><a href="https://github.com/rjpcomputing/luaforwindows/releases">LuaForWindows</a></li>
+<li><a href="http://www.runoob.com/manual/lua53doc/manual.html">菜鸟教程</a></li>
+</ul>
+<h3 id="标识符与关键字"><a href="#标识符与关键字" class="headerlink" title="标识符与关键字"></a>标识符与关键字</h3><ul>
+<li><p>Lua的标识符以字母与下划线开头，<strong>数字不能开头</strong>，不允许使用特殊字符</p>
+</li>
+<li><p>Lua<strong>区分大小写</strong>的</p>
+</li>
+<li><p>注意：最好避免用“下划线+大写字母”，因为系统Lua使用（比如：_Age 不推荐使用）</p>
+</li>
+<li><p>Lua中的关键字：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">and</td>
+<td align="center">break</td>
+<td align="center">do</td>
+<td align="center">else</td>
+<td align="center">elseif</td>
+</tr>
+<tr>
+<td align="center">end</td>
+<td align="center">false</td>
+<td align="center">for</td>
+<td align="center">function</td>
+<td align="center">if</td>
+</tr>
+<tr>
+<td align="center">inn</td>
+<td align="center">local</td>
+<td align="center">nil</td>
+<td align="center">not</td>
+<td align="center">or</td>
+</tr>
+<tr>
+<td align="center">repeat</td>
+<td align="center">return</td>
+<td align="center">then</td>
+<td align="center">true</td>
+<td align="center">until</td>
+</tr>
+<tr>
+<td align="center">while</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>推荐命名规则</p>
+<ul>
+<li>常量使用全大写和下划线：MY_ACCOUNT</li>
+<li>变量的第一个字母小写： strNumber</li>
+<li>全局变量第一个字母用小写g表示： gMyAccount</li>
+<li>函数名第一个字母大写： funtion MyFirstFunction()</li>
+</ul>
+</li>
+</ul>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量不需要在使用前说明，且不需要指定变量的类型</p>
+<ul>
+<li>变量都是<em>弱类型</em>，类似JavaScript，无需指定变量类型</li>
+<li>Lua语句<em>是否以分号结尾都可以正常运行</em></li>
+<li>Lua中单双引号都可以使用</li>
+<li>变量名不能以数字开头</li>
+<li>推荐使用类似C#命名规范</li>
+<li>C#必须先定义再使用，而Lua可以直接使用变量</li>
+<li>Lua变量可以随时改变类型</li>
+<li>使用type()方法获取变量类型</li>
+<li>变量的类型<ul>
+<li>nil：表示空数据，等同于null</li>
+<li>boolean：布尔型，Lua中除了nil和false，其余都表示“真”</li>
+<li>string：字符串类型，可以使用单双引号</li>
+<li>number：小数类型，Lua中没有整数类型</li>
+<li>table：表示集合，序号从1开始</li>
+<li>function：表示由Lua编写的函数</li>
+<li>userdata：表示任意存储在变量中的C数据类型</li>
+<li>thread：表示执行的独立线程（本质是“伪多线程”，是协程的概念），用于执行协同程序</li>
+</ul>
+</li>
+</ul>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>单行注释： –注释内容</p>
+<p>多行注释： –[[注释内容]]–</p>
+<h3 id="Lua插件"><a href="#Lua插件" class="headerlink" title="Lua插件"></a>Lua插件</h3><ul>
+<li><a href="http://luadist.org/">LuaDist</a></li>
+<li><a href="http://www.luastudio.net/">LuaStudio</a></li>
+<li><a href="https://archive.codeplex.com/?p=babelua">VS Lua</a></li>
+<li>IDEA的Lua插件</li>
+</ul>
+<h3 id="IDEA常用快捷键"><a href="#IDEA常用快捷键" class="headerlink" title="IDEA常用快捷键"></a>IDEA常用快捷键</h3><ul>
+<li>运行程序（需先选择相应程序）：Alt+Shift+F10</li>
+<li>直接运行程序：Ctrl+F5 &#x2F; Ctrl+Shift+F10</li>
+<li>注释<ul>
+<li>Ctrl+&#x2F;  多行代码分行注释（每行一个注释）</li>
+<li>Ctrl+Shift+&#x2F; 代码块注释</li>
+</ul>
+</li>
+</ul>
+<h3 id="Lua数据类型与运算符"><a href="#Lua数据类型与运算符" class="headerlink" title="Lua数据类型与运算符"></a>Lua数据类型与运算符</h3><h4 id="字符串常用基础"><a href="#字符串常用基础" class="headerlink" title="字符串常用基础"></a>字符串常用基础</h4><ul>
+<li>字符串<em>可用单引号和双引号</em></li>
+<li>可以使用两个方括号，来表示 “一块”字符串（多行字符串）</li>
+<li>字符串拼接使用”..”</li>
+<li>如果字符串使用”+”号，会自动将字符串转换为number类型进行处理（必须保证该字符串为 数字字符串，否则报错）</li>
+<li>字符串与数值类型，使用”..”拼接一般不会报错；但是数值型可能为nil，建议使用tostring函数</li>
+</ul>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><ul>
+<li><p>算数运算符</p>
+<p>+ - *  &#x2F; % ^</p>
+<p>Lua中没有自增和自减运算符</p>
+</li>
+<li><p>关系运算符</p>
+<p>&lt; &lt;&#x3D; &gt; &gt;&#x3D; &#x3D;&#x3D; ~&#x3D;</p>
+<p>nil只与自身相等</p>
+<p>对于table、函数、userdata，Lua是做引用比较的。即：只有当他们引用同一个对象时，才认为他们相等</p>
+</li>
+<li><p>逻辑运算符</p>
+<p>and or not</p>
+<p>所有逻辑运算符将<strong>false, nil视为假</strong>，其他视为真</p>
+<ul>
+<li>有<em>短路逻辑</em><ul>
+<li>对于操作符and，如果第1个操作数为假，就返回第1个操作数，不然返回第2个操作数</li>
+<li>对于操作符or，如果第1个操作数为真，就返回第1个操作数，不然返回第2个操作数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="多重赋值"><a href="#多重赋值" class="headerlink" title="多重赋值"></a>多重赋值</h4><ul>
+<li>Lua中可以给多个变量同时赋值</li>
+<li>Lua可以进行多重赋值<ul>
+<li>Lua总是将等号右边值的个数调整到与左边变量个数相一致</li>
+<li>如果值的个数少于变量个数，多余变量就会被赋值为nil</li>
+<li>如果值的个数多余变量个数，多余变量就会被忽略</li>
+</ul>
+</li>
+</ul>
+<h4 id="全局与局部变量"><a href="#全局与局部变量" class="headerlink" title="全局与局部变量"></a>全局与局部变量</h4><ul>
+<li>Lua变量都是全局性的，定义局部变量需要使用关键字<strong>local</strong></li>
+<li>Lua语句块（if, for等）与函数中，定义的默认也都是全局变量</li>
+<li>Lua可以直接使用do…end来直接定义一个语句块</li>
+<li>要删除一个全局变量，可以给变量赋值为nil</li>
+</ul>
+<h3 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><ul>
+<li><p>if后面需要使用then语句</p>
+</li>
+<li><p>if后面的逻辑表达式，括号可加可不加</p>
+</li>
+<li><p>单分支语句</p>
+</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> () <span class="keyword">then</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>双分支语句</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> () <span class="keyword">then</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多分支语句</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> () <span class="keyword">then</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">elseif</span> () <span class="keyword">then</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> () <span class="keyword">do</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="repeat语句"><a href="#repeat语句" class="headerlink" title="repeat语句"></a>repeat语句</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">repeat</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">until</span> ()</span><br></pre></td></tr></table></figure>
+
+<h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 变量名称=初始值,结束值,(步长) <span class="keyword">do</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="ipairs与pairs迭代器"><a href="#ipairs与pairs迭代器" class="headerlink" title="ipairs与pairs迭代器"></a>ipairs与pairs迭代器</h4><ul>
+<li>for循环分为 数值循环，泛型循环（相当于foreach）</li>
+<li>ipairs遍历顺序的集合（中间序号不能中断，遇到nil数值就停止），一般用于数组类型集合的遍历</li>
+<li>pairs遍历集合中所有数据（序号可以中断），一般用于键值对类型集合的遍历</li>
+<li>泛型循环定义：<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 变量列表 <span class="keyword">in</span> 迭代函数 <span class="keyword">do</span></span><br><span class="line">    [body]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></li>
+<li>使用pairs关键字时，循环输出“数组”类型的表时，for中必须使用k, v；使用pairs关键字，循环中的k, v字母，可以是任何字母或者合法标识符代替</li>
+<li>Lua标准库中提供了几种迭代器<ul>
+<li>迭代文件按每行的io.lines</li>
+<li>迭代table元素的pairs</li>
+<li>迭代数组元素的ipairs</li>
+<li>迭代字符串中单词的string.gmatch等</li>
+</ul>
+</li>
+</ul>
+<h4 id="break关键字"><a href="#break关键字" class="headerlink" title="break关键字"></a>break关键字</h4><ul>
+<li>Lua中没有”continue”关键字</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h4><ul>
+<li><p>函数的定义格式如下</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">funName</span><span class="params">(para1, para2)</span></span></span><br><span class="line">    [函数体]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Lua函数的基本性质</p>
+<ul>
+<li>函数无需定义返回类型，可以返回任意类型和任意数量的数值</li>
+<li>函数的参数，无需定义参数类型</li>
+<li>函数无需大括号</li>
+<li>可以定义变量，将函数直接赋值给变量，从而获得相同功能</li>
+<li>注意：函数中由于我们函数的参数没有类型，所以在没有（编译）运行前，计算机是无法发现错误的</li>
+</ul>
+</li>
+</ul>
+<h4 id="全局与局部变量-1"><a href="#全局与局部变量-1" class="headerlink" title="全局与局部变量"></a>全局与局部变量</h4><ul>
+<li>Lua中定义的变量默认是全局变量，且在函数内部定义的变量也默认是全局变量</li>
+<li>函数可以声明为全局的与局部的，默认是全局的</li>
+</ul>
+<h4 id="函数的多返回值"><a href="#函数的多返回值" class="headerlink" title="函数的多返回值"></a>函数的多返回值</h4><ul>
+<li>一个函数返回多个数值，可以使用多个变量直接接受<ul>
+<li>如果一个函数调用在最后，或者仅有一个表达式，则Lua会保留尽可以多的返回值，用于匹配</li>
+<li>如果一个函数没有返回值，或者没有足够多的返回值，那么Lua会用nil来补充缺失数值</li>
+</ul>
+</li>
+</ul>
+<h4 id="函数的赋值"><a href="#函数的赋值" class="headerlink" title="函数的赋值"></a>函数的赋值</h4><p>函数可以作为数据进行赋值，也可以作为参数进行传递（相当于C#中的委托）</p>
+<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><ul>
+<li>匿名函数，即没有名称的函数</li>
+<li>调用方法：一个没有名称的函数，只有通过赋值给一个变量，通过调用这个变量来间接调用这个匿名函数</li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="字符串定义"><a href="#字符串定义" class="headerlink" title="字符串定义"></a>字符串定义</h4><ul>
+<li>由数字、字母、下划线组成的一串字符</li>
+<li>Lua语言中字符串可以使用以下三种方式来表示：<ul>
+<li>单引号间的一串字符</li>
+<li>双引号间的一串字符</li>
+<li>[[]]间的一串字符</li>
+</ul>
+</li>
+</ul>
+<h4 id="转义字符串"><a href="#转义字符串" class="headerlink" title="转义字符串"></a>转义字符串</h4><ul>
+<li>常用转义字符串<ul>
+<li>回车： \r</li>
+<li>换行： \n</li>
+<li>反斜杠： \\</li>
+<li>双引号： “”</li>
+</ul>
+</li>
+</ul>
+<h4 id="字符串常用函数"><a href="#字符串常用函数" class="headerlink" title="字符串常用函数"></a>字符串常用函数</h4><ul>
+<li>字符串长度：len()</li>
+<li>大小写：upper(), lower()</li>
+<li>查找：find()</li>
+<li>截取函数：sub()</li>
+<li>字符串替换函数：gsub()</li>
+<li>字符串反转：reverse()</li>
+<li>格式化字符串：format()</li>
+</ul>
+<h3 id="表"><a href="#表" class="headerlink" title="表"></a>表</h3><h4 id="表（Table）的定义"><a href="#表（Table）的定义" class="headerlink" title="表（Table）的定义"></a>表（Table）的定义</h4><ul>
+<li>Table是Lua的一种数据结构，用来创建不同的数据类型，如：数组、键值对集合等</li>
+<li>Lua的下表可以是负数</li>
+<li>Lua的长度可以动态改变</li>
+<li>可以把Table当成一个字典集合来对待，也可以当成一个“数组”来对待，要看如何初始化Table</li>
+<li>Table，可以有“空表”、“直接声明且定义表内容”、“声明然后逐一赋值”三种方式</li>
+<li>Table也可以定义成类似“数组”的定义方式，可以使用下标来访问（注意：Lua中没有数组的概念，就是用表来表示）</li>
+<li>访问Table中数据（键值对类型），可以直接使用”.”来访问，也可以使用中括号访问，但是使用中括号一定要使用字符串形式，否则会报错</li>
+<li>Table中的下标，从1开始</li>
+<li>Table中的数值修改方式：<ul>
+<li>直接移除数组中数据，索引不会变化</li>
+<li>使用table专用删除函数，索引会自动排序（推荐使用）</li>
+</ul>
+</li>
+</ul>
+<h4 id="表的构造与基本访问"><a href="#表的构造与基本访问" class="headerlink" title="表的构造与基本访问"></a>表的构造与基本访问</h4><ul>
+<li>表的初始化<ul>
+<li>空表初始化</li>
+<li>数组类型的初始化</li>
+<li>字典类型的初始化<ul>
+<li>有规律 键值对</li>
+<li>无规律 键值对</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="表的赋值与迭代输出"><a href="#表的赋值与迭代输出" class="headerlink" title="表的赋值与迭代输出"></a>表的赋值与迭代输出</h4><ul>
+<li>空表的赋值与迭代输出</li>
+<li>字典类型表的赋值与迭代输出</li>
+<li>关于表变量相互赋值的技术（引用传递）</li>
+</ul>
+<h4 id="使用迭代器函数输出"><a href="#使用迭代器函数输出" class="headerlink" title="使用迭代器函数输出"></a>使用迭代器函数输出</h4><ul>
+<li>ipairs函数<ul>
+<li>输出连续数值</li>
+</ul>
+</li>
+<li>pairs函数<ul>
+<li>输出连续与非连续（数值对）数值</li>
+</ul>
+</li>
+<li>Lua中的table相当于C#中的字典类集合（具有键值对的数据结构）</li>
+<li>表的遍历方式<ul>
+<li>table.getn()<ul>
+<li>表示集合中数量（集合中最大的索引）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="表函数"><a href="#表函数" class="headerlink" title="表函数"></a>表函数</h4><ul>
+<li>table.getn()<ul>
+<li>得到表（数组类型）的长度</li>
+<li>注意：该函数不能正确输出 键值对 类型表的长度（’#’同理）</li>
+</ul>
+</li>
+<li>table.concat()<ul>
+<li>表的链接</li>
+<li>将表中数据进行链接后进行输出</li>
+<li>可以指定分隔符，以及输出的字符串序号</li>
+</ul>
+</li>
+<li>table.insert()<ul>
+<li>在相应位置中插入数值</li>
+<li>1表示开头，以此类推</li>
+</ul>
+</li>
+<li>table.remove()<ul>
+<li>表中数据的移除</li>
+<li>默认移除最后一位</li>
+</ul>
+</li>
+<li>table.sort()<ul>
+<li>表的排序</li>
+<li>对于英文字符串类型，按照字母表排序，先大写后小写</li>
+</ul>
+</li>
+<li>table.maxn()<ul>
+<li>获取表中最大数值，但系统函数有bug（输出了表的长度），需自定义</li>
+</ul>
+</li>
+<li>表资源的释放<ul>
+<li>使用nil对表（字符串、其他基本数据类型）资源进行释放</li>
+<li>给整个table赋值nil，则表示销毁整个表（清空内存）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Lua中的OOP编程"><a href="#Lua中的OOP编程" class="headerlink" title="Lua中的OOP编程"></a>Lua中的OOP编程</h3><ul>
+<li>Lua的语法没有面向对象的机制</li>
+<li>Lua中使用Table实现OOP，把Table模拟成一个“类”来使用</li>
+<li>其实Lua中的string(math, random)等可以看成面向对象的特殊表</li>
+</ul>
+<h4 id="定义字段和方法"><a href="#定义字段和方法" class="headerlink" title="定义字段和方法"></a>定义字段和方法</h4><ul>
+<li>使用”tableName.field”，定义表的字段</li>
+<li>使用”tableName.methodName()”，定义表的方法</li>
+<li>可以将匿名方法赋值给表字段，来定义表</li>
+</ul>
+<h4 id="表对象self关键字的作用"><a href="#表对象self关键字的作用" class="headerlink" title="表对象self关键字的作用"></a>表对象self关键字的作用</h4><ul>
+<li>方法中直接引用表字段</li>
+<li>方法中直接引用表字段的缺陷</li>
+<li>定义局部表引用变量，提高方法引用表字段的耦合性</li>
+<li>使用self关键字，直接在方法中引用表自身字段（定义方法时要使用冒号”:”）</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/09/13/Python%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">Python常用函数<span class="note">较早</span></a><div class="line"></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="Fam044/bloghexo-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://fam044.github.io/">@Fam044</a> 创建，使用 <a href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
