@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.2.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>数组 - Fam044's Blog</title>
+
+  
+    <meta name="description" content="数组的基础理论：  数组是存放在连续内存空间上的相同类型数据的集合 所以数组元素是不可以删除的，只可以覆盖 所以增删数组元素时，难免要移动其他元素 如果要释放，只能整体释放   数组的下标都是从0开始的 操作时注意元素的下标    二分查找给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组">
+<meta property="og:url" content="https://fam044.github.io/2024/04/16/%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:site_name" content="Fam044&#39;s Blog">
+<meta property="og:description" content="数组的基础理论：  数组是存放在连续内存空间上的相同类型数据的集合 所以数组元素是不可以删除的，只可以覆盖 所以增删数组元素时，难免要移动其他元素 如果要释放，只能整体释放   数组的下标都是从0开始的 操作时注意元素的下标    二分查找给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-16T08:29:30.000Z">
+<meta property="article:modified_time" content="2024-04-16T08:33:21.557Z">
+<meta property="article:author" content="Fam044">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="LeetCode">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Fam044's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-text">二分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">移除元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9"><span class="toc-text">有序数组的平方</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84"><span class="toc-text">长度最小的子数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5%E2%85%A1"><span class="toc-text">螺旋矩阵Ⅱ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-text">附录：排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-text">快速排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="toc-text">附录：动态内存分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">动态分配二维数组</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Fam044" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=285668870" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></div><div id="post-meta">发布于&nbsp;<time datetime="2024-04-16T08:29:30.000Z">2024-04-16</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>数组</span></h1>
+<p>数组的基础理论：</p>
+<ul>
+<li>数组是存放在<strong>连续内存空间</strong>上的相同类型数据的集合<ul>
+<li>所以数组元素是不可以删除的，只可以覆盖</li>
+<li>所以增删数组元素时，难免要移动其他元素</li>
+<li>如果要释放，只能整体释放</li>
+</ul>
+</li>
+<li>数组的下标都是<strong>从0开始</strong>的<ul>
+<li>操作时注意元素的下标</li>
+</ul>
+</li>
+</ul>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a><a href="https://leetcode.cn/problems/binary-search/">二分查找</a></h2><p>给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。</p>
+<p>提示：</p>
+<ul>
+<li>你可以假设 nums 中的所有元素是不重复的。</li>
+<li>n 将在 [1, 10000]之间。</li>
+<li>nums 的每个元素都将在 [-9999, 9999]之间。</li>
+</ul>
+<p>前提：</p>
+<ul>
+<li>数组为有序数组</li>
+<li>数组中无重复元素<ul>
+<li>若有重复元素，则返回的下表不唯一</li>
+</ul>
+</li>
+</ul>
+<p>思路：</p>
+<ul>
+<li>二分法<ul>
+<li>注意边界，二分法经常写乱就是因为边界的定义不清晰</li>
+<li>通常边界的定义分两种：左闭右闭，或 左闭右开</li>
+</ul>
+</li>
+</ul>
+<p>反思：</p>
+<ul>
+<li>思想很简单，但是实现起来并不一定可以得心应手，要注意<strong>循环不变量原则</strong>，把握好区间的定义</li>
+</ul>
+<p><strong>C:</strong> </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 左闭右闭</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">search</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>, right = numsSize - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> mid = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 若left小于等于right，说明区间中元素不为0</span></span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">        mid = left + ((right - left) / <span class="number">2</span>);  <span class="comment">// 避免 left+right 溢出</span></span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            right = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="移除元素"><a href="#移除元素" class="headerlink" title="移除元素"></a><a href="https://leetcode.cn/problems/remove-element/description/">移除元素</a></h2><p>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并 原地 修改输入数组。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p>思路：</p>
+<ul>
+<li>暴力法<ul>
+<li>两层for循环，一层for循环遍历数组元素，一层for循环更新数组</li>
+<li>遇到待删除元素时，除了需要将size–，还需要将外层循环的指针i–<ul>
+<li>因为下标i以后的数值都往前移动了1位，所以i也要向前移动1位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>双指针法（快慢指针法）<ul>
+<li>快指针：寻找新数组的元素，新数组就是不含目标元素的数组</li>
+<li>慢指针：指向更新 新数组下表的位置</li>
+</ul>
+</li>
+</ul>
+<p>反思：</p>
+<ul>
+<li>通过双指针的方法可以将时间复杂度，从O(n^2)降至O(n)，在处理类似的数组或链表问题时，多考虑能否使用双指针法</li>
+</ul>
+<p><strong>C:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴力法</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">removeElement</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; numsSize; i++) &#123; <span class="comment">// 外层循环控制次数</span></span><br><span class="line">        <span class="keyword">if</span> (nums[i] == val) &#123; <span class="comment">// 遇到待删除元素，将后续所有元素都往前移动1个位置</span></span><br><span class="line">            <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; numsSize; j++) &#123;</span><br><span class="line">                nums[j - <span class="number">1</span>] = nums[j];</span><br><span class="line">            &#125;</span><br><span class="line">            i--;  <span class="comment">// 所有后续元素移动往前后，外层下标需往前移动1位</span></span><br><span class="line">            numsSize--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> numsSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双指针法(快慢指针法)(易理解版)</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">removeElement</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">    <span class="type">int</span> slowIndex = <span class="number">0</span>, fastIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numsSize; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] == val) &#123; <span class="comment">// 找到待删除元素，快指针往后继续寻找（下一个不为待删元素的元素）</span></span><br><span class="line">            fastIndex++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            nums[slowIndex++] = nums[fastIndex++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> slowIndex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双指针法(快慢指针法)(简化版)</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">removeElement</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">    <span class="type">int</span> slowIndex = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> fastIndex = <span class="number">0</span>; fastIndex &lt; numsSize; fastIndex++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[fastIndex] != val) &#123;</span><br><span class="line">            nums[slowIndex++] = nums[fastIndex];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> slowIndex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="有序数组的平方"><a href="#有序数组的平方" class="headerlink" title="有序数组的平方"></a><a href="https://leetcode.cn/problems/squares-of-a-sorted-array/description/">有序数组的平方</a></h2><p>给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。</p>
+<p>提示：</p>
+<ul>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10^4</li>
+<li>-10^4 &lt;&#x3D; nums[i] &lt;&#x3D; 10^4</li>
+<li>nums 已按 非递减顺序 排序</li>
+</ul>
+<p>思路：</p>
+<ul>
+<li>暴力法<ul>
+<li>将每个数平方后，对数组进行排序（快排）</li>
+</ul>
+</li>
+<li>双指针法<ul>
+<li>负数平方后会变为正数，而原有正数已经有序，可以考虑从最小正数为起点，建立两个指针，分别向左右两侧移动</li>
+<li>也可以从两侧往中间（较简洁）</li>
+<li>可以看成左右两个数组进行归并排序，不过比较时稍微修改以下条件</li>
+</ul>
+</li>
+</ul>
+<p><strong>C:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴力法</span></span><br><span class="line"><span class="type">int</span>* <span class="title function_">sortedSquares</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span>* returnSize)</span> &#123;</span><br><span class="line">	<span class="type">int</span>* outArr = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * numsSize);</span><br><span class="line">	<span class="keyword">if</span> (outArr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">		*returnSize = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numsSize; i++) &#123; <span class="comment">// 先将数组中各数平方</span></span><br><span class="line">		nums[i] *= nums[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	quick_sort(nums, <span class="number">0</span>, numsSize - <span class="number">1</span>); <span class="comment">// 快排的实现在下方附录中</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numsSize; i++) &#123;</span><br><span class="line">		outArr[i] = nums[i];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	*returnSize = numsSize;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> outArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双指针法（两侧到中间）</span></span><br><span class="line"><span class="type">int</span>* <span class="title function_">sortedSquares</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span>* returnSize)</span> &#123;</span><br><span class="line">	<span class="type">int</span>* outArr = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * numsSize);</span><br><span class="line">	<span class="keyword">if</span> (outArr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">		*returnSize = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> low = <span class="number">0</span>, high = numsSize - <span class="number">1</span>, outIdx = numsSize - <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> lowNum = <span class="number">0</span>, highNum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (low &lt;= high) &#123;  <span class="comment">//此处要i &lt;= j，确保最后两个元素得到处理</span></span><br><span class="line">		lowNum = nums[low] * nums[low];</span><br><span class="line">		highNum = nums[high] * nums[high];</span><br><span class="line">		<span class="keyword">if</span> (highNum &gt;= lowNum) &#123; <span class="comment">// 分别从数组的左右两侧往中间遍历，将数值由大到小存放在输出数组中</span></span><br><span class="line">			outArr[outIdx--] = highNum;</span><br><span class="line">			high--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			outArr[outIdx--] = lowNum;</span><br><span class="line">			low++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	*returnSize = numsSize;</span><br><span class="line">	<span class="keyword">return</span> outArr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双指针法（中间到两侧）</span></span><br><span class="line"><span class="type">int</span>* <span class="title function_">sortedSquares</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize, <span class="type">int</span>* returnSize)</span> &#123;</span><br><span class="line">	<span class="type">int</span>* outArr = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * numsSize);</span><br><span class="line">	<span class="keyword">if</span> (outArr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">		*returnSize = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找到最小的正数，并定下左右索引</span></span><br><span class="line">    <span class="type">int</span> low = <span class="number">0</span>, high = numsSize <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span> (nums[low] &lt; <span class="number">0</span>) &#123;low++;&#125;</span><br><span class="line">    high = low--;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 进行归并处理</span></span><br><span class="line">    <span class="type">int</span> lowNum = <span class="number">0</span>, highNum = <span class="number">0</span>, outIdx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (low &gt;= <span class="number">0</span> &amp;&amp; high &lt; numsSize) &#123;</span><br><span class="line">        lowNum = nums[low] * nums[low];</span><br><span class="line">        highNum = nums[high] * nums[high];</span><br><span class="line">        <span class="keyword">if</span> (lowNum &lt; highNum) &#123;</span><br><span class="line">            outArr[outIdx++] = lowNum;</span><br><span class="line">            low--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            outArr[outIdx++] = highNum;</span><br><span class="line">            high++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理剩余元素</span></span><br><span class="line">    <span class="keyword">while</span> (low &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        outArr[outIdx++] = nums[low] * nums[low];</span><br><span class="line">        low--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (high &lt; numsSize) &#123;</span><br><span class="line">        outArr[outIdx++] = nums[high] * nums[high];</span><br><span class="line">        high++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	*returnSize = numsSize;</span><br><span class="line">	<span class="keyword">return</span> outArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="长度最小的子数组"><a href="#长度最小的子数组" class="headerlink" title="长度最小的子数组"></a><a href="https://leetcode.cn/problems/minimum-size-subarray-sum/description/">长度最小的子数组</a></h2><p>给定一个含有 n 个正整数的数组和一个正整数 target 。</p>
+<p>找出该数组中满足其总和大于等于 target 的长度最小的 连续<br>子数组 [numsl, numsl+1, …, numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。</p>
+<p>提示</p>
+<ul>
+<li>1 &lt;&#x3D; target &lt;&#x3D; 10^9</li>
+<li>1 &lt;&#x3D; nums.length &lt;&#x3D; 10^5</li>
+<li>1 &lt;&#x3D; nums[i] &lt;&#x3D; 10^5</li>
+</ul>
+<p>思路：</p>
+<ul>
+<li>暴力法<ul>
+<li>利用两层for循环，遍历所有子序列，并记录其中最小的元素个数</li>
+</ul>
+</li>
+<li>滑动窗口法<ul>
+<li>也可以理解为双指针法，但是题目要求的是两指针间的元素之和是否大于目标值</li>
+<li>一个指针指向滑动窗口的终止位置，一个指针指向滑动窗口的起始位置；只使用1个for循环进行遍历，遍历时使用指向终止位置的指针为判断条件；当窗口内的值大于或等于目标值后，固定终止指针，将起始指针逐步往后移，缩小窗口大小直到不满足条件为止，多次循环，便可遍历所有子序列</li>
+</ul>
+</li>
+</ul>
+<p>反思：</p>
+<ul>
+<li>通过滑动窗口的方法，不断动态地调整窗口的方法，以寻找满足题设的最优解，并将时间复杂度由O(n^2)降至O(n)</li>
+</ul>
+<p><strong>C:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴力法，两层for循环遍历所有子序列，对每个子序列的和进行判断</span></span><br><span class="line"><span class="comment">// 若存在满足条件的的子序列，则退出当前循环，进行下一轮（因为当前内层循环后续的元素个数只会增加）</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, <span class="type">int</span>* nums, <span class="type">int</span> numsSize)</span> &#123;</span><br><span class="line">	<span class="type">int</span> result = INT_MAX; <span class="comment">// 最终结果</span></span><br><span class="line">	<span class="type">int</span> sum = <span class="number">0</span>; <span class="comment">// 子序列之和，用于判断是否满足题设</span></span><br><span class="line">	<span class="type">int</span> subLen = <span class="number">0</span>; <span class="comment">// 当前子序列的长度，用于与result进行比较，留下最小子序列长度</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numsSize; i++) &#123;</span><br><span class="line">		sum = <span class="number">0</span>; <span class="comment">// 不能遗漏，每次循环需重置</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; numsSize; j++) &#123;</span><br><span class="line">			sum += nums[j];</span><br><span class="line">			<span class="keyword">if</span> (sum &gt;= target) &#123;</span><br><span class="line">				subLen = j - i + <span class="number">1</span>;</span><br><span class="line">				result = result &lt; subLen ? result : subLen;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> result == INT_MAX ? <span class="number">0</span> : result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 滑动窗口法</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">minSubArrayLen</span><span class="params">(<span class="type">int</span> target, <span class="type">int</span>* nums, <span class="type">int</span> numsSize)</span> &#123;</span><br><span class="line">	<span class="type">int</span> result = INT_MAX;</span><br><span class="line">	<span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>; <span class="comment">// 滑动窗口的起始位置</span></span><br><span class="line">	<span class="type">int</span> subLen = <span class="number">0</span>; <span class="comment">// 滑动窗口的长度</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; numsSize; j++) &#123; <span class="comment">// 滑动窗口的终止位置</span></span><br><span class="line">		sum += nums[j];</span><br><span class="line">		<span class="keyword">while</span> (sum &gt;= target) &#123; <span class="comment">// 当窗口中元素之和大于目标值时，通过右移起始位置，以缩小窗口</span></span><br><span class="line">			subLen = j - i + <span class="number">1</span>;</span><br><span class="line">			result = result &lt; subLen ? result : subLen;</span><br><span class="line">			sum -= nums[i++];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> result == INT_MAX ? <span class="number">0</span> : result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="螺旋矩阵Ⅱ"><a href="#螺旋矩阵Ⅱ" class="headerlink" title="螺旋矩阵Ⅱ"></a><a href="https://leetcode.cn/problems/spiral-matrix-ii/description/">螺旋矩阵Ⅱ</a></h2><p>给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。</p>
+<p>提示：</p>
+<ul>
+<li>1 &lt;&#x3D; n &lt;&#x3D; 20</li>
+</ul>
+<p>思路：</p>
+<ul>
+<li>该题对算法的考察并不多，主要在于模拟过程的能力</li>
+<li>该题要注意坚持 循环不变量原则，坚持每条边左闭右开的原则</li>
+<li>模拟顺时针画矩阵的过程，由外向内一圈一圈这么画下去<ul>
+<li>填充上行从左到右</li>
+<li>填充右列从上到下</li>
+<li>填充下行从右到左</li>
+<li>填充左列从下到上</li>
+</ul>
+</li>
+</ul>
+<p><strong>C:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 注意循环不变量</span></span><br><span class="line"><span class="comment">* 先分配一个二维数组，然后依次序填写数字</span></span><br><span class="line"><span class="comment">* 要有变量用于控制起始和结束位置，要有变量用于控制每条边的元素个数</span></span><br><span class="line"><span class="comment">* 以一个圈为一次操作，每次填一个圈，每个圈含四条边</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">int</span>** <span class="title function_">generateMatrix</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span>* returnSize, <span class="type">int</span>** returnColumnSizes)</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span>** arr = alloc_2d_arrary(n, n); <span class="comment">// 分配二维数组的代码放在下方附录</span></span><br><span class="line">	<span class="type">int</span> startx = <span class="number">0</span>, starty = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> loop = n / <span class="number">2</span>; <span class="comment">// 圈数，即循环的次数</span></span><br><span class="line">	<span class="type">int</span> offset = <span class="number">1</span>; <span class="comment">// 用于调整每条边的元素个数</span></span><br><span class="line">	<span class="type">int</span> count = <span class="number">1</span>; <span class="comment">// 用于填写数字</span></span><br><span class="line">	<span class="type">int</span> mid = n / <span class="number">2</span>; <span class="comment">// 矩阵的中间元素</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (loop--) &#123;</span><br><span class="line">		i = startx, j = starty;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 上行从左到右</span></span><br><span class="line">		<span class="keyword">for</span> (j; j &lt; n - offset; j++) &#123;</span><br><span class="line">			arr[i][j] = count++;</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="comment">// 右列从上到下</span></span><br><span class="line">		<span class="keyword">for</span> (i; i &lt; n - offset; i++) &#123;</span><br><span class="line">			arr[i][j] = count++;</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="comment">// 下行从右到左</span></span><br><span class="line">		<span class="keyword">for</span> (; j &gt; startx; j--) &#123;</span><br><span class="line">			arr[i][j] = count++;</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="comment">// 左列从下到上</span></span><br><span class="line">		<span class="keyword">for</span> (; i &gt; starty; i--) &#123;</span><br><span class="line">			arr[i][j] = count++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调整下一个圈的各个参数</span></span><br><span class="line">		startx++, starty++;</span><br><span class="line">		offset++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存在中间的1个元素</span></span><br><span class="line">	<span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">1</span>) &#123;</span><br><span class="line">		arr[mid][mid] = count;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	*returnSize = n;</span><br><span class="line">	*returnColumnSize = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		(*returnColumnSize)[i] = n;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="附录：排序算法"><a href="#附录：排序算法" class="headerlink" title="附录：排序算法"></a>附录：排序算法</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p><strong>C:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">quick_sort</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> low, <span class="type">int</span> high)</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> (low &lt; high) &#123;  <span class="comment">// 这个判断不能遗漏，确保递归过程有结束的条件</span></span><br><span class="line">		<span class="type">int</span> pivotPos = partition(nums, low, high); <span class="comment">// 求出pivot的最终位置</span></span><br><span class="line">		quick_sort(nums, low, pivotPos - <span class="number">1</span>); <span class="comment">// 对左右待序列分别进行快排</span></span><br><span class="line">		quick_sort(nums, pivotPos + <span class="number">1</span>, high);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> low, <span class="type">int</span> high)</span> &#123;</span><br><span class="line">	<span class="type">int</span> pivot = nums[low];</span><br><span class="line">	<span class="keyword">while</span> (low &lt; high) &#123;</span><br><span class="line">		<span class="keyword">while</span> (low &lt; high &amp;&amp; nums[high] &gt;= pivot) high--;</span><br><span class="line">		nums[low] = nums[high];</span><br><span class="line">		<span class="keyword">while</span> (low &lt; high &amp;&amp; nums[low] &lt;= pivot) low++;</span><br><span class="line">		nums[high] = nums[low];</span><br><span class="line">	&#125;</span><br><span class="line">	nums[low] = pivot;</span><br><span class="line">	<span class="keyword">return</span> low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录：动态内存分配"><a href="#附录：动态内存分配" class="headerlink" title="附录：动态内存分配"></a>附录：动态内存分配</h2><h3 id="动态分配二维数组"><a href="#动态分配二维数组" class="headerlink" title="动态分配二维数组"></a>动态分配二维数组</h3><p><strong>C:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 分配二维数组</span></span><br><span class="line"><span class="type">int</span>** <span class="title function_">alloc_2d_arrary</span><span class="params">(<span class="type">int</span> rows, <span class="type">int</span> cols)</span> &#123;</span><br><span class="line">	<span class="comment">// 先分配行</span></span><br><span class="line">	<span class="type">int</span>** arr = (<span class="type">int</span>**)<span class="built_in">malloc</span>(rows * <span class="keyword">sizeof</span>(<span class="type">int</span>*));</span><br><span class="line">	<span class="keyword">if</span> (arr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">		perror(<span class="string">&quot;Mem alloc rows failed!&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; rows; i++) &#123;</span><br><span class="line">		arr[i] = (<span class="type">int</span>*)<span class="built_in">malloc</span>(cols * <span class="keyword">sizeof</span>(<span class="type">int</span>)); <span class="comment">// 无需再在arr前面加上 int</span></span><br><span class="line">		<span class="keyword">if</span> (arr[i] == <span class="literal">NULL</span>) &#123;</span><br><span class="line">			perror(<span class="string">&quot;Mem alloc cols failed!&quot;</span>);</span><br><span class="line">			<span class="comment">// 清除之前所分配的空间</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">				<span class="built_in">free</span>(arr[j]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">free</span>(arr);</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2023/02/10/Poco%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99Tips/">Poco脚本编写Tips<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2024/04/16/LeetCode%E5%88%B7%E9%A2%98/">LeetCode刷题<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="Fam044/bloghexo-comments" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://fam044.github.io/">@Fam044</a> 创建，使用 <a href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
