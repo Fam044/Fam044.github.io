@@ -81,10 +81,45 @@
 
       
 
-  @import 'partial/*'
-@import 'tag-plugins/*'
-@import 'sidebar/*'
-@import 'pages/*'
+  
+
+
+  <div class='nav-wrap'>
+  <nav class='sub post cap'>
+    
+      <a href='/'>近期发布</a>
+    
+    
+      
+        <a class='active' href='/categories'>分类：Poco</a>
+      
+    
+    
+      
+        <a href='/tags'>标签</a>
+      
+    
+    
+      
+        <a href='/archives'>归档</a>
+      
+    
+  </nav>
+</div>
+
+  <div class="post-list post"><a class="post-card post " href="/2023/02/10/Poco%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99Tips/">
+<article class="md"><h2 class="post-title">Poco脚本编写Tips</h2><div class="excerpt"><p>
+多用sleep()语句
+实际脚本运行中，经常会存在脚本点击过快 或 网络&#x2F;机器延迟的情况，这两种情况都需要使用sleep()语句去增加脚本的健壮性，具体时长根据实际情况决定
+
+poco(“xxx”).click([x, y])
+click()方法中的坐标参数也是较为常用的，它的默认参数是[0.5, 0.5]，但是可以通过自己填入其他数值来改变脚本点击的位置，这样做的目的有：
+
+部...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2023-02-10T11:26:48.000Z">2023-02-10</time></span><span class="cap breadcrumb">Python</span></div></article>
+</a></div>
+  
+
+
 
 
 
